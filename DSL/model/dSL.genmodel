@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/DSL/src-gen" creationIcons="false" editDirectory="/DSL.edit/src-gen"
+    editorDirectory="/DSL.editor/src-gen" modelPluginID="DSL" modelName="DSL" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>dSL.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="DSL" disposableProviderFactory="true" ecorePackage="dSL.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dSL.ecore#//SIGNAL">
+      <genEnumLiterals ecoreEnumLiteral="dSL.ecore#//SIGNAL/HIGH"/>
+      <genEnumLiterals ecoreEnumLiteral="dSL.ecore#//SIGNAL/LOW"/>
+    </genEnums>
+    <genClasses ecoreClass="dSL.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//App">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//App/bricks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//App/states"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//App/initial"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//Brick">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//Brick/pin"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//Sensor"/>
+    <genClasses ecoreClass="dSL.ecore#//Actuator"/>
+    <genClasses ecoreClass="dSL.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//State/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//State/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//Action/actuator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//Action/value"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//Transition/sensor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//Transition/next"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//Transition/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
