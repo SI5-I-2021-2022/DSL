@@ -19,24 +19,70 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//App/bricks"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//App/states"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//App/initial"/>
+      <genOperations ecoreOperation="dSL.ecore#//App/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//App/accept/visitor"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="dSL.ecore#//Brick">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//Brick/pin"/>
+      <genOperations ecoreOperation="dSL.ecore#//Brick/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//Brick/accept/visitor"/>
+      </genOperations>
     </genClasses>
-    <genClasses ecoreClass="dSL.ecore#//Sensor"/>
-    <genClasses ecoreClass="dSL.ecore#//Actuator"/>
+    <genClasses ecoreClass="dSL.ecore#//Sensor">
+      <genOperations ecoreOperation="dSL.ecore#//Sensor/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//Sensor/accept/visitor"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//Actuator">
+      <genOperations ecoreOperation="dSL.ecore#//Actuator/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//Actuator/accept/visitor"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="dSL.ecore#//State">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//State/actions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//State/transition"/>
+      <genOperations ecoreOperation="dSL.ecore#//State/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//State/accept/visitor"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="dSL.ecore#//Action">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//Action/actuator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//Action/value"/>
+      <genOperations ecoreOperation="dSL.ecore#//Action/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//Action/accept/visitor"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="dSL.ecore#//Transition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//Transition/sensor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dSL.ecore#//Transition/next"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dSL.ecore#//Transition/value"/>
+      <genOperations ecoreOperation="dSL.ecore#//Transition/accept" body="visitor.visit(this);">
+        <genParameters ecoreParameter="dSL.ecore#//Transition/accept/visitor"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dSL.ecore#//Visitor">
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit/action"/>
+      </genOperations>
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit.1">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.1/app"/>
+      </genOperations>
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit.2">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.2/actuator"/>
+      </genOperations>
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit.3">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.3/brick"/>
+      </genOperations>
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit.4">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.4/transition"/>
+      </genOperations>
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit.5">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.5/sensor"/>
+      </genOperations>
+      <genOperations ecoreOperation="dSL.ecore#//Visitor/visit.6">
+        <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.6/state"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
