@@ -63,7 +63,7 @@
     <eLiterals name="HIGH" value="1"/>
     <eLiterals name="LOW"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Visitor" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Visitor" abstract="true" interface="true">
     <eOperations name="visit">
       <eParameters name="action" eType="#//Action"/>
     </eOperations>
