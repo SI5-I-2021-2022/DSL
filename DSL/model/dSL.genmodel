@@ -84,5 +84,20 @@
         <genParameters ecoreParameter="dSL.ecore#//Visitor/visit.6/state"/>
       </genOperations>
     </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//Alarm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//Alarm/button"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//LEDAlarm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//LEDAlarm/LED"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//BuzzerAlarm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//BuzzerAlarm/buzzer"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//SimpleAlarm"/>
+    <genClasses ecoreClass="dSL.ecore#//DualCheckAlarm">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL.ecore#//DualCheckAlarm/button2"/>
+    </genClasses>
+    <genClasses ecoreClass="dSL.ecore#//StateBasedAlarm"/>
+    <genClasses ecoreClass="dSL.ecore#//MultiStateAlarm"/>
   </genPackages>
 </genmodel:GenModel>

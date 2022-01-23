@@ -86,4 +86,23 @@
       <eParameters name="state" eType="#//State"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alarm" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="button" lowerBound="1"
+        eType="#//Sensor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LEDAlarm" abstract="true" eSuperTypes="#//Alarm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LED" lowerBound="1" eType="#//Actuator"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuzzerAlarm" abstract="true" eSuperTypes="#//Alarm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buzzer" lowerBound="1"
+        eType="#//Actuator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleAlarm" eSuperTypes="#//LEDAlarm #//BuzzerAlarm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DualCheckAlarm" eSuperTypes="#//BuzzerAlarm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="button2" lowerBound="1"
+        eType="#//Sensor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateBasedAlarm" eSuperTypes="#//LEDAlarm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiStateAlarm" eSuperTypes="#//BuzzerAlarm #//LEDAlarm"/>
 </ecore:EPackage>
