@@ -26,5 +26,7 @@ local.properties
 
 # Locally stored "Eclipse launch configurations"
 *.launch
-/bin/
+bin/
 src-gen
+alarm-workspace/alarm.edit
+alarm-workspace/alarm.editor
