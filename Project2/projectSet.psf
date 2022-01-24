@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.edit"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.editor"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.ui"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.xtext"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.xtext.ide"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.xtext.tests"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.xtext.ui"/>
+<project reference="1.0,git@github.com:SI5-I-2021-2022/DSL.git,main,alarm.xtext.ui.tests"/>
+</provider>
+</psf>
