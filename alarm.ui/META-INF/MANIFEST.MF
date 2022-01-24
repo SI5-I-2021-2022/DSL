@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: alarm ui
-Bundle-SymbolicName: alarm.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
-Automatic-Module-Name: alarm.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-11
-Require-Bundle: org.eclipse.ui;bundle-version="3.200.0",
- alarm;bundle-version="0.1.0"
