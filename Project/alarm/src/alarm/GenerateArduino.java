@@ -238,6 +238,41 @@ public class GenerateArduino extends VisitorImpl{
 		}
 	}
 	
+	@Override
+	public void visit(StateBasedAlarm stateBasedAlarm) {
+		if(context.get("pass") == PASS.ONE) {
+			w(String.format("%sOFF,%sON",stateBasedAlarm.getName(),stateBasedAlarm.getName()));
+			return;
+		}
+		if(context.get("pass") == PASS.TWO) {
+			
+			String alarmName = stateBasedAlarm.getName();
+			Actuator led = stateBasedAlarm.getLed();
+			Sensor button = stateBasedAlarm.getButton();
+			
+			
+			w("\t\tcase " + alarmName + "OFF :\n");
+			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
+					button.getPin(), button.getName()));
+			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
+			w(String.format("\t\t\t\tdigitalWrite(%d,HIGH);\n",led.getPin()));
+			w("\t\t\t\tcurrentState = "+alarmName+"ON;\n");
+			w("\t\t\t}\n");
+			w("\t\tbreak;\n");
+			w("\t\tcase " + alarmName + "ON :\n");
+			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
+					button.getPin(), button.getName()));
+			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
+			w(String.format("\t\t\t\tdigitalWrite(%d,LOW);\n",led.getPin()));
+			w("\t\t\t\tcurrentState = "+alarmName+"OFF;\n");
+			w("\t\t\t}\n");
+			w("\t\tbreak;\n");
+			
+			return;
+		}
+		
+	}
+	
 	
 	public String getResult() {
 		return result.toString();
