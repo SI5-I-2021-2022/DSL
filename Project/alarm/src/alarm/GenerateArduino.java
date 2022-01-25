@@ -252,18 +252,75 @@ public class GenerateArduino extends VisitorImpl{
 			
 			
 			w("\t\tcase " + alarmName + "OFF :\n");
+			w(String.format("\t\t\t%sBounceGuard = millis() - %sLastDebounceTime > debounce;\n",
+					button.getName(), button.getName()));
+			w(String.format("\t\t\tdigitalWrite(%d,LOW);\n",led.getPin()));
 			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
 					button.getPin(), button.getName()));
 			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
-			w(String.format("\t\t\t\tdigitalWrite(%d,HIGH);\n",led.getPin()));
 			w("\t\t\t\tcurrentState = "+alarmName+"ON;\n");
 			w("\t\t\t}\n");
 			w("\t\tbreak;\n");
 			w("\t\tcase " + alarmName + "ON :\n");
+			w(String.format("\t\t\t%sBounceGuard = millis() - %sLastDebounceTime > debounce;\n",
+					button.getName(), button.getName()));
+			w(String.format("\t\t\t\tdigitalWrite(%d,HIGH);\n",led.getPin()));
 			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
 					button.getPin(), button.getName()));
 			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
-			w(String.format("\t\t\t\tdigitalWrite(%d,LOW);\n",led.getPin()));
+			w("\t\t\t\tcurrentState = "+alarmName+"OFF;\n");
+			w("\t\t\t}\n");
+			w("\t\tbreak;\n");
+			
+			return;
+		}
+		
+	}
+	
+	@Override
+	public void visit(MultiStateAlarm multiStateAlarm) {
+		if(context.get("pass") == PASS.ONE) {
+			w(String.format("%sOFF,%sBUZZER,%sLED",multiStateAlarm.getName(),multiStateAlarm.getName(),multiStateAlarm.getName()));
+			return;
+		}
+		if(context.get("pass") == PASS.TWO) {
+			
+			String alarmName = multiStateAlarm.getName();
+			Actuator led = multiStateAlarm.getLed();
+			Sensor button = multiStateAlarm.getButton();
+			Actuator buzzer = multiStateAlarm.getBuzzer();
+			
+			
+			w("\t\tcase " + alarmName + "OFF :\n");
+			w(String.format("\t\t\t%sBounceGuard = millis() - %sLastDebounceTime > debounce;\n",
+					button.getName(), button.getName()));
+			w(String.format("\t\t\tdigitalWrite(%d,LOW);\n",buzzer.getPin()));
+			w(String.format("\t\t\tdigitalWrite(%d,LOW);\n",led.getPin()));
+			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
+					button.getPin(), button.getName()));
+			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
+			w("\t\t\t\tcurrentState = "+alarmName+"BUZZER;\n");
+			w("\t\t\t}\n");
+			w("\t\tbreak;\n");
+			w("\t\tcase " + alarmName + "BUZZER :\n");
+			w(String.format("\t\t\t%sBounceGuard = millis() - %sLastDebounceTime > debounce;\n",
+					button.getName(), button.getName()));
+			w(String.format("\t\t\tdigitalWrite(%d,HIGH);\n",buzzer.getPin()));
+			w(String.format("\t\t\tdigitalWrite(%d,LOW);\n",led.getPin()));
+			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
+					button.getPin(), button.getName()));
+			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
+			w("\t\t\t\tcurrentState = "+alarmName+"LED;\n");
+			w("\t\t\t}\n");
+			w("\t\tbreak;\n");
+			w("\t\tcase " + alarmName + "LED :\n");
+			w(String.format("\t\t\tdigitalWrite(%d,LOW);\n",buzzer.getPin()));
+			w(String.format("\t\t\tdigitalWrite(%d,HIGH);\n",led.getPin()));
+			w(String.format("\t\t\t%sBounceGuard = millis() - %sLastDebounceTime > debounce;\n",
+					button.getName(), button.getName()));
+			w(String.format("\t\t\tif( digitalRead(%d) == HIGH && %sBounceGuard) {\n",
+					button.getPin(), button.getName()));
+			w(String.format("\t\t\t\t%sLastDebounceTime = millis();\n", button.getName()));
 			w("\t\t\t\tcurrentState = "+alarmName+"OFF;\n");
 			w("\t\t\t}\n");
 			w("\t\tbreak;\n");
