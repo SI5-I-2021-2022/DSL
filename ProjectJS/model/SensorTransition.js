@@ -1,15 +1,12 @@
 import Transition from "./Transition.js";
 
 function SensorTransition(next,sensorConditions){
-    Transition.call(this,next);
+    Transition.call(this,next,"Sensor");
 
     this.sensorConditions = sensorConditions;
 
-    this.Loop = function(){
+    this.Loop = function(haveTemporal){
         let stringRes = "";
-        for(let sensorCond of this.sensorConditions){
-            stringRes += `\t\t\t${sensorCond.sensor.name}BounceGuard = millis() - ${sensorCond.sensor.name}LastDebounceTime > debounce;\n`;
-        }
         stringRes += `\n\t\t\tif(`;
         let firstCond = true;
         for(let sensorCond of this.sensorConditions){
@@ -23,6 +20,7 @@ function SensorTransition(next,sensorConditions){
         for(let sensorCond of this.sensorConditions){
             stringRes += `\t\t\t\t${sensorCond.sensor.name}LastDebounceTime = millis();\n`;
         }
+        if(haveTemporal) stringRes += "\t\t\t\tdelayGuard = millis();\n"
         stringRes += `\t\t\t\tcurrentState = ${this.next.name};\n\t\t\t}\n`;
         return stringRes;
     }
