@@ -8,9 +8,9 @@ function SensorTransition(next,sensorConditions){
     this.Loop = function(){
         let stringRes = "";
         for(let sensorCond of this.sensorConditions){
-            stringRes += `${sensorCond.sensor.name}BounceGuard = millis() - ${sensorCond.sensor.name}LastDebounceTime > debounce;\n`;
+            stringRes += `\t\t\t${sensorCond.sensor.name}BounceGuard = millis() - ${sensorCond.sensor.name}LastDebounceTime > debounce;\n`;
         }
-        stringRes += `\nif(`;
+        stringRes += `\n\t\t\tif(`;
         let firstCond = true;
         for(let sensorCond of this.sensorConditions){
             if(!firstCond){
@@ -21,9 +21,9 @@ function SensorTransition(next,sensorConditions){
         }
         stringRes += "){\n";
         for(let sensorCond of this.sensorConditions){
-            stringRes += `${sensorCond.sensor.name}LastDebounceTime = millis();\n`;
+            stringRes += `\t\t\t\t${sensorCond.sensor.name}LastDebounceTime = millis();\n`;
         }
-        stringRes += `currentState = ${this.next.name};\n}\n`;
+        stringRes += `\t\t\t\tcurrentState = ${this.next.name};\n\t\t\t}\n`;
         return stringRes;
     }
 }

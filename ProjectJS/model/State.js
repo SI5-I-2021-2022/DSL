@@ -8,10 +8,10 @@ function State(name,transitions,actions){
 
     this.Loop = function(){
         let stringRes = "";
-        stringRes += `Case ${this.name} :\n`;
-        stringRes += this.actions.map((action) => {return action.Loop()}).join("");
+        stringRes += `\t\tCase ${this.name} :\n`;
+        stringRes += this.actions.map((action) => {return "\t\t\t"+action.Loop()}).join("");
         stringRes += this.transitions.map((transition) => {return transition.Loop()}).join("");
-        stringRes += "break;"
+        stringRes += "\t\tbreak;"
         return stringRes;
     }
 }
