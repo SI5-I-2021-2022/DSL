@@ -4,7 +4,7 @@ function SensorCondition(sensor,value){
     this.value = value;
 
     this.Loop = function() {
-        return `digitalRead(${sensor.pin}) == ${value}`;
+        return `digitalRead(${sensor.pin}) == ${value} && ${sensor.name}BounceGuard`;
     }
 }
 
