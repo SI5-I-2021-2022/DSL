@@ -935,7 +935,7 @@ public class alarmPackageImpl extends EPackageImpl implements alarmPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(appEClass, App.class, "App", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -956,7 +956,7 @@ public class alarmPackageImpl extends EPackageImpl implements alarmPackage {
 		addEParameter(op, this.getVisitor(), "visitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(brickEClass, Brick.class, "Brick", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBrick_Pin(), ecorePackage.getEInt(), "pin", null, 0, 1, Brick.class, !IS_TRANSIENT,
+		initEAttribute(getBrick_Pin(), ecorePackage.getEInt(), "pin", null, 1, 1, Brick.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBrick__Accept__Visitor(), null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -988,7 +988,7 @@ public class alarmPackageImpl extends EPackageImpl implements alarmPackage {
 		initEReference(getAction_Actuator(), this.getActuator(), null, "actuator", null, 1, 1, Action.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAction_Value(), this.getSIGNAL(), "value", "LOW", 0, 1, Action.class, !IS_TRANSIENT,
+		initEAttribute(getAction_Value(), this.getSIGNAL(), "value", "LOW", 1, 1, Action.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAction__Accept__Visitor(), null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1002,7 +1002,7 @@ public class alarmPackageImpl extends EPackageImpl implements alarmPackage {
 		initEReference(getTransition_Next(), this.getState(), null, "next", null, 1, 1, Transition.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEAttribute(getTransition_Value(), this.getSIGNAL(), "value", "LOW", 0, 1, Transition.class, !IS_TRANSIENT,
+		initEAttribute(getTransition_Value(), this.getSIGNAL(), "value", "LOW", 1, 1, Transition.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTransition__Accept__Visitor(), null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);

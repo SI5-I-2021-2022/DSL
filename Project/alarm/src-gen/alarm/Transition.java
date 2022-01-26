@@ -77,7 +77,7 @@ public interface Transition extends EObject {
 	 * @see alarm.SIGNAL
 	 * @see #setValue(SIGNAL)
 	 * @see alarm.alarmPackage#getTransition_Value()
-	 * @model default="LOW"
+	 * @model default="LOW" required="true"
 	 * @generated
 	 */
 	SIGNAL getValue();

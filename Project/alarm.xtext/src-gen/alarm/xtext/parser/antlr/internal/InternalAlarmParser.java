@@ -22,33 +22,18 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalAlarmParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'App'", "'{'", "'initial'", "'bricks'", "','", "'}'", "'states'", "'alarm'", "'State'", "'actions'", "'transition'", "'-'", "'Sensor'", "'pin'", "'Actuator'", "'Action'", "'value'", "'actuator'", "'Transition'", "'sensor'", "'next'", "'SimpleAlarm'", "'button'", "'Led'", "'buzzer'", "'DualCheckAlarm'", "'button2'", "'StateBasedAlarm'", "'MultiStateAlarm'", "'HIGH'", "'LOW'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'create'", "'App'", "'which'", "'start'", "'with'", "':'", "'bricks'", "','", "';'", "'states'", "'alarm'", "'{'", "'}'", "'on'", "'pin'", "'Sensor'", "'Actuator'", "'State'", "'actions'", "'-'", "'do'", "'='", "'Transition'", "'to'", "'when'", "'SimpleAlarm'", "'button'", "'Led'", "'buzzer'", "'DualCheckAlarm'", "'button2'", "'StateBasedAlarm'", "'MultiStateAlarm'", "'HIGH'", "'LOW'"
     };
-    public static final int RULE_STRING=4;
-    public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__37=37;
     public static final int T__16=16;
-    public static final int T__38=38;
     public static final int T__17=17;
-    public static final int T__39=39;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int T__33=33;
     public static final int T__12=12;
-    public static final int T__34=34;
     public static final int T__13=13;
-    public static final int T__35=35;
     public static final int T__14=14;
-    public static final int T__36=36;
-    public static final int EOF=-1;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_ID=5;
-    public static final int RULE_WS=9;
-    public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
@@ -59,10 +44,29 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
-    public static final int T__40=40;
-    public static final int T__41=41;
     public static final int T__20=20;
     public static final int T__21=21;
+    public static final int RULE_STRING=4;
+    public static final int RULE_SL_COMMENT=8;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -140,66 +144,74 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleApp"
-    // InternalAlarm.g:72:1: ruleApp returns [EObject current=null] : (otherlv_0= 'App' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'initial' ( ( ruleEString ) ) otherlv_5= 'bricks' otherlv_6= '{' ( (lv_bricks_7_0= ruleBrick ) ) (otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) ) )* otherlv_10= '}' otherlv_11= 'states' otherlv_12= '{' ( (lv_states_13_0= ruleState ) ) (otherlv_14= ',' ( (lv_states_15_0= ruleState ) ) )* otherlv_16= '}' (otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}' )? otherlv_23= '}' ) ;
+    // InternalAlarm.g:72:1: ruleApp returns [EObject current=null] : (otherlv_0= 'create' otherlv_1= 'App' ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'which' otherlv_4= 'start' otherlv_5= 'with' ( ( ruleEString ) ) otherlv_7= ':' otherlv_8= 'with' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) (otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) ) )* otherlv_14= ';' otherlv_15= 'with' otherlv_16= 'states' otherlv_17= ':' ( (lv_states_18_0= ruleState ) ) (otherlv_19= ',' ( (lv_states_20_0= ruleState ) ) )* otherlv_21= ';' (otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}' )? ) ;
     public final EObject ruleApp() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_2=null;
+        Token otherlv_1=null;
         Token otherlv_3=null;
+        Token otherlv_4=null;
         Token otherlv_5=null;
-        Token otherlv_6=null;
+        Token otherlv_7=null;
         Token otherlv_8=null;
+        Token otherlv_9=null;
         Token otherlv_10=null;
-        Token otherlv_11=null;
         Token otherlv_12=null;
         Token otherlv_14=null;
+        Token otherlv_15=null;
         Token otherlv_16=null;
         Token otherlv_17=null;
-        Token otherlv_18=null;
-        Token otherlv_20=null;
+        Token otherlv_19=null;
+        Token otherlv_21=null;
         Token otherlv_22=null;
         Token otherlv_23=null;
-        AntlrDatatypeRuleToken lv_name_1_0 = null;
+        Token otherlv_25=null;
+        Token otherlv_27=null;
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
 
-        EObject lv_bricks_7_0 = null;
+        EObject lv_bricks_11_0 = null;
 
-        EObject lv_bricks_9_0 = null;
+        EObject lv_bricks_13_0 = null;
 
-        EObject lv_states_13_0 = null;
+        EObject lv_states_18_0 = null;
 
-        EObject lv_states_15_0 = null;
+        EObject lv_states_20_0 = null;
 
-        EObject lv_alarm_19_0 = null;
+        EObject lv_alarm_24_0 = null;
 
-        EObject lv_alarm_21_0 = null;
+        EObject lv_alarm_26_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalAlarm.g:78:2: ( (otherlv_0= 'App' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'initial' ( ( ruleEString ) ) otherlv_5= 'bricks' otherlv_6= '{' ( (lv_bricks_7_0= ruleBrick ) ) (otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) ) )* otherlv_10= '}' otherlv_11= 'states' otherlv_12= '{' ( (lv_states_13_0= ruleState ) ) (otherlv_14= ',' ( (lv_states_15_0= ruleState ) ) )* otherlv_16= '}' (otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}' )? otherlv_23= '}' ) )
-            // InternalAlarm.g:79:2: (otherlv_0= 'App' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'initial' ( ( ruleEString ) ) otherlv_5= 'bricks' otherlv_6= '{' ( (lv_bricks_7_0= ruleBrick ) ) (otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) ) )* otherlv_10= '}' otherlv_11= 'states' otherlv_12= '{' ( (lv_states_13_0= ruleState ) ) (otherlv_14= ',' ( (lv_states_15_0= ruleState ) ) )* otherlv_16= '}' (otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}' )? otherlv_23= '}' )
+            // InternalAlarm.g:78:2: ( (otherlv_0= 'create' otherlv_1= 'App' ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'which' otherlv_4= 'start' otherlv_5= 'with' ( ( ruleEString ) ) otherlv_7= ':' otherlv_8= 'with' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) (otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) ) )* otherlv_14= ';' otherlv_15= 'with' otherlv_16= 'states' otherlv_17= ':' ( (lv_states_18_0= ruleState ) ) (otherlv_19= ',' ( (lv_states_20_0= ruleState ) ) )* otherlv_21= ';' (otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}' )? ) )
+            // InternalAlarm.g:79:2: (otherlv_0= 'create' otherlv_1= 'App' ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'which' otherlv_4= 'start' otherlv_5= 'with' ( ( ruleEString ) ) otherlv_7= ':' otherlv_8= 'with' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) (otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) ) )* otherlv_14= ';' otherlv_15= 'with' otherlv_16= 'states' otherlv_17= ':' ( (lv_states_18_0= ruleState ) ) (otherlv_19= ',' ( (lv_states_20_0= ruleState ) ) )* otherlv_21= ';' (otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}' )? )
             {
-            // InternalAlarm.g:79:2: (otherlv_0= 'App' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'initial' ( ( ruleEString ) ) otherlv_5= 'bricks' otherlv_6= '{' ( (lv_bricks_7_0= ruleBrick ) ) (otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) ) )* otherlv_10= '}' otherlv_11= 'states' otherlv_12= '{' ( (lv_states_13_0= ruleState ) ) (otherlv_14= ',' ( (lv_states_15_0= ruleState ) ) )* otherlv_16= '}' (otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}' )? otherlv_23= '}' )
-            // InternalAlarm.g:80:3: otherlv_0= 'App' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'initial' ( ( ruleEString ) ) otherlv_5= 'bricks' otherlv_6= '{' ( (lv_bricks_7_0= ruleBrick ) ) (otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) ) )* otherlv_10= '}' otherlv_11= 'states' otherlv_12= '{' ( (lv_states_13_0= ruleState ) ) (otherlv_14= ',' ( (lv_states_15_0= ruleState ) ) )* otherlv_16= '}' (otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}' )? otherlv_23= '}'
+            // InternalAlarm.g:79:2: (otherlv_0= 'create' otherlv_1= 'App' ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'which' otherlv_4= 'start' otherlv_5= 'with' ( ( ruleEString ) ) otherlv_7= ':' otherlv_8= 'with' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) (otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) ) )* otherlv_14= ';' otherlv_15= 'with' otherlv_16= 'states' otherlv_17= ':' ( (lv_states_18_0= ruleState ) ) (otherlv_19= ',' ( (lv_states_20_0= ruleState ) ) )* otherlv_21= ';' (otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}' )? )
+            // InternalAlarm.g:80:3: otherlv_0= 'create' otherlv_1= 'App' ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'which' otherlv_4= 'start' otherlv_5= 'with' ( ( ruleEString ) ) otherlv_7= ':' otherlv_8= 'with' otherlv_9= 'bricks' otherlv_10= ':' ( (lv_bricks_11_0= ruleBrick ) ) (otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) ) )* otherlv_14= ';' otherlv_15= 'with' otherlv_16= 'states' otherlv_17= ':' ( (lv_states_18_0= ruleState ) ) (otherlv_19= ',' ( (lv_states_20_0= ruleState ) ) )* otherlv_21= ';' (otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}' )?
             {
             otherlv_0=(Token)match(input,11,FOLLOW_3); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getAppAccess().getAppKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getAppAccess().getCreateKeyword_0());
             		
-            // InternalAlarm.g:84:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAlarm.g:85:4: (lv_name_1_0= ruleEString )
+            otherlv_1=(Token)match(input,12,FOLLOW_4); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getAppAccess().getAppKeyword_1());
+            		
+            // InternalAlarm.g:88:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalAlarm.g:89:4: (lv_name_2_0= ruleEString )
             {
-            // InternalAlarm.g:85:4: (lv_name_1_0= ruleEString )
-            // InternalAlarm.g:86:5: lv_name_1_0= ruleEString
+            // InternalAlarm.g:89:4: (lv_name_2_0= ruleEString )
+            // InternalAlarm.g:90:5: lv_name_2_0= ruleEString
             {
 
-            					newCompositeNode(grammarAccess.getAppAccess().getNameEStringParserRuleCall_1_0());
+            					newCompositeNode(grammarAccess.getAppAccess().getNameEStringParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_4);
-            lv_name_1_0=ruleEString();
+            pushFollow(FOLLOW_5);
+            lv_name_2_0=ruleEString();
 
             state._fsp--;
 
@@ -210,7 +222,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"name",
-            						lv_name_1_0,
+            						lv_name_2_0,
             						"alarm.xtext.Alarm.EString");
             					afterParserOrEnumRuleCall();
             				
@@ -220,19 +232,23 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_5); 
+            otherlv_3=(Token)match(input,13,FOLLOW_6); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getAppAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(otherlv_3, grammarAccess.getAppAccess().getWhichKeyword_3());
             		
-            otherlv_3=(Token)match(input,13,FOLLOW_3); 
+            otherlv_4=(Token)match(input,14,FOLLOW_7); 
 
-            			newLeafNode(otherlv_3, grammarAccess.getAppAccess().getInitialKeyword_3());
+            			newLeafNode(otherlv_4, grammarAccess.getAppAccess().getStartKeyword_4());
             		
-            // InternalAlarm.g:111:3: ( ( ruleEString ) )
-            // InternalAlarm.g:112:4: ( ruleEString )
+            otherlv_5=(Token)match(input,15,FOLLOW_4); 
+
+            			newLeafNode(otherlv_5, grammarAccess.getAppAccess().getWithKeyword_5());
+            		
+            // InternalAlarm.g:119:3: ( ( ruleEString ) )
+            // InternalAlarm.g:120:4: ( ruleEString )
             {
-            // InternalAlarm.g:112:4: ( ruleEString )
-            // InternalAlarm.g:113:5: ruleEString
+            // InternalAlarm.g:120:4: ( ruleEString )
+            // InternalAlarm.g:121:5: ruleEString
             {
 
             					if (current==null) {
@@ -240,9 +256,9 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getAppAccess().getInitialStateCrossReference_4_0());
+            					newCompositeNode(grammarAccess.getAppAccess().getInitialStateCrossReference_6_0());
             				
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_8);
             ruleEString();
 
             state._fsp--;
@@ -256,25 +272,33 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,14,FOLLOW_4); 
+            otherlv_7=(Token)match(input,16,FOLLOW_7); 
 
-            			newLeafNode(otherlv_5, grammarAccess.getAppAccess().getBricksKeyword_5());
+            			newLeafNode(otherlv_7, grammarAccess.getAppAccess().getColonKeyword_7());
             		
-            otherlv_6=(Token)match(input,12,FOLLOW_7); 
+            otherlv_8=(Token)match(input,15,FOLLOW_9); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getAppAccess().getLeftCurlyBracketKeyword_6());
+            			newLeafNode(otherlv_8, grammarAccess.getAppAccess().getWithKeyword_8());
             		
-            // InternalAlarm.g:135:3: ( (lv_bricks_7_0= ruleBrick ) )
-            // InternalAlarm.g:136:4: (lv_bricks_7_0= ruleBrick )
+            otherlv_9=(Token)match(input,17,FOLLOW_8); 
+
+            			newLeafNode(otherlv_9, grammarAccess.getAppAccess().getBricksKeyword_9());
+            		
+            otherlv_10=(Token)match(input,16,FOLLOW_10); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getAppAccess().getColonKeyword_10());
+            		
+            // InternalAlarm.g:151:3: ( (lv_bricks_11_0= ruleBrick ) )
+            // InternalAlarm.g:152:4: (lv_bricks_11_0= ruleBrick )
             {
-            // InternalAlarm.g:136:4: (lv_bricks_7_0= ruleBrick )
-            // InternalAlarm.g:137:5: lv_bricks_7_0= ruleBrick
+            // InternalAlarm.g:152:4: (lv_bricks_11_0= ruleBrick )
+            // InternalAlarm.g:153:5: lv_bricks_11_0= ruleBrick
             {
 
-            					newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_7_0());
+            					newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_11_0());
             				
-            pushFollow(FOLLOW_8);
-            lv_bricks_7_0=ruleBrick();
+            pushFollow(FOLLOW_11);
+            lv_bricks_11_0=ruleBrick();
 
             state._fsp--;
 
@@ -285,7 +309,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					add(
             						current,
             						"bricks",
-            						lv_bricks_7_0,
+            						lv_bricks_11_0,
             						"alarm.xtext.Alarm.Brick");
             					afterParserOrEnumRuleCall();
             				
@@ -295,36 +319,36 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAlarm.g:154:3: (otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) ) )*
+            // InternalAlarm.g:170:3: (otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==15) ) {
+                if ( (LA1_0==18) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalAlarm.g:155:4: otherlv_8= ',' ( (lv_bricks_9_0= ruleBrick ) )
+            	    // InternalAlarm.g:171:4: otherlv_12= ',' ( (lv_bricks_13_0= ruleBrick ) )
             	    {
-            	    otherlv_8=(Token)match(input,15,FOLLOW_7); 
+            	    otherlv_12=(Token)match(input,18,FOLLOW_10); 
 
-            	    				newLeafNode(otherlv_8, grammarAccess.getAppAccess().getCommaKeyword_8_0());
+            	    				newLeafNode(otherlv_12, grammarAccess.getAppAccess().getCommaKeyword_12_0());
             	    			
-            	    // InternalAlarm.g:159:4: ( (lv_bricks_9_0= ruleBrick ) )
-            	    // InternalAlarm.g:160:5: (lv_bricks_9_0= ruleBrick )
+            	    // InternalAlarm.g:175:4: ( (lv_bricks_13_0= ruleBrick ) )
+            	    // InternalAlarm.g:176:5: (lv_bricks_13_0= ruleBrick )
             	    {
-            	    // InternalAlarm.g:160:5: (lv_bricks_9_0= ruleBrick )
-            	    // InternalAlarm.g:161:6: lv_bricks_9_0= ruleBrick
+            	    // InternalAlarm.g:176:5: (lv_bricks_13_0= ruleBrick )
+            	    // InternalAlarm.g:177:6: lv_bricks_13_0= ruleBrick
             	    {
 
-            	    						newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_8_1_0());
+            	    						newCompositeNode(grammarAccess.getAppAccess().getBricksBrickParserRuleCall_12_1_0());
             	    					
-            	    pushFollow(FOLLOW_8);
-            	    lv_bricks_9_0=ruleBrick();
+            	    pushFollow(FOLLOW_11);
+            	    lv_bricks_13_0=ruleBrick();
 
             	    state._fsp--;
 
@@ -335,7 +359,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             	    						add(
             	    							current,
             	    							"bricks",
-            	    							lv_bricks_9_0,
+            	    							lv_bricks_13_0,
             	    							"alarm.xtext.Alarm.Brick");
             	    						afterParserOrEnumRuleCall();
             	    					
@@ -354,29 +378,33 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,16,FOLLOW_9); 
+            otherlv_14=(Token)match(input,19,FOLLOW_7); 
 
-            			newLeafNode(otherlv_10, grammarAccess.getAppAccess().getRightCurlyBracketKeyword_9());
+            			newLeafNode(otherlv_14, grammarAccess.getAppAccess().getSemicolonKeyword_13());
             		
-            otherlv_11=(Token)match(input,17,FOLLOW_4); 
+            otherlv_15=(Token)match(input,15,FOLLOW_12); 
 
-            			newLeafNode(otherlv_11, grammarAccess.getAppAccess().getStatesKeyword_10());
+            			newLeafNode(otherlv_15, grammarAccess.getAppAccess().getWithKeyword_14());
             		
-            otherlv_12=(Token)match(input,12,FOLLOW_10); 
+            otherlv_16=(Token)match(input,20,FOLLOW_8); 
 
-            			newLeafNode(otherlv_12, grammarAccess.getAppAccess().getLeftCurlyBracketKeyword_11());
+            			newLeafNode(otherlv_16, grammarAccess.getAppAccess().getStatesKeyword_15());
             		
-            // InternalAlarm.g:191:3: ( (lv_states_13_0= ruleState ) )
-            // InternalAlarm.g:192:4: (lv_states_13_0= ruleState )
+            otherlv_17=(Token)match(input,16,FOLLOW_13); 
+
+            			newLeafNode(otherlv_17, grammarAccess.getAppAccess().getColonKeyword_16());
+            		
+            // InternalAlarm.g:211:3: ( (lv_states_18_0= ruleState ) )
+            // InternalAlarm.g:212:4: (lv_states_18_0= ruleState )
             {
-            // InternalAlarm.g:192:4: (lv_states_13_0= ruleState )
-            // InternalAlarm.g:193:5: lv_states_13_0= ruleState
+            // InternalAlarm.g:212:4: (lv_states_18_0= ruleState )
+            // InternalAlarm.g:213:5: lv_states_18_0= ruleState
             {
 
-            					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_12_0());
+            					newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_17_0());
             				
-            pushFollow(FOLLOW_8);
-            lv_states_13_0=ruleState();
+            pushFollow(FOLLOW_11);
+            lv_states_18_0=ruleState();
 
             state._fsp--;
 
@@ -387,7 +415,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					add(
             						current,
             						"states",
-            						lv_states_13_0,
+            						lv_states_18_0,
             						"alarm.xtext.Alarm.State");
             					afterParserOrEnumRuleCall();
             				
@@ -397,36 +425,36 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAlarm.g:210:3: (otherlv_14= ',' ( (lv_states_15_0= ruleState ) ) )*
+            // InternalAlarm.g:230:3: (otherlv_19= ',' ( (lv_states_20_0= ruleState ) ) )*
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==15) ) {
+                if ( (LA2_0==18) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalAlarm.g:211:4: otherlv_14= ',' ( (lv_states_15_0= ruleState ) )
+            	    // InternalAlarm.g:231:4: otherlv_19= ',' ( (lv_states_20_0= ruleState ) )
             	    {
-            	    otherlv_14=(Token)match(input,15,FOLLOW_10); 
+            	    otherlv_19=(Token)match(input,18,FOLLOW_13); 
 
-            	    				newLeafNode(otherlv_14, grammarAccess.getAppAccess().getCommaKeyword_13_0());
+            	    				newLeafNode(otherlv_19, grammarAccess.getAppAccess().getCommaKeyword_18_0());
             	    			
-            	    // InternalAlarm.g:215:4: ( (lv_states_15_0= ruleState ) )
-            	    // InternalAlarm.g:216:5: (lv_states_15_0= ruleState )
+            	    // InternalAlarm.g:235:4: ( (lv_states_20_0= ruleState ) )
+            	    // InternalAlarm.g:236:5: (lv_states_20_0= ruleState )
             	    {
-            	    // InternalAlarm.g:216:5: (lv_states_15_0= ruleState )
-            	    // InternalAlarm.g:217:6: lv_states_15_0= ruleState
+            	    // InternalAlarm.g:236:5: (lv_states_20_0= ruleState )
+            	    // InternalAlarm.g:237:6: lv_states_20_0= ruleState
             	    {
 
-            	    						newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_13_1_0());
+            	    						newCompositeNode(grammarAccess.getAppAccess().getStatesStateParserRuleCall_18_1_0());
             	    					
-            	    pushFollow(FOLLOW_8);
-            	    lv_states_15_0=ruleState();
+            	    pushFollow(FOLLOW_11);
+            	    lv_states_20_0=ruleState();
 
             	    state._fsp--;
 
@@ -437,7 +465,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             	    						add(
             	    							current,
             	    							"states",
-            	    							lv_states_15_0,
+            	    							lv_states_20_0,
             	    							"alarm.xtext.Alarm.State");
             	    						afterParserOrEnumRuleCall();
             	    					
@@ -456,40 +484,40 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_16=(Token)match(input,16,FOLLOW_11); 
+            otherlv_21=(Token)match(input,19,FOLLOW_14); 
 
-            			newLeafNode(otherlv_16, grammarAccess.getAppAccess().getRightCurlyBracketKeyword_14());
+            			newLeafNode(otherlv_21, grammarAccess.getAppAccess().getSemicolonKeyword_19());
             		
-            // InternalAlarm.g:239:3: (otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}' )?
+            // InternalAlarm.g:259:3: (otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==18) ) {
+            if ( (LA4_0==21) ) {
                 alt4=1;
             }
             switch (alt4) {
                 case 1 :
-                    // InternalAlarm.g:240:4: otherlv_17= 'alarm' otherlv_18= '{' ( (lv_alarm_19_0= ruleAlarm ) ) (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )* otherlv_22= '}'
+                    // InternalAlarm.g:260:4: otherlv_22= 'alarm' otherlv_23= '{' ( (lv_alarm_24_0= ruleAlarm ) ) (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )* otherlv_27= '}'
                     {
-                    otherlv_17=(Token)match(input,18,FOLLOW_4); 
+                    otherlv_22=(Token)match(input,21,FOLLOW_15); 
 
-                    				newLeafNode(otherlv_17, grammarAccess.getAppAccess().getAlarmKeyword_15_0());
+                    				newLeafNode(otherlv_22, grammarAccess.getAppAccess().getAlarmKeyword_20_0());
                     			
-                    otherlv_18=(Token)match(input,12,FOLLOW_12); 
+                    otherlv_23=(Token)match(input,22,FOLLOW_16); 
 
-                    				newLeafNode(otherlv_18, grammarAccess.getAppAccess().getLeftCurlyBracketKeyword_15_1());
+                    				newLeafNode(otherlv_23, grammarAccess.getAppAccess().getLeftCurlyBracketKeyword_20_1());
                     			
-                    // InternalAlarm.g:248:4: ( (lv_alarm_19_0= ruleAlarm ) )
-                    // InternalAlarm.g:249:5: (lv_alarm_19_0= ruleAlarm )
+                    // InternalAlarm.g:268:4: ( (lv_alarm_24_0= ruleAlarm ) )
+                    // InternalAlarm.g:269:5: (lv_alarm_24_0= ruleAlarm )
                     {
-                    // InternalAlarm.g:249:5: (lv_alarm_19_0= ruleAlarm )
-                    // InternalAlarm.g:250:6: lv_alarm_19_0= ruleAlarm
+                    // InternalAlarm.g:269:5: (lv_alarm_24_0= ruleAlarm )
+                    // InternalAlarm.g:270:6: lv_alarm_24_0= ruleAlarm
                     {
 
-                    						newCompositeNode(grammarAccess.getAppAccess().getAlarmAlarmParserRuleCall_15_2_0());
+                    						newCompositeNode(grammarAccess.getAppAccess().getAlarmAlarmParserRuleCall_20_2_0());
                     					
-                    pushFollow(FOLLOW_8);
-                    lv_alarm_19_0=ruleAlarm();
+                    pushFollow(FOLLOW_17);
+                    lv_alarm_24_0=ruleAlarm();
 
                     state._fsp--;
 
@@ -500,7 +528,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     						add(
                     							current,
                     							"alarm",
-                    							lv_alarm_19_0,
+                    							lv_alarm_24_0,
                     							"alarm.xtext.Alarm.Alarm");
                     						afterParserOrEnumRuleCall();
                     					
@@ -510,36 +538,36 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalAlarm.g:267:4: (otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) ) )*
+                    // InternalAlarm.g:287:4: (otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) ) )*
                     loop3:
                     do {
                         int alt3=2;
                         int LA3_0 = input.LA(1);
 
-                        if ( (LA3_0==15) ) {
+                        if ( (LA3_0==18) ) {
                             alt3=1;
                         }
 
 
                         switch (alt3) {
                     	case 1 :
-                    	    // InternalAlarm.g:268:5: otherlv_20= ',' ( (lv_alarm_21_0= ruleAlarm ) )
+                    	    // InternalAlarm.g:288:5: otherlv_25= ',' ( (lv_alarm_26_0= ruleAlarm ) )
                     	    {
-                    	    otherlv_20=(Token)match(input,15,FOLLOW_12); 
+                    	    otherlv_25=(Token)match(input,18,FOLLOW_16); 
 
-                    	    					newLeafNode(otherlv_20, grammarAccess.getAppAccess().getCommaKeyword_15_3_0());
+                    	    					newLeafNode(otherlv_25, grammarAccess.getAppAccess().getCommaKeyword_20_3_0());
                     	    				
-                    	    // InternalAlarm.g:272:5: ( (lv_alarm_21_0= ruleAlarm ) )
-                    	    // InternalAlarm.g:273:6: (lv_alarm_21_0= ruleAlarm )
+                    	    // InternalAlarm.g:292:5: ( (lv_alarm_26_0= ruleAlarm ) )
+                    	    // InternalAlarm.g:293:6: (lv_alarm_26_0= ruleAlarm )
                     	    {
-                    	    // InternalAlarm.g:273:6: (lv_alarm_21_0= ruleAlarm )
-                    	    // InternalAlarm.g:274:7: lv_alarm_21_0= ruleAlarm
+                    	    // InternalAlarm.g:293:6: (lv_alarm_26_0= ruleAlarm )
+                    	    // InternalAlarm.g:294:7: lv_alarm_26_0= ruleAlarm
                     	    {
 
-                    	    							newCompositeNode(grammarAccess.getAppAccess().getAlarmAlarmParserRuleCall_15_3_1_0());
+                    	    							newCompositeNode(grammarAccess.getAppAccess().getAlarmAlarmParserRuleCall_20_3_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_8);
-                    	    lv_alarm_21_0=ruleAlarm();
+                    	    pushFollow(FOLLOW_17);
+                    	    lv_alarm_26_0=ruleAlarm();
 
                     	    state._fsp--;
 
@@ -550,7 +578,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     	    							add(
                     	    								current,
                     	    								"alarm",
-                    	    								lv_alarm_21_0,
+                    	    								lv_alarm_26_0,
                     	    								"alarm.xtext.Alarm.Alarm");
                     	    							afterParserOrEnumRuleCall();
                     	    						
@@ -569,9 +597,9 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                         }
                     } while (true);
 
-                    otherlv_22=(Token)match(input,16,FOLLOW_13); 
+                    otherlv_27=(Token)match(input,23,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_22, grammarAccess.getAppAccess().getRightCurlyBracketKeyword_15_4());
+                    				newLeafNode(otherlv_27, grammarAccess.getAppAccess().getRightCurlyBracketKeyword_20_4());
                     			
 
                     }
@@ -579,10 +607,6 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_23=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_23, grammarAccess.getAppAccess().getRightCurlyBracketKeyword_16());
-            		
 
             }
 
@@ -606,7 +630,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBrick"
-    // InternalAlarm.g:305:1: entryRuleBrick returns [EObject current=null] : iv_ruleBrick= ruleBrick EOF ;
+    // InternalAlarm.g:321:1: entryRuleBrick returns [EObject current=null] : iv_ruleBrick= ruleBrick EOF ;
     public final EObject entryRuleBrick() throws RecognitionException {
         EObject current = null;
 
@@ -614,8 +638,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:305:46: (iv_ruleBrick= ruleBrick EOF )
-            // InternalAlarm.g:306:2: iv_ruleBrick= ruleBrick EOF
+            // InternalAlarm.g:321:46: (iv_ruleBrick= ruleBrick EOF )
+            // InternalAlarm.g:322:2: iv_ruleBrick= ruleBrick EOF
             {
              newCompositeNode(grammarAccess.getBrickRule()); 
             pushFollow(FOLLOW_1);
@@ -642,30 +666,39 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBrick"
-    // InternalAlarm.g:312:1: ruleBrick returns [EObject current=null] : (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) ;
+    // InternalAlarm.g:328:1: ruleBrick returns [EObject current=null] : ( (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'on' otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) ) ;
     public final EObject ruleBrick() throws RecognitionException {
         EObject current = null;
 
+        Token otherlv_3=null;
+        Token otherlv_4=null;
         EObject this_Sensor_0 = null;
 
         EObject this_Actuator_1 = null;
+
+        AntlrDatatypeRuleToken lv_name_2_0 = null;
+
+        AntlrDatatypeRuleToken lv_pin_5_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalAlarm.g:318:2: ( (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) )
-            // InternalAlarm.g:319:2: (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator )
+            // InternalAlarm.g:334:2: ( ( (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'on' otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) ) )
+            // InternalAlarm.g:335:2: ( (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'on' otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )
             {
-            // InternalAlarm.g:319:2: (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator )
+            // InternalAlarm.g:335:2: ( (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'on' otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )
+            // InternalAlarm.g:336:3: (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator ) ( (lv_name_2_0= ruleEString ) ) otherlv_3= 'on' otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) )
+            {
+            // InternalAlarm.g:336:3: (this_Sensor_0= ruleSensor | this_Actuator_1= ruleActuator )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==23) ) {
+            if ( (LA5_0==26) ) {
                 alt5=1;
             }
-            else if ( (LA5_0==25) ) {
+            else if ( (LA5_0==27) ) {
                 alt5=2;
             }
             else {
@@ -676,41 +709,114 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalAlarm.g:320:3: this_Sensor_0= ruleSensor
+                    // InternalAlarm.g:337:4: this_Sensor_0= ruleSensor
                     {
 
-                    			newCompositeNode(grammarAccess.getBrickAccess().getSensorParserRuleCall_0());
-                    		
-                    pushFollow(FOLLOW_2);
+                    				newCompositeNode(grammarAccess.getBrickAccess().getSensorParserRuleCall_0_0());
+                    			
+                    pushFollow(FOLLOW_4);
                     this_Sensor_0=ruleSensor();
 
                     state._fsp--;
 
 
-                    			current = this_Sensor_0;
-                    			afterParserOrEnumRuleCall();
-                    		
+                    				current = this_Sensor_0;
+                    				afterParserOrEnumRuleCall();
+                    			
 
                     }
                     break;
                 case 2 :
-                    // InternalAlarm.g:329:3: this_Actuator_1= ruleActuator
+                    // InternalAlarm.g:346:4: this_Actuator_1= ruleActuator
                     {
 
-                    			newCompositeNode(grammarAccess.getBrickAccess().getActuatorParserRuleCall_1());
-                    		
-                    pushFollow(FOLLOW_2);
+                    				newCompositeNode(grammarAccess.getBrickAccess().getActuatorParserRuleCall_0_1());
+                    			
+                    pushFollow(FOLLOW_4);
                     this_Actuator_1=ruleActuator();
 
                     state._fsp--;
 
 
-                    			current = this_Actuator_1;
-                    			afterParserOrEnumRuleCall();
-                    		
+                    				current = this_Actuator_1;
+                    				afterParserOrEnumRuleCall();
+                    			
 
                     }
                     break;
+
+            }
+
+            // InternalAlarm.g:355:3: ( (lv_name_2_0= ruleEString ) )
+            // InternalAlarm.g:356:4: (lv_name_2_0= ruleEString )
+            {
+            // InternalAlarm.g:356:4: (lv_name_2_0= ruleEString )
+            // InternalAlarm.g:357:5: lv_name_2_0= ruleEString
+            {
+
+            					newCompositeNode(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_18);
+            lv_name_2_0=ruleEString();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getBrickRule());
+            					}
+            					set(
+            						current,
+            						"name",
+            						lv_name_2_0,
+            						"alarm.xtext.Alarm.EString");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,24,FOLLOW_19); 
+
+            			newLeafNode(otherlv_3, grammarAccess.getBrickAccess().getOnKeyword_2());
+            		
+            otherlv_4=(Token)match(input,25,FOLLOW_20); 
+
+            			newLeafNode(otherlv_4, grammarAccess.getBrickAccess().getPinKeyword_3());
+            		
+            // InternalAlarm.g:382:3: ( (lv_pin_5_0= ruleEInt ) )
+            // InternalAlarm.g:383:4: (lv_pin_5_0= ruleEInt )
+            {
+            // InternalAlarm.g:383:4: (lv_pin_5_0= ruleEInt )
+            // InternalAlarm.g:384:5: lv_pin_5_0= ruleEInt
+            {
+
+            					newCompositeNode(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_4_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_pin_5_0=ruleEInt();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getBrickRule());
+            					}
+            					set(
+            						current,
+            						"pin",
+            						lv_pin_5_0,
+            						"alarm.xtext.Alarm.EInt");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
 
             }
 
@@ -733,8 +839,188 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBrick"
 
 
+    // $ANTLR start "entryRuleSensor"
+    // InternalAlarm.g:405:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
+    public final EObject entryRuleSensor() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSensor = null;
+
+
+        try {
+            // InternalAlarm.g:405:47: (iv_ruleSensor= ruleSensor EOF )
+            // InternalAlarm.g:406:2: iv_ruleSensor= ruleSensor EOF
+            {
+             newCompositeNode(grammarAccess.getSensorRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleSensor=ruleSensor();
+
+            state._fsp--;
+
+             current =iv_ruleSensor; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSensor"
+
+
+    // $ANTLR start "ruleSensor"
+    // InternalAlarm.g:412:1: ruleSensor returns [EObject current=null] : ( () otherlv_1= 'Sensor' ) ;
+    public final EObject ruleSensor() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalAlarm.g:418:2: ( ( () otherlv_1= 'Sensor' ) )
+            // InternalAlarm.g:419:2: ( () otherlv_1= 'Sensor' )
+            {
+            // InternalAlarm.g:419:2: ( () otherlv_1= 'Sensor' )
+            // InternalAlarm.g:420:3: () otherlv_1= 'Sensor'
+            {
+            // InternalAlarm.g:420:3: ()
+            // InternalAlarm.g:421:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getSensorAccess().getSensorAction_0(),
+            					current);
+            			
+
+            }
+
+            otherlv_1=(Token)match(input,26,FOLLOW_2); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getSensorAccess().getSensorKeyword_1());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSensor"
+
+
+    // $ANTLR start "entryRuleActuator"
+    // InternalAlarm.g:435:1: entryRuleActuator returns [EObject current=null] : iv_ruleActuator= ruleActuator EOF ;
+    public final EObject entryRuleActuator() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleActuator = null;
+
+
+        try {
+            // InternalAlarm.g:435:49: (iv_ruleActuator= ruleActuator EOF )
+            // InternalAlarm.g:436:2: iv_ruleActuator= ruleActuator EOF
+            {
+             newCompositeNode(grammarAccess.getActuatorRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleActuator=ruleActuator();
+
+            state._fsp--;
+
+             current =iv_ruleActuator; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleActuator"
+
+
+    // $ANTLR start "ruleActuator"
+    // InternalAlarm.g:442:1: ruleActuator returns [EObject current=null] : ( () otherlv_1= 'Actuator' ) ;
+    public final EObject ruleActuator() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalAlarm.g:448:2: ( ( () otherlv_1= 'Actuator' ) )
+            // InternalAlarm.g:449:2: ( () otherlv_1= 'Actuator' )
+            {
+            // InternalAlarm.g:449:2: ( () otherlv_1= 'Actuator' )
+            // InternalAlarm.g:450:3: () otherlv_1= 'Actuator'
+            {
+            // InternalAlarm.g:450:3: ()
+            // InternalAlarm.g:451:4: 
+            {
+
+            				current = forceCreateModelElement(
+            					grammarAccess.getActuatorAccess().getActuatorAction_0(),
+            					current);
+            			
+
+            }
+
+            otherlv_1=(Token)match(input,27,FOLLOW_2); 
+
+            			newLeafNode(otherlv_1, grammarAccess.getActuatorAccess().getActuatorKeyword_1());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleActuator"
+
+
     // $ANTLR start "entryRuleAlarm"
-    // InternalAlarm.g:341:1: entryRuleAlarm returns [EObject current=null] : iv_ruleAlarm= ruleAlarm EOF ;
+    // InternalAlarm.g:465:1: entryRuleAlarm returns [EObject current=null] : iv_ruleAlarm= ruleAlarm EOF ;
     public final EObject entryRuleAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -742,8 +1028,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:341:46: (iv_ruleAlarm= ruleAlarm EOF )
-            // InternalAlarm.g:342:2: iv_ruleAlarm= ruleAlarm EOF
+            // InternalAlarm.g:465:46: (iv_ruleAlarm= ruleAlarm EOF )
+            // InternalAlarm.g:466:2: iv_ruleAlarm= ruleAlarm EOF
             {
              newCompositeNode(grammarAccess.getAlarmRule()); 
             pushFollow(FOLLOW_1);
@@ -770,7 +1056,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAlarm"
-    // InternalAlarm.g:348:1: ruleAlarm returns [EObject current=null] : (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm ) ;
+    // InternalAlarm.g:472:1: ruleAlarm returns [EObject current=null] : (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm ) ;
     public final EObject ruleAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -787,28 +1073,28 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:354:2: ( (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm ) )
-            // InternalAlarm.g:355:2: (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm )
+            // InternalAlarm.g:478:2: ( (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm ) )
+            // InternalAlarm.g:479:2: (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm )
             {
-            // InternalAlarm.g:355:2: (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm )
+            // InternalAlarm.g:479:2: (this_SimpleAlarm_0= ruleSimpleAlarm | this_DualCheckAlarm_1= ruleDualCheckAlarm | this_StateBasedAlarm_2= ruleStateBasedAlarm | this_MultiStateAlarm_3= ruleMultiStateAlarm )
             int alt6=4;
             switch ( input.LA(1) ) {
-            case 32:
+            case 36:
                 {
                 alt6=1;
                 }
                 break;
-            case 36:
+            case 40:
                 {
                 alt6=2;
                 }
                 break;
-            case 38:
+            case 42:
                 {
                 alt6=3;
                 }
                 break;
-            case 39:
+            case 43:
                 {
                 alt6=4;
                 }
@@ -822,7 +1108,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             switch (alt6) {
                 case 1 :
-                    // InternalAlarm.g:356:3: this_SimpleAlarm_0= ruleSimpleAlarm
+                    // InternalAlarm.g:480:3: this_SimpleAlarm_0= ruleSimpleAlarm
                     {
 
                     			newCompositeNode(grammarAccess.getAlarmAccess().getSimpleAlarmParserRuleCall_0());
@@ -840,7 +1126,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAlarm.g:365:3: this_DualCheckAlarm_1= ruleDualCheckAlarm
+                    // InternalAlarm.g:489:3: this_DualCheckAlarm_1= ruleDualCheckAlarm
                     {
 
                     			newCompositeNode(grammarAccess.getAlarmAccess().getDualCheckAlarmParserRuleCall_1());
@@ -858,7 +1144,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalAlarm.g:374:3: this_StateBasedAlarm_2= ruleStateBasedAlarm
+                    // InternalAlarm.g:498:3: this_StateBasedAlarm_2= ruleStateBasedAlarm
                     {
 
                     			newCompositeNode(grammarAccess.getAlarmAccess().getStateBasedAlarmParserRuleCall_2());
@@ -876,7 +1162,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalAlarm.g:383:3: this_MultiStateAlarm_3= ruleMultiStateAlarm
+                    // InternalAlarm.g:507:3: this_MultiStateAlarm_3= ruleMultiStateAlarm
                     {
 
                     			newCompositeNode(grammarAccess.getAlarmAccess().getMultiStateAlarmParserRuleCall_3());
@@ -916,7 +1202,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalAlarm.g:395:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalAlarm.g:519:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -924,8 +1210,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:395:47: (iv_ruleEString= ruleEString EOF )
-            // InternalAlarm.g:396:2: iv_ruleEString= ruleEString EOF
+            // InternalAlarm.g:519:47: (iv_ruleEString= ruleEString EOF )
+            // InternalAlarm.g:520:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -952,7 +1238,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalAlarm.g:402:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // InternalAlarm.g:526:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -963,10 +1249,10 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:408:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // InternalAlarm.g:409:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalAlarm.g:532:2: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // InternalAlarm.g:533:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // InternalAlarm.g:409:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // InternalAlarm.g:533:2: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -984,7 +1270,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalAlarm.g:410:3: this_STRING_0= RULE_STRING
+                    // InternalAlarm.g:534:3: this_STRING_0= RULE_STRING
                     {
                     this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -997,7 +1283,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAlarm.g:418:3: this_ID_1= RULE_ID
+                    // InternalAlarm.g:542:3: this_ID_1= RULE_ID
                     {
                     this_ID_1=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1032,7 +1318,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleState"
-    // InternalAlarm.g:429:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
+    // InternalAlarm.g:553:1: entryRuleState returns [EObject current=null] : iv_ruleState= ruleState EOF ;
     public final EObject entryRuleState() throws RecognitionException {
         EObject current = null;
 
@@ -1040,8 +1326,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:429:46: (iv_ruleState= ruleState EOF )
-            // InternalAlarm.g:430:2: iv_ruleState= ruleState EOF
+            // InternalAlarm.g:553:46: (iv_ruleState= ruleState EOF )
+            // InternalAlarm.g:554:2: iv_ruleState= ruleState EOF
             {
              newCompositeNode(grammarAccess.getStateRule()); 
             pushFollow(FOLLOW_1);
@@ -1068,7 +1354,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleState"
-    // InternalAlarm.g:436:1: ruleState returns [EObject current=null] : (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'actions' otherlv_4= '{' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= '}' otherlv_9= 'transition' ( (lv_transition_10_0= ruleTransition ) ) otherlv_11= '}' ) ;
+    // InternalAlarm.g:560:1: ruleState returns [EObject current=null] : (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'with' otherlv_3= 'actions' otherlv_4= ':' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= ';' ( (lv_transition_9_0= ruleTransition ) ) ) ;
     public final EObject ruleState() throws RecognitionException {
         EObject current = null;
 
@@ -1078,41 +1364,39 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_6=null;
         Token otherlv_8=null;
-        Token otherlv_9=null;
-        Token otherlv_11=null;
         AntlrDatatypeRuleToken lv_name_1_0 = null;
 
         EObject lv_actions_5_0 = null;
 
         EObject lv_actions_7_0 = null;
 
-        EObject lv_transition_10_0 = null;
+        EObject lv_transition_9_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalAlarm.g:442:2: ( (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'actions' otherlv_4= '{' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= '}' otherlv_9= 'transition' ( (lv_transition_10_0= ruleTransition ) ) otherlv_11= '}' ) )
-            // InternalAlarm.g:443:2: (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'actions' otherlv_4= '{' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= '}' otherlv_9= 'transition' ( (lv_transition_10_0= ruleTransition ) ) otherlv_11= '}' )
+            // InternalAlarm.g:566:2: ( (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'with' otherlv_3= 'actions' otherlv_4= ':' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= ';' ( (lv_transition_9_0= ruleTransition ) ) ) )
+            // InternalAlarm.g:567:2: (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'with' otherlv_3= 'actions' otherlv_4= ':' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= ';' ( (lv_transition_9_0= ruleTransition ) ) )
             {
-            // InternalAlarm.g:443:2: (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'actions' otherlv_4= '{' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= '}' otherlv_9= 'transition' ( (lv_transition_10_0= ruleTransition ) ) otherlv_11= '}' )
-            // InternalAlarm.g:444:3: otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'actions' otherlv_4= '{' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= '}' otherlv_9= 'transition' ( (lv_transition_10_0= ruleTransition ) ) otherlv_11= '}'
+            // InternalAlarm.g:567:2: (otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'with' otherlv_3= 'actions' otherlv_4= ':' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= ';' ( (lv_transition_9_0= ruleTransition ) ) )
+            // InternalAlarm.g:568:3: otherlv_0= 'State' ( (lv_name_1_0= ruleEString ) ) otherlv_2= 'with' otherlv_3= 'actions' otherlv_4= ':' ( (lv_actions_5_0= ruleAction ) ) (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )* otherlv_8= ';' ( (lv_transition_9_0= ruleTransition ) )
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_3); 
+            otherlv_0=(Token)match(input,28,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getStateAccess().getStateKeyword_0());
             		
-            // InternalAlarm.g:448:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAlarm.g:449:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:572:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAlarm.g:573:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAlarm.g:449:4: (lv_name_1_0= ruleEString )
-            // InternalAlarm.g:450:5: lv_name_1_0= ruleEString
+            // InternalAlarm.g:573:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:574:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getStateAccess().getNameEStringParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_7);
             lv_name_1_0=ruleEString();
 
             state._fsp--;
@@ -1134,28 +1418,28 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_14); 
+            otherlv_2=(Token)match(input,15,FOLLOW_21); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_2());
+            			newLeafNode(otherlv_2, grammarAccess.getStateAccess().getWithKeyword_2());
             		
-            otherlv_3=(Token)match(input,20,FOLLOW_4); 
+            otherlv_3=(Token)match(input,29,FOLLOW_8); 
 
             			newLeafNode(otherlv_3, grammarAccess.getStateAccess().getActionsKeyword_3());
             		
-            otherlv_4=(Token)match(input,12,FOLLOW_15); 
+            otherlv_4=(Token)match(input,16,FOLLOW_22); 
 
-            			newLeafNode(otherlv_4, grammarAccess.getStateAccess().getLeftCurlyBracketKeyword_4());
+            			newLeafNode(otherlv_4, grammarAccess.getStateAccess().getColonKeyword_4());
             		
-            // InternalAlarm.g:479:3: ( (lv_actions_5_0= ruleAction ) )
-            // InternalAlarm.g:480:4: (lv_actions_5_0= ruleAction )
+            // InternalAlarm.g:603:3: ( (lv_actions_5_0= ruleAction ) )
+            // InternalAlarm.g:604:4: (lv_actions_5_0= ruleAction )
             {
-            // InternalAlarm.g:480:4: (lv_actions_5_0= ruleAction )
-            // InternalAlarm.g:481:5: lv_actions_5_0= ruleAction
+            // InternalAlarm.g:604:4: (lv_actions_5_0= ruleAction )
+            // InternalAlarm.g:605:5: lv_actions_5_0= ruleAction
             {
 
             					newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_5_0());
             				
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             lv_actions_5_0=ruleAction();
 
             state._fsp--;
@@ -1177,35 +1461,35 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalAlarm.g:498:3: (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )*
+            // InternalAlarm.g:622:3: (otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) ) )*
             loop8:
             do {
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( (LA8_0==15) ) {
+                if ( (LA8_0==18) ) {
                     alt8=1;
                 }
 
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalAlarm.g:499:4: otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) )
+            	    // InternalAlarm.g:623:4: otherlv_6= ',' ( (lv_actions_7_0= ruleAction ) )
             	    {
-            	    otherlv_6=(Token)match(input,15,FOLLOW_15); 
+            	    otherlv_6=(Token)match(input,18,FOLLOW_22); 
 
             	    				newLeafNode(otherlv_6, grammarAccess.getStateAccess().getCommaKeyword_6_0());
             	    			
-            	    // InternalAlarm.g:503:4: ( (lv_actions_7_0= ruleAction ) )
-            	    // InternalAlarm.g:504:5: (lv_actions_7_0= ruleAction )
+            	    // InternalAlarm.g:627:4: ( (lv_actions_7_0= ruleAction ) )
+            	    // InternalAlarm.g:628:5: (lv_actions_7_0= ruleAction )
             	    {
-            	    // InternalAlarm.g:504:5: (lv_actions_7_0= ruleAction )
-            	    // InternalAlarm.g:505:6: lv_actions_7_0= ruleAction
+            	    // InternalAlarm.g:628:5: (lv_actions_7_0= ruleAction )
+            	    // InternalAlarm.g:629:6: lv_actions_7_0= ruleAction
             	    {
 
             	    						newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_6_1_0());
             	    					
-            	    pushFollow(FOLLOW_8);
+            	    pushFollow(FOLLOW_11);
             	    lv_actions_7_0=ruleAction();
 
             	    state._fsp--;
@@ -1236,25 +1520,21 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_8=(Token)match(input,16,FOLLOW_16); 
+            otherlv_8=(Token)match(input,19,FOLLOW_7); 
 
-            			newLeafNode(otherlv_8, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_7());
+            			newLeafNode(otherlv_8, grammarAccess.getStateAccess().getSemicolonKeyword_7());
             		
-            otherlv_9=(Token)match(input,21,FOLLOW_17); 
-
-            			newLeafNode(otherlv_9, grammarAccess.getStateAccess().getTransitionKeyword_8());
-            		
-            // InternalAlarm.g:531:3: ( (lv_transition_10_0= ruleTransition ) )
-            // InternalAlarm.g:532:4: (lv_transition_10_0= ruleTransition )
+            // InternalAlarm.g:651:3: ( (lv_transition_9_0= ruleTransition ) )
+            // InternalAlarm.g:652:4: (lv_transition_9_0= ruleTransition )
             {
-            // InternalAlarm.g:532:4: (lv_transition_10_0= ruleTransition )
-            // InternalAlarm.g:533:5: lv_transition_10_0= ruleTransition
+            // InternalAlarm.g:652:4: (lv_transition_9_0= ruleTransition )
+            // InternalAlarm.g:653:5: lv_transition_9_0= ruleTransition
             {
 
-            					newCompositeNode(grammarAccess.getStateAccess().getTransitionTransitionParserRuleCall_9_0());
+            					newCompositeNode(grammarAccess.getStateAccess().getTransitionTransitionParserRuleCall_8_0());
             				
-            pushFollow(FOLLOW_13);
-            lv_transition_10_0=ruleTransition();
+            pushFollow(FOLLOW_2);
+            lv_transition_9_0=ruleTransition();
 
             state._fsp--;
 
@@ -1265,7 +1545,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					set(
             						current,
             						"transition",
-            						lv_transition_10_0,
+            						lv_transition_9_0,
             						"alarm.xtext.Alarm.Transition");
             					afterParserOrEnumRuleCall();
             				
@@ -1275,10 +1555,6 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_11, grammarAccess.getStateAccess().getRightCurlyBracketKeyword_10());
-            		
 
             }
 
@@ -1302,7 +1578,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalAlarm.g:558:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalAlarm.g:674:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -1310,8 +1586,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:558:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalAlarm.g:559:2: iv_ruleEInt= ruleEInt EOF
+            // InternalAlarm.g:674:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalAlarm.g:675:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -1338,7 +1614,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalAlarm.g:565:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalAlarm.g:681:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1349,24 +1625,24 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:571:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalAlarm.g:572:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalAlarm.g:687:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalAlarm.g:688:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalAlarm.g:572:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalAlarm.g:573:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalAlarm.g:688:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalAlarm.g:689:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalAlarm.g:573:3: (kw= '-' )?
+            // InternalAlarm.g:689:3: (kw= '-' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==22) ) {
+            if ( (LA9_0==30) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // InternalAlarm.g:574:4: kw= '-'
+                    // InternalAlarm.g:690:4: kw= '-'
                     {
-                    kw=(Token)match(input,22,FOLLOW_18); 
+                    kw=(Token)match(input,30,FOLLOW_23); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -1406,384 +1682,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleEInt"
 
 
-    // $ANTLR start "entryRuleSensor"
-    // InternalAlarm.g:591:1: entryRuleSensor returns [EObject current=null] : iv_ruleSensor= ruleSensor EOF ;
-    public final EObject entryRuleSensor() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSensor = null;
-
-
-        try {
-            // InternalAlarm.g:591:47: (iv_ruleSensor= ruleSensor EOF )
-            // InternalAlarm.g:592:2: iv_ruleSensor= ruleSensor EOF
-            {
-             newCompositeNode(grammarAccess.getSensorRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleSensor=ruleSensor();
-
-            state._fsp--;
-
-             current =iv_ruleSensor; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSensor"
-
-
-    // $ANTLR start "ruleSensor"
-    // InternalAlarm.g:598:1: ruleSensor returns [EObject current=null] : ( () otherlv_1= 'Sensor' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' ) ;
-    public final EObject ruleSensor() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_pin_5_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalAlarm.g:604:2: ( ( () otherlv_1= 'Sensor' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' ) )
-            // InternalAlarm.g:605:2: ( () otherlv_1= 'Sensor' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' )
-            {
-            // InternalAlarm.g:605:2: ( () otherlv_1= 'Sensor' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' )
-            // InternalAlarm.g:606:3: () otherlv_1= 'Sensor' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}'
-            {
-            // InternalAlarm.g:606:3: ()
-            // InternalAlarm.g:607:4: 
-            {
-
-            				current = forceCreateModelElement(
-            					grammarAccess.getSensorAccess().getSensorAction_0(),
-            					current);
-            			
-
-            }
-
-            otherlv_1=(Token)match(input,23,FOLLOW_3); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getSensorAccess().getSensorKeyword_1());
-            		
-            // InternalAlarm.g:617:3: ( (lv_name_2_0= ruleEString ) )
-            // InternalAlarm.g:618:4: (lv_name_2_0= ruleEString )
-            {
-            // InternalAlarm.g:618:4: (lv_name_2_0= ruleEString )
-            // InternalAlarm.g:619:5: lv_name_2_0= ruleEString
-            {
-
-            					newCompositeNode(grammarAccess.getSensorAccess().getNameEStringParserRuleCall_2_0());
-            				
-            pushFollow(FOLLOW_4);
-            lv_name_2_0=ruleEString();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getSensorRule());
-            					}
-            					set(
-            						current,
-            						"name",
-            						lv_name_2_0,
-            						"alarm.xtext.Alarm.EString");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            otherlv_3=(Token)match(input,12,FOLLOW_19); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getSensorAccess().getLeftCurlyBracketKeyword_3());
-            		
-            // InternalAlarm.g:640:3: (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
-
-            if ( (LA10_0==24) ) {
-                alt10=1;
-            }
-            switch (alt10) {
-                case 1 :
-                    // InternalAlarm.g:641:4: otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) )
-                    {
-                    otherlv_4=(Token)match(input,24,FOLLOW_20); 
-
-                    				newLeafNode(otherlv_4, grammarAccess.getSensorAccess().getPinKeyword_4_0());
-                    			
-                    // InternalAlarm.g:645:4: ( (lv_pin_5_0= ruleEInt ) )
-                    // InternalAlarm.g:646:5: (lv_pin_5_0= ruleEInt )
-                    {
-                    // InternalAlarm.g:646:5: (lv_pin_5_0= ruleEInt )
-                    // InternalAlarm.g:647:6: lv_pin_5_0= ruleEInt
-                    {
-
-                    						newCompositeNode(grammarAccess.getSensorAccess().getPinEIntParserRuleCall_4_1_0());
-                    					
-                    pushFollow(FOLLOW_13);
-                    lv_pin_5_0=ruleEInt();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getSensorRule());
-                    						}
-                    						set(
-                    							current,
-                    							"pin",
-                    							lv_pin_5_0,
-                    							"alarm.xtext.Alarm.EInt");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_6=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getSensorAccess().getRightCurlyBracketKeyword_5());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleSensor"
-
-
-    // $ANTLR start "entryRuleActuator"
-    // InternalAlarm.g:673:1: entryRuleActuator returns [EObject current=null] : iv_ruleActuator= ruleActuator EOF ;
-    public final EObject entryRuleActuator() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleActuator = null;
-
-
-        try {
-            // InternalAlarm.g:673:49: (iv_ruleActuator= ruleActuator EOF )
-            // InternalAlarm.g:674:2: iv_ruleActuator= ruleActuator EOF
-            {
-             newCompositeNode(grammarAccess.getActuatorRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleActuator=ruleActuator();
-
-            state._fsp--;
-
-             current =iv_ruleActuator; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleActuator"
-
-
-    // $ANTLR start "ruleActuator"
-    // InternalAlarm.g:680:1: ruleActuator returns [EObject current=null] : ( () otherlv_1= 'Actuator' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' ) ;
-    public final EObject ruleActuator() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_name_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_pin_5_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalAlarm.g:686:2: ( ( () otherlv_1= 'Actuator' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' ) )
-            // InternalAlarm.g:687:2: ( () otherlv_1= 'Actuator' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' )
-            {
-            // InternalAlarm.g:687:2: ( () otherlv_1= 'Actuator' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}' )
-            // InternalAlarm.g:688:3: () otherlv_1= 'Actuator' ( (lv_name_2_0= ruleEString ) ) otherlv_3= '{' (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )? otherlv_6= '}'
-            {
-            // InternalAlarm.g:688:3: ()
-            // InternalAlarm.g:689:4: 
-            {
-
-            				current = forceCreateModelElement(
-            					grammarAccess.getActuatorAccess().getActuatorAction_0(),
-            					current);
-            			
-
-            }
-
-            otherlv_1=(Token)match(input,25,FOLLOW_3); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getActuatorAccess().getActuatorKeyword_1());
-            		
-            // InternalAlarm.g:699:3: ( (lv_name_2_0= ruleEString ) )
-            // InternalAlarm.g:700:4: (lv_name_2_0= ruleEString )
-            {
-            // InternalAlarm.g:700:4: (lv_name_2_0= ruleEString )
-            // InternalAlarm.g:701:5: lv_name_2_0= ruleEString
-            {
-
-            					newCompositeNode(grammarAccess.getActuatorAccess().getNameEStringParserRuleCall_2_0());
-            				
-            pushFollow(FOLLOW_4);
-            lv_name_2_0=ruleEString();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getActuatorRule());
-            					}
-            					set(
-            						current,
-            						"name",
-            						lv_name_2_0,
-            						"alarm.xtext.Alarm.EString");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            otherlv_3=(Token)match(input,12,FOLLOW_19); 
-
-            			newLeafNode(otherlv_3, grammarAccess.getActuatorAccess().getLeftCurlyBracketKeyword_3());
-            		
-            // InternalAlarm.g:722:3: (otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) ) )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
-
-            if ( (LA11_0==24) ) {
-                alt11=1;
-            }
-            switch (alt11) {
-                case 1 :
-                    // InternalAlarm.g:723:4: otherlv_4= 'pin' ( (lv_pin_5_0= ruleEInt ) )
-                    {
-                    otherlv_4=(Token)match(input,24,FOLLOW_20); 
-
-                    				newLeafNode(otherlv_4, grammarAccess.getActuatorAccess().getPinKeyword_4_0());
-                    			
-                    // InternalAlarm.g:727:4: ( (lv_pin_5_0= ruleEInt ) )
-                    // InternalAlarm.g:728:5: (lv_pin_5_0= ruleEInt )
-                    {
-                    // InternalAlarm.g:728:5: (lv_pin_5_0= ruleEInt )
-                    // InternalAlarm.g:729:6: lv_pin_5_0= ruleEInt
-                    {
-
-                    						newCompositeNode(grammarAccess.getActuatorAccess().getPinEIntParserRuleCall_4_1_0());
-                    					
-                    pushFollow(FOLLOW_13);
-                    lv_pin_5_0=ruleEInt();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getActuatorRule());
-                    						}
-                    						set(
-                    							current,
-                    							"pin",
-                    							lv_pin_5_0,
-                    							"alarm.xtext.Alarm.EInt");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_6=(Token)match(input,16,FOLLOW_2); 
-
-            			newLeafNode(otherlv_6, grammarAccess.getActuatorAccess().getRightCurlyBracketKeyword_5());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleActuator"
-
-
     // $ANTLR start "entryRuleAction"
-    // InternalAlarm.g:755:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // InternalAlarm.g:707:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -1791,8 +1691,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:755:47: (iv_ruleAction= ruleAction EOF )
-            // InternalAlarm.g:756:2: iv_ruleAction= ruleAction EOF
+            // InternalAlarm.g:707:47: (iv_ruleAction= ruleAction EOF )
+            // InternalAlarm.g:708:2: iv_ruleAction= ruleAction EOF
             {
              newCompositeNode(grammarAccess.getActionRule()); 
             pushFollow(FOLLOW_1);
@@ -1819,15 +1719,12 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalAlarm.g:762:1: ruleAction returns [EObject current=null] : (otherlv_0= 'Action' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'actuator' ( ( ruleEString ) ) otherlv_6= '}' ) ;
+    // InternalAlarm.g:714:1: ruleAction returns [EObject current=null] : (otherlv_0= 'do' ( ( ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleSIGNAL ) ) ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_1=null;
         Token otherlv_2=null;
-        Token otherlv_4=null;
-        Token otherlv_6=null;
         Enumerator lv_value_3_0 = null;
 
 
@@ -1835,81 +1732,21 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:768:2: ( (otherlv_0= 'Action' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'actuator' ( ( ruleEString ) ) otherlv_6= '}' ) )
-            // InternalAlarm.g:769:2: (otherlv_0= 'Action' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'actuator' ( ( ruleEString ) ) otherlv_6= '}' )
+            // InternalAlarm.g:720:2: ( (otherlv_0= 'do' ( ( ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleSIGNAL ) ) ) )
+            // InternalAlarm.g:721:2: (otherlv_0= 'do' ( ( ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleSIGNAL ) ) )
             {
-            // InternalAlarm.g:769:2: (otherlv_0= 'Action' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'actuator' ( ( ruleEString ) ) otherlv_6= '}' )
-            // InternalAlarm.g:770:3: otherlv_0= 'Action' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'actuator' ( ( ruleEString ) ) otherlv_6= '}'
+            // InternalAlarm.g:721:2: (otherlv_0= 'do' ( ( ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleSIGNAL ) ) )
+            // InternalAlarm.g:722:3: otherlv_0= 'do' ( ( ruleEString ) ) otherlv_2= '=' ( (lv_value_3_0= ruleSIGNAL ) )
             {
-            otherlv_0=(Token)match(input,26,FOLLOW_4); 
+            otherlv_0=(Token)match(input,31,FOLLOW_4); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getActionAccess().getActionKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getActionAccess().getDoKeyword_0());
             		
-            otherlv_1=(Token)match(input,12,FOLLOW_21); 
-
-            			newLeafNode(otherlv_1, grammarAccess.getActionAccess().getLeftCurlyBracketKeyword_1());
-            		
-            // InternalAlarm.g:778:3: (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0==27) ) {
-                alt12=1;
-            }
-            switch (alt12) {
-                case 1 :
-                    // InternalAlarm.g:779:4: otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) )
-                    {
-                    otherlv_2=(Token)match(input,27,FOLLOW_22); 
-
-                    				newLeafNode(otherlv_2, grammarAccess.getActionAccess().getValueKeyword_2_0());
-                    			
-                    // InternalAlarm.g:783:4: ( (lv_value_3_0= ruleSIGNAL ) )
-                    // InternalAlarm.g:784:5: (lv_value_3_0= ruleSIGNAL )
-                    {
-                    // InternalAlarm.g:784:5: (lv_value_3_0= ruleSIGNAL )
-                    // InternalAlarm.g:785:6: lv_value_3_0= ruleSIGNAL
-                    {
-
-                    						newCompositeNode(grammarAccess.getActionAccess().getValueSIGNALEnumRuleCall_2_1_0());
-                    					
-                    pushFollow(FOLLOW_23);
-                    lv_value_3_0=ruleSIGNAL();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getActionRule());
-                    						}
-                    						set(
-                    							current,
-                    							"value",
-                    							lv_value_3_0,
-                    							"alarm.xtext.Alarm.SIGNAL");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_4=(Token)match(input,28,FOLLOW_3); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getActionAccess().getActuatorKeyword_3());
-            		
-            // InternalAlarm.g:807:3: ( ( ruleEString ) )
-            // InternalAlarm.g:808:4: ( ruleEString )
+            // InternalAlarm.g:726:3: ( ( ruleEString ) )
+            // InternalAlarm.g:727:4: ( ruleEString )
             {
-            // InternalAlarm.g:808:4: ( ruleEString )
-            // InternalAlarm.g:809:5: ruleEString
+            // InternalAlarm.g:727:4: ( ruleEString )
+            // InternalAlarm.g:728:5: ruleEString
             {
 
             					if (current==null) {
@@ -1917,9 +1754,9 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getActionAccess().getActuatorActuatorCrossReference_4_0());
+            					newCompositeNode(grammarAccess.getActionAccess().getActuatorActuatorCrossReference_1_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_24);
             ruleEString();
 
             state._fsp--;
@@ -1933,10 +1770,41 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,16,FOLLOW_2); 
+            otherlv_2=(Token)match(input,32,FOLLOW_25); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getActionAccess().getRightCurlyBracketKeyword_5());
+            			newLeafNode(otherlv_2, grammarAccess.getActionAccess().getEqualsSignKeyword_2());
             		
+            // InternalAlarm.g:746:3: ( (lv_value_3_0= ruleSIGNAL ) )
+            // InternalAlarm.g:747:4: (lv_value_3_0= ruleSIGNAL )
+            {
+            // InternalAlarm.g:747:4: (lv_value_3_0= ruleSIGNAL )
+            // InternalAlarm.g:748:5: lv_value_3_0= ruleSIGNAL
+            {
+
+            					newCompositeNode(grammarAccess.getActionAccess().getValueSIGNALEnumRuleCall_3_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_3_0=ruleSIGNAL();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getActionRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_3_0,
+            						"alarm.xtext.Alarm.SIGNAL");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
 
             }
 
@@ -1960,7 +1828,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTransition"
-    // InternalAlarm.g:831:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
+    // InternalAlarm.g:769:1: entryRuleTransition returns [EObject current=null] : iv_ruleTransition= ruleTransition EOF ;
     public final EObject entryRuleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -1968,8 +1836,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:831:51: (iv_ruleTransition= ruleTransition EOF )
-            // InternalAlarm.g:832:2: iv_ruleTransition= ruleTransition EOF
+            // InternalAlarm.g:769:51: (iv_ruleTransition= ruleTransition EOF )
+            // InternalAlarm.g:770:2: iv_ruleTransition= ruleTransition EOF
             {
              newCompositeNode(grammarAccess.getTransitionRule()); 
             pushFollow(FOLLOW_1);
@@ -1996,7 +1864,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTransition"
-    // InternalAlarm.g:838:1: ruleTransition returns [EObject current=null] : (otherlv_0= 'Transition' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'sensor' ( ( ruleEString ) ) otherlv_6= 'next' ( ( ruleEString ) ) otherlv_8= '}' ) ;
+    // InternalAlarm.g:776:1: ruleTransition returns [EObject current=null] : (otherlv_0= 'with' otherlv_1= 'Transition' otherlv_2= 'to' ( ( ruleEString ) ) otherlv_4= 'when' ( ( ruleEString ) ) otherlv_6= '=' ( (lv_value_7_0= ruleSIGNAL ) ) ) ;
     public final EObject ruleTransition() throws RecognitionException {
         EObject current = null;
 
@@ -2005,89 +1873,36 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_4=null;
         Token otherlv_6=null;
-        Token otherlv_8=null;
-        Enumerator lv_value_3_0 = null;
+        Enumerator lv_value_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalAlarm.g:844:2: ( (otherlv_0= 'Transition' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'sensor' ( ( ruleEString ) ) otherlv_6= 'next' ( ( ruleEString ) ) otherlv_8= '}' ) )
-            // InternalAlarm.g:845:2: (otherlv_0= 'Transition' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'sensor' ( ( ruleEString ) ) otherlv_6= 'next' ( ( ruleEString ) ) otherlv_8= '}' )
+            // InternalAlarm.g:782:2: ( (otherlv_0= 'with' otherlv_1= 'Transition' otherlv_2= 'to' ( ( ruleEString ) ) otherlv_4= 'when' ( ( ruleEString ) ) otherlv_6= '=' ( (lv_value_7_0= ruleSIGNAL ) ) ) )
+            // InternalAlarm.g:783:2: (otherlv_0= 'with' otherlv_1= 'Transition' otherlv_2= 'to' ( ( ruleEString ) ) otherlv_4= 'when' ( ( ruleEString ) ) otherlv_6= '=' ( (lv_value_7_0= ruleSIGNAL ) ) )
             {
-            // InternalAlarm.g:845:2: (otherlv_0= 'Transition' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'sensor' ( ( ruleEString ) ) otherlv_6= 'next' ( ( ruleEString ) ) otherlv_8= '}' )
-            // InternalAlarm.g:846:3: otherlv_0= 'Transition' otherlv_1= '{' (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )? otherlv_4= 'sensor' ( ( ruleEString ) ) otherlv_6= 'next' ( ( ruleEString ) ) otherlv_8= '}'
+            // InternalAlarm.g:783:2: (otherlv_0= 'with' otherlv_1= 'Transition' otherlv_2= 'to' ( ( ruleEString ) ) otherlv_4= 'when' ( ( ruleEString ) ) otherlv_6= '=' ( (lv_value_7_0= ruleSIGNAL ) ) )
+            // InternalAlarm.g:784:3: otherlv_0= 'with' otherlv_1= 'Transition' otherlv_2= 'to' ( ( ruleEString ) ) otherlv_4= 'when' ( ( ruleEString ) ) otherlv_6= '=' ( (lv_value_7_0= ruleSIGNAL ) )
             {
-            otherlv_0=(Token)match(input,29,FOLLOW_4); 
+            otherlv_0=(Token)match(input,15,FOLLOW_26); 
 
-            			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getTransitionKeyword_0());
+            			newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getWithKeyword_0());
             		
-            otherlv_1=(Token)match(input,12,FOLLOW_24); 
+            otherlv_1=(Token)match(input,33,FOLLOW_27); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getLeftCurlyBracketKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getTransitionAccess().getTransitionKeyword_1());
             		
-            // InternalAlarm.g:854:3: (otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) ) )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            otherlv_2=(Token)match(input,34,FOLLOW_4); 
 
-            if ( (LA13_0==27) ) {
-                alt13=1;
-            }
-            switch (alt13) {
-                case 1 :
-                    // InternalAlarm.g:855:4: otherlv_2= 'value' ( (lv_value_3_0= ruleSIGNAL ) )
-                    {
-                    otherlv_2=(Token)match(input,27,FOLLOW_22); 
-
-                    				newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getValueKeyword_2_0());
-                    			
-                    // InternalAlarm.g:859:4: ( (lv_value_3_0= ruleSIGNAL ) )
-                    // InternalAlarm.g:860:5: (lv_value_3_0= ruleSIGNAL )
-                    {
-                    // InternalAlarm.g:860:5: (lv_value_3_0= ruleSIGNAL )
-                    // InternalAlarm.g:861:6: lv_value_3_0= ruleSIGNAL
-                    {
-
-                    						newCompositeNode(grammarAccess.getTransitionAccess().getValueSIGNALEnumRuleCall_2_1_0());
-                    					
-                    pushFollow(FOLLOW_25);
-                    lv_value_3_0=ruleSIGNAL();
-
-                    state._fsp--;
-
-
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getTransitionRule());
-                    						}
-                    						set(
-                    							current,
-                    							"value",
-                    							lv_value_3_0,
-                    							"alarm.xtext.Alarm.SIGNAL");
-                    						afterParserOrEnumRuleCall();
-                    					
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_4=(Token)match(input,30,FOLLOW_3); 
-
-            			newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getSensorKeyword_3());
+            			newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getToKeyword_2());
             		
-            // InternalAlarm.g:883:3: ( ( ruleEString ) )
-            // InternalAlarm.g:884:4: ( ruleEString )
+            // InternalAlarm.g:796:3: ( ( ruleEString ) )
+            // InternalAlarm.g:797:4: ( ruleEString )
             {
-            // InternalAlarm.g:884:4: ( ruleEString )
-            // InternalAlarm.g:885:5: ruleEString
+            // InternalAlarm.g:797:4: ( ruleEString )
+            // InternalAlarm.g:798:5: ruleEString
             {
 
             					if (current==null) {
@@ -2095,9 +1910,9 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getTransitionAccess().getSensorSensorCrossReference_4_0());
+            					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_3_0());
             				
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             ruleEString();
 
             state._fsp--;
@@ -2111,15 +1926,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,31,FOLLOW_3); 
+            otherlv_4=(Token)match(input,35,FOLLOW_4); 
 
-            			newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getNextKeyword_5());
+            			newLeafNode(otherlv_4, grammarAccess.getTransitionAccess().getWhenKeyword_4());
             		
-            // InternalAlarm.g:903:3: ( ( ruleEString ) )
-            // InternalAlarm.g:904:4: ( ruleEString )
+            // InternalAlarm.g:816:3: ( ( ruleEString ) )
+            // InternalAlarm.g:817:4: ( ruleEString )
             {
-            // InternalAlarm.g:904:4: ( ruleEString )
-            // InternalAlarm.g:905:5: ruleEString
+            // InternalAlarm.g:817:4: ( ruleEString )
+            // InternalAlarm.g:818:5: ruleEString
             {
 
             					if (current==null) {
@@ -2127,9 +1942,9 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
             					}
             				
 
-            					newCompositeNode(grammarAccess.getTransitionAccess().getNextStateCrossReference_6_0());
+            					newCompositeNode(grammarAccess.getTransitionAccess().getSensorSensorCrossReference_5_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_24);
             ruleEString();
 
             state._fsp--;
@@ -2143,10 +1958,41 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_8=(Token)match(input,16,FOLLOW_2); 
+            otherlv_6=(Token)match(input,32,FOLLOW_25); 
 
-            			newLeafNode(otherlv_8, grammarAccess.getTransitionAccess().getRightCurlyBracketKeyword_7());
+            			newLeafNode(otherlv_6, grammarAccess.getTransitionAccess().getEqualsSignKeyword_6());
             		
+            // InternalAlarm.g:836:3: ( (lv_value_7_0= ruleSIGNAL ) )
+            // InternalAlarm.g:837:4: (lv_value_7_0= ruleSIGNAL )
+            {
+            // InternalAlarm.g:837:4: (lv_value_7_0= ruleSIGNAL )
+            // InternalAlarm.g:838:5: lv_value_7_0= ruleSIGNAL
+            {
+
+            					newCompositeNode(grammarAccess.getTransitionAccess().getValueSIGNALEnumRuleCall_7_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_value_7_0=ruleSIGNAL();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getTransitionRule());
+            					}
+            					set(
+            						current,
+            						"value",
+            						lv_value_7_0,
+            						"alarm.xtext.Alarm.SIGNAL");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
 
             }
 
@@ -2170,7 +2016,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSimpleAlarm"
-    // InternalAlarm.g:927:1: entryRuleSimpleAlarm returns [EObject current=null] : iv_ruleSimpleAlarm= ruleSimpleAlarm EOF ;
+    // InternalAlarm.g:859:1: entryRuleSimpleAlarm returns [EObject current=null] : iv_ruleSimpleAlarm= ruleSimpleAlarm EOF ;
     public final EObject entryRuleSimpleAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2178,8 +2024,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:927:52: (iv_ruleSimpleAlarm= ruleSimpleAlarm EOF )
-            // InternalAlarm.g:928:2: iv_ruleSimpleAlarm= ruleSimpleAlarm EOF
+            // InternalAlarm.g:859:52: (iv_ruleSimpleAlarm= ruleSimpleAlarm EOF )
+            // InternalAlarm.g:860:2: iv_ruleSimpleAlarm= ruleSimpleAlarm EOF
             {
              newCompositeNode(grammarAccess.getSimpleAlarmRule()); 
             pushFollow(FOLLOW_1);
@@ -2206,7 +2052,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSimpleAlarm"
-    // InternalAlarm.g:934:1: ruleSimpleAlarm returns [EObject current=null] : (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' ) ;
+    // InternalAlarm.g:866:1: ruleSimpleAlarm returns [EObject current=null] : (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' ) ;
     public final EObject ruleSimpleAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2223,26 +2069,26 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:940:2: ( (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' ) )
-            // InternalAlarm.g:941:2: (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' )
+            // InternalAlarm.g:872:2: ( (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' ) )
+            // InternalAlarm.g:873:2: (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' )
             {
-            // InternalAlarm.g:941:2: (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' )
-            // InternalAlarm.g:942:3: otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}'
+            // InternalAlarm.g:873:2: (otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}' )
+            // InternalAlarm.g:874:3: otherlv_0= 'SimpleAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= 'buzzer' ( ( ruleEString ) ) otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,32,FOLLOW_3); 
+            otherlv_0=(Token)match(input,36,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSimpleAlarmAccess().getSimpleAlarmKeyword_0());
             		
-            // InternalAlarm.g:946:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAlarm.g:947:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:878:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAlarm.g:879:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAlarm.g:947:4: (lv_name_1_0= ruleEString )
-            // InternalAlarm.g:948:5: lv_name_1_0= ruleEString
+            // InternalAlarm.g:879:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:880:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getSimpleAlarmAccess().getNameEStringParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_15);
             lv_name_1_0=ruleEString();
 
             state._fsp--;
@@ -2264,19 +2110,19 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_27); 
+            otherlv_2=(Token)match(input,22,FOLLOW_29); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSimpleAlarmAccess().getLeftCurlyBracketKeyword_2());
             		
-            otherlv_3=(Token)match(input,33,FOLLOW_3); 
+            otherlv_3=(Token)match(input,37,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getSimpleAlarmAccess().getButtonKeyword_3());
             		
-            // InternalAlarm.g:973:3: ( ( ruleEString ) )
-            // InternalAlarm.g:974:4: ( ruleEString )
+            // InternalAlarm.g:905:3: ( ( ruleEString ) )
+            // InternalAlarm.g:906:4: ( ruleEString )
             {
-            // InternalAlarm.g:974:4: ( ruleEString )
-            // InternalAlarm.g:975:5: ruleEString
+            // InternalAlarm.g:906:4: ( ruleEString )
+            // InternalAlarm.g:907:5: ruleEString
             {
 
             					if (current==null) {
@@ -2286,7 +2132,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getSimpleAlarmAccess().getButtonSensorCrossReference_4_0());
             				
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_30);
             ruleEString();
 
             state._fsp--;
@@ -2300,15 +2146,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,34,FOLLOW_3); 
+            otherlv_5=(Token)match(input,38,FOLLOW_4); 
 
             			newLeafNode(otherlv_5, grammarAccess.getSimpleAlarmAccess().getLedKeyword_5());
             		
-            // InternalAlarm.g:993:3: ( ( ruleEString ) )
-            // InternalAlarm.g:994:4: ( ruleEString )
+            // InternalAlarm.g:925:3: ( ( ruleEString ) )
+            // InternalAlarm.g:926:4: ( ruleEString )
             {
-            // InternalAlarm.g:994:4: ( ruleEString )
-            // InternalAlarm.g:995:5: ruleEString
+            // InternalAlarm.g:926:4: ( ruleEString )
+            // InternalAlarm.g:927:5: ruleEString
             {
 
             					if (current==null) {
@@ -2318,7 +2164,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getSimpleAlarmAccess().getLedActuatorCrossReference_6_0());
             				
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_31);
             ruleEString();
 
             state._fsp--;
@@ -2332,15 +2178,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,35,FOLLOW_3); 
+            otherlv_7=(Token)match(input,39,FOLLOW_4); 
 
             			newLeafNode(otherlv_7, grammarAccess.getSimpleAlarmAccess().getBuzzerKeyword_7());
             		
-            // InternalAlarm.g:1013:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1014:4: ( ruleEString )
+            // InternalAlarm.g:945:3: ( ( ruleEString ) )
+            // InternalAlarm.g:946:4: ( ruleEString )
             {
-            // InternalAlarm.g:1014:4: ( ruleEString )
-            // InternalAlarm.g:1015:5: ruleEString
+            // InternalAlarm.g:946:4: ( ruleEString )
+            // InternalAlarm.g:947:5: ruleEString
             {
 
             					if (current==null) {
@@ -2350,7 +2196,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getSimpleAlarmAccess().getBuzzerActuatorCrossReference_8_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_32);
             ruleEString();
 
             state._fsp--;
@@ -2364,7 +2210,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,16,FOLLOW_2); 
+            otherlv_9=(Token)match(input,23,FOLLOW_2); 
 
             			newLeafNode(otherlv_9, grammarAccess.getSimpleAlarmAccess().getRightCurlyBracketKeyword_9());
             		
@@ -2391,7 +2237,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDualCheckAlarm"
-    // InternalAlarm.g:1037:1: entryRuleDualCheckAlarm returns [EObject current=null] : iv_ruleDualCheckAlarm= ruleDualCheckAlarm EOF ;
+    // InternalAlarm.g:969:1: entryRuleDualCheckAlarm returns [EObject current=null] : iv_ruleDualCheckAlarm= ruleDualCheckAlarm EOF ;
     public final EObject entryRuleDualCheckAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2399,8 +2245,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:1037:55: (iv_ruleDualCheckAlarm= ruleDualCheckAlarm EOF )
-            // InternalAlarm.g:1038:2: iv_ruleDualCheckAlarm= ruleDualCheckAlarm EOF
+            // InternalAlarm.g:969:55: (iv_ruleDualCheckAlarm= ruleDualCheckAlarm EOF )
+            // InternalAlarm.g:970:2: iv_ruleDualCheckAlarm= ruleDualCheckAlarm EOF
             {
              newCompositeNode(grammarAccess.getDualCheckAlarmRule()); 
             pushFollow(FOLLOW_1);
@@ -2427,7 +2273,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDualCheckAlarm"
-    // InternalAlarm.g:1044:1: ruleDualCheckAlarm returns [EObject current=null] : (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' ) ;
+    // InternalAlarm.g:976:1: ruleDualCheckAlarm returns [EObject current=null] : (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' ) ;
     public final EObject ruleDualCheckAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2444,26 +2290,26 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:1050:2: ( (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' ) )
-            // InternalAlarm.g:1051:2: (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' )
+            // InternalAlarm.g:982:2: ( (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' ) )
+            // InternalAlarm.g:983:2: (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' )
             {
-            // InternalAlarm.g:1051:2: (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' )
-            // InternalAlarm.g:1052:3: otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}'
+            // InternalAlarm.g:983:2: (otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}' )
+            // InternalAlarm.g:984:3: otherlv_0= 'DualCheckAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'button2' ( ( ruleEString ) ) otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_3); 
+            otherlv_0=(Token)match(input,40,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDualCheckAlarmAccess().getDualCheckAlarmKeyword_0());
             		
-            // InternalAlarm.g:1056:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAlarm.g:1057:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:988:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAlarm.g:989:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAlarm.g:1057:4: (lv_name_1_0= ruleEString )
-            // InternalAlarm.g:1058:5: lv_name_1_0= ruleEString
+            // InternalAlarm.g:989:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:990:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getDualCheckAlarmAccess().getNameEStringParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_15);
             lv_name_1_0=ruleEString();
 
             state._fsp--;
@@ -2485,19 +2331,19 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_27); 
+            otherlv_2=(Token)match(input,22,FOLLOW_29); 
 
             			newLeafNode(otherlv_2, grammarAccess.getDualCheckAlarmAccess().getLeftCurlyBracketKeyword_2());
             		
-            otherlv_3=(Token)match(input,33,FOLLOW_3); 
+            otherlv_3=(Token)match(input,37,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getDualCheckAlarmAccess().getButtonKeyword_3());
             		
-            // InternalAlarm.g:1083:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1084:4: ( ruleEString )
+            // InternalAlarm.g:1015:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1016:4: ( ruleEString )
             {
-            // InternalAlarm.g:1084:4: ( ruleEString )
-            // InternalAlarm.g:1085:5: ruleEString
+            // InternalAlarm.g:1016:4: ( ruleEString )
+            // InternalAlarm.g:1017:5: ruleEString
             {
 
             					if (current==null) {
@@ -2507,7 +2353,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getDualCheckAlarmAccess().getButtonSensorCrossReference_4_0());
             				
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_31);
             ruleEString();
 
             state._fsp--;
@@ -2521,15 +2367,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,35,FOLLOW_3); 
+            otherlv_5=(Token)match(input,39,FOLLOW_4); 
 
             			newLeafNode(otherlv_5, grammarAccess.getDualCheckAlarmAccess().getBuzzerKeyword_5());
             		
-            // InternalAlarm.g:1103:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1104:4: ( ruleEString )
+            // InternalAlarm.g:1035:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1036:4: ( ruleEString )
             {
-            // InternalAlarm.g:1104:4: ( ruleEString )
-            // InternalAlarm.g:1105:5: ruleEString
+            // InternalAlarm.g:1036:4: ( ruleEString )
+            // InternalAlarm.g:1037:5: ruleEString
             {
 
             					if (current==null) {
@@ -2539,7 +2385,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getDualCheckAlarmAccess().getBuzzerActuatorCrossReference_6_0());
             				
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_33);
             ruleEString();
 
             state._fsp--;
@@ -2553,15 +2399,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,37,FOLLOW_3); 
+            otherlv_7=(Token)match(input,41,FOLLOW_4); 
 
             			newLeafNode(otherlv_7, grammarAccess.getDualCheckAlarmAccess().getButton2Keyword_7());
             		
-            // InternalAlarm.g:1123:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1124:4: ( ruleEString )
+            // InternalAlarm.g:1055:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1056:4: ( ruleEString )
             {
-            // InternalAlarm.g:1124:4: ( ruleEString )
-            // InternalAlarm.g:1125:5: ruleEString
+            // InternalAlarm.g:1056:4: ( ruleEString )
+            // InternalAlarm.g:1057:5: ruleEString
             {
 
             					if (current==null) {
@@ -2571,7 +2417,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getDualCheckAlarmAccess().getButton2SensorCrossReference_8_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_32);
             ruleEString();
 
             state._fsp--;
@@ -2585,7 +2431,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,16,FOLLOW_2); 
+            otherlv_9=(Token)match(input,23,FOLLOW_2); 
 
             			newLeafNode(otherlv_9, grammarAccess.getDualCheckAlarmAccess().getRightCurlyBracketKeyword_9());
             		
@@ -2612,7 +2458,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStateBasedAlarm"
-    // InternalAlarm.g:1147:1: entryRuleStateBasedAlarm returns [EObject current=null] : iv_ruleStateBasedAlarm= ruleStateBasedAlarm EOF ;
+    // InternalAlarm.g:1079:1: entryRuleStateBasedAlarm returns [EObject current=null] : iv_ruleStateBasedAlarm= ruleStateBasedAlarm EOF ;
     public final EObject entryRuleStateBasedAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2620,8 +2466,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:1147:56: (iv_ruleStateBasedAlarm= ruleStateBasedAlarm EOF )
-            // InternalAlarm.g:1148:2: iv_ruleStateBasedAlarm= ruleStateBasedAlarm EOF
+            // InternalAlarm.g:1079:56: (iv_ruleStateBasedAlarm= ruleStateBasedAlarm EOF )
+            // InternalAlarm.g:1080:2: iv_ruleStateBasedAlarm= ruleStateBasedAlarm EOF
             {
              newCompositeNode(grammarAccess.getStateBasedAlarmRule()); 
             pushFollow(FOLLOW_1);
@@ -2648,7 +2494,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStateBasedAlarm"
-    // InternalAlarm.g:1154:1: ruleStateBasedAlarm returns [EObject current=null] : (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' ) ;
+    // InternalAlarm.g:1086:1: ruleStateBasedAlarm returns [EObject current=null] : (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' ) ;
     public final EObject ruleStateBasedAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2664,26 +2510,26 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:1160:2: ( (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' ) )
-            // InternalAlarm.g:1161:2: (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' )
+            // InternalAlarm.g:1092:2: ( (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' ) )
+            // InternalAlarm.g:1093:2: (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' )
             {
-            // InternalAlarm.g:1161:2: (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' )
-            // InternalAlarm.g:1162:3: otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}'
+            // InternalAlarm.g:1093:2: (otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}' )
+            // InternalAlarm.g:1094:3: otherlv_0= 'StateBasedAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'Led' ( ( ruleEString ) ) otherlv_7= '}'
             {
-            otherlv_0=(Token)match(input,38,FOLLOW_3); 
+            otherlv_0=(Token)match(input,42,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getStateBasedAlarmAccess().getStateBasedAlarmKeyword_0());
             		
-            // InternalAlarm.g:1166:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAlarm.g:1167:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:1098:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAlarm.g:1099:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAlarm.g:1167:4: (lv_name_1_0= ruleEString )
-            // InternalAlarm.g:1168:5: lv_name_1_0= ruleEString
+            // InternalAlarm.g:1099:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:1100:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getStateBasedAlarmAccess().getNameEStringParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_15);
             lv_name_1_0=ruleEString();
 
             state._fsp--;
@@ -2705,19 +2551,19 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_27); 
+            otherlv_2=(Token)match(input,22,FOLLOW_29); 
 
             			newLeafNode(otherlv_2, grammarAccess.getStateBasedAlarmAccess().getLeftCurlyBracketKeyword_2());
             		
-            otherlv_3=(Token)match(input,33,FOLLOW_3); 
+            otherlv_3=(Token)match(input,37,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getStateBasedAlarmAccess().getButtonKeyword_3());
             		
-            // InternalAlarm.g:1193:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1194:4: ( ruleEString )
+            // InternalAlarm.g:1125:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1126:4: ( ruleEString )
             {
-            // InternalAlarm.g:1194:4: ( ruleEString )
-            // InternalAlarm.g:1195:5: ruleEString
+            // InternalAlarm.g:1126:4: ( ruleEString )
+            // InternalAlarm.g:1127:5: ruleEString
             {
 
             					if (current==null) {
@@ -2727,7 +2573,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getStateBasedAlarmAccess().getButtonSensorCrossReference_4_0());
             				
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_30);
             ruleEString();
 
             state._fsp--;
@@ -2741,15 +2587,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,34,FOLLOW_3); 
+            otherlv_5=(Token)match(input,38,FOLLOW_4); 
 
             			newLeafNode(otherlv_5, grammarAccess.getStateBasedAlarmAccess().getLedKeyword_5());
             		
-            // InternalAlarm.g:1213:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1214:4: ( ruleEString )
+            // InternalAlarm.g:1145:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1146:4: ( ruleEString )
             {
-            // InternalAlarm.g:1214:4: ( ruleEString )
-            // InternalAlarm.g:1215:5: ruleEString
+            // InternalAlarm.g:1146:4: ( ruleEString )
+            // InternalAlarm.g:1147:5: ruleEString
             {
 
             					if (current==null) {
@@ -2759,7 +2605,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getStateBasedAlarmAccess().getLedActuatorCrossReference_6_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_32);
             ruleEString();
 
             state._fsp--;
@@ -2773,7 +2619,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,16,FOLLOW_2); 
+            otherlv_7=(Token)match(input,23,FOLLOW_2); 
 
             			newLeafNode(otherlv_7, grammarAccess.getStateBasedAlarmAccess().getRightCurlyBracketKeyword_7());
             		
@@ -2800,7 +2646,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMultiStateAlarm"
-    // InternalAlarm.g:1237:1: entryRuleMultiStateAlarm returns [EObject current=null] : iv_ruleMultiStateAlarm= ruleMultiStateAlarm EOF ;
+    // InternalAlarm.g:1169:1: entryRuleMultiStateAlarm returns [EObject current=null] : iv_ruleMultiStateAlarm= ruleMultiStateAlarm EOF ;
     public final EObject entryRuleMultiStateAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2808,8 +2654,8 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalAlarm.g:1237:56: (iv_ruleMultiStateAlarm= ruleMultiStateAlarm EOF )
-            // InternalAlarm.g:1238:2: iv_ruleMultiStateAlarm= ruleMultiStateAlarm EOF
+            // InternalAlarm.g:1169:56: (iv_ruleMultiStateAlarm= ruleMultiStateAlarm EOF )
+            // InternalAlarm.g:1170:2: iv_ruleMultiStateAlarm= ruleMultiStateAlarm EOF
             {
              newCompositeNode(grammarAccess.getMultiStateAlarmRule()); 
             pushFollow(FOLLOW_1);
@@ -2836,7 +2682,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultiStateAlarm"
-    // InternalAlarm.g:1244:1: ruleMultiStateAlarm returns [EObject current=null] : (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' ) ;
+    // InternalAlarm.g:1176:1: ruleMultiStateAlarm returns [EObject current=null] : (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' ) ;
     public final EObject ruleMultiStateAlarm() throws RecognitionException {
         EObject current = null;
 
@@ -2853,26 +2699,26 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:1250:2: ( (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' ) )
-            // InternalAlarm.g:1251:2: (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' )
+            // InternalAlarm.g:1182:2: ( (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' ) )
+            // InternalAlarm.g:1183:2: (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' )
             {
-            // InternalAlarm.g:1251:2: (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' )
-            // InternalAlarm.g:1252:3: otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}'
+            // InternalAlarm.g:1183:2: (otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}' )
+            // InternalAlarm.g:1184:3: otherlv_0= 'MultiStateAlarm' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '{' otherlv_3= 'button' ( ( ruleEString ) ) otherlv_5= 'buzzer' ( ( ruleEString ) ) otherlv_7= 'Led' ( ( ruleEString ) ) otherlv_9= '}'
             {
-            otherlv_0=(Token)match(input,39,FOLLOW_3); 
+            otherlv_0=(Token)match(input,43,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getMultiStateAlarmAccess().getMultiStateAlarmKeyword_0());
             		
-            // InternalAlarm.g:1256:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalAlarm.g:1257:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:1188:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalAlarm.g:1189:4: (lv_name_1_0= ruleEString )
             {
-            // InternalAlarm.g:1257:4: (lv_name_1_0= ruleEString )
-            // InternalAlarm.g:1258:5: lv_name_1_0= ruleEString
+            // InternalAlarm.g:1189:4: (lv_name_1_0= ruleEString )
+            // InternalAlarm.g:1190:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getMultiStateAlarmAccess().getNameEStringParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_15);
             lv_name_1_0=ruleEString();
 
             state._fsp--;
@@ -2894,19 +2740,19 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FOLLOW_27); 
+            otherlv_2=(Token)match(input,22,FOLLOW_29); 
 
             			newLeafNode(otherlv_2, grammarAccess.getMultiStateAlarmAccess().getLeftCurlyBracketKeyword_2());
             		
-            otherlv_3=(Token)match(input,33,FOLLOW_3); 
+            otherlv_3=(Token)match(input,37,FOLLOW_4); 
 
             			newLeafNode(otherlv_3, grammarAccess.getMultiStateAlarmAccess().getButtonKeyword_3());
             		
-            // InternalAlarm.g:1283:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1284:4: ( ruleEString )
+            // InternalAlarm.g:1215:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1216:4: ( ruleEString )
             {
-            // InternalAlarm.g:1284:4: ( ruleEString )
-            // InternalAlarm.g:1285:5: ruleEString
+            // InternalAlarm.g:1216:4: ( ruleEString )
+            // InternalAlarm.g:1217:5: ruleEString
             {
 
             					if (current==null) {
@@ -2916,7 +2762,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getMultiStateAlarmAccess().getButtonSensorCrossReference_4_0());
             				
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_31);
             ruleEString();
 
             state._fsp--;
@@ -2930,15 +2776,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,35,FOLLOW_3); 
+            otherlv_5=(Token)match(input,39,FOLLOW_4); 
 
             			newLeafNode(otherlv_5, grammarAccess.getMultiStateAlarmAccess().getBuzzerKeyword_5());
             		
-            // InternalAlarm.g:1303:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1304:4: ( ruleEString )
+            // InternalAlarm.g:1235:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1236:4: ( ruleEString )
             {
-            // InternalAlarm.g:1304:4: ( ruleEString )
-            // InternalAlarm.g:1305:5: ruleEString
+            // InternalAlarm.g:1236:4: ( ruleEString )
+            // InternalAlarm.g:1237:5: ruleEString
             {
 
             					if (current==null) {
@@ -2948,7 +2794,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getMultiStateAlarmAccess().getBuzzerActuatorCrossReference_6_0());
             				
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_30);
             ruleEString();
 
             state._fsp--;
@@ -2962,15 +2808,15 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_7=(Token)match(input,34,FOLLOW_3); 
+            otherlv_7=(Token)match(input,38,FOLLOW_4); 
 
             			newLeafNode(otherlv_7, grammarAccess.getMultiStateAlarmAccess().getLedKeyword_7());
             		
-            // InternalAlarm.g:1323:3: ( ( ruleEString ) )
-            // InternalAlarm.g:1324:4: ( ruleEString )
+            // InternalAlarm.g:1255:3: ( ( ruleEString ) )
+            // InternalAlarm.g:1256:4: ( ruleEString )
             {
-            // InternalAlarm.g:1324:4: ( ruleEString )
-            // InternalAlarm.g:1325:5: ruleEString
+            // InternalAlarm.g:1256:4: ( ruleEString )
+            // InternalAlarm.g:1257:5: ruleEString
             {
 
             					if (current==null) {
@@ -2980,7 +2826,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getMultiStateAlarmAccess().getLedActuatorCrossReference_8_0());
             				
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_32);
             ruleEString();
 
             state._fsp--;
@@ -2994,7 +2840,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,16,FOLLOW_2); 
+            otherlv_9=(Token)match(input,23,FOLLOW_2); 
 
             			newLeafNode(otherlv_9, grammarAccess.getMultiStateAlarmAccess().getRightCurlyBracketKeyword_9());
             		
@@ -3021,7 +2867,7 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSIGNAL"
-    // InternalAlarm.g:1347:1: ruleSIGNAL returns [Enumerator current=null] : ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) ;
+    // InternalAlarm.g:1279:1: ruleSIGNAL returns [Enumerator current=null] : ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) ;
     public final Enumerator ruleSIGNAL() throws RecognitionException {
         Enumerator current = null;
 
@@ -3032,33 +2878,33 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalAlarm.g:1353:2: ( ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) )
-            // InternalAlarm.g:1354:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
+            // InternalAlarm.g:1285:2: ( ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) ) )
+            // InternalAlarm.g:1286:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
             {
-            // InternalAlarm.g:1354:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalAlarm.g:1286:2: ( (enumLiteral_0= 'HIGH' ) | (enumLiteral_1= 'LOW' ) )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA14_0==40) ) {
-                alt14=1;
+            if ( (LA10_0==44) ) {
+                alt10=1;
             }
-            else if ( (LA14_0==41) ) {
-                alt14=2;
+            else if ( (LA10_0==45) ) {
+                alt10=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt14) {
+            switch (alt10) {
                 case 1 :
-                    // InternalAlarm.g:1355:3: (enumLiteral_0= 'HIGH' )
+                    // InternalAlarm.g:1287:3: (enumLiteral_0= 'HIGH' )
                     {
-                    // InternalAlarm.g:1355:3: (enumLiteral_0= 'HIGH' )
-                    // InternalAlarm.g:1356:4: enumLiteral_0= 'HIGH'
+                    // InternalAlarm.g:1287:3: (enumLiteral_0= 'HIGH' )
+                    // InternalAlarm.g:1288:4: enumLiteral_0= 'HIGH'
                     {
-                    enumLiteral_0=(Token)match(input,40,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,44,FOLLOW_2); 
 
                     				current = grammarAccess.getSIGNALAccess().getHIGHEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getSIGNALAccess().getHIGHEnumLiteralDeclaration_0());
@@ -3070,12 +2916,12 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalAlarm.g:1363:3: (enumLiteral_1= 'LOW' )
+                    // InternalAlarm.g:1295:3: (enumLiteral_1= 'LOW' )
                     {
-                    // InternalAlarm.g:1363:3: (enumLiteral_1= 'LOW' )
-                    // InternalAlarm.g:1364:4: enumLiteral_1= 'LOW'
+                    // InternalAlarm.g:1295:3: (enumLiteral_1= 'LOW' )
+                    // InternalAlarm.g:1296:4: enumLiteral_1= 'LOW'
                     {
-                    enumLiteral_1=(Token)match(input,41,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,45,FOLLOW_2); 
 
                     				current = grammarAccess.getSIGNALAccess().getLOWEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getSIGNALAccess().getLOWEnumLiteralDeclaration_1());
@@ -3114,33 +2960,36 @@ public class InternalAlarmParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000002800000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000018000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000050000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x000000D100000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000001010000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000400040L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000018000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000030000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000048000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x00000D1000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000840000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000040000040L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000300000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000020000000000L});
 
 }

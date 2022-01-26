@@ -54,7 +54,7 @@ public interface Action extends EObject {
 	 * @see alarm.SIGNAL
 	 * @see #setValue(SIGNAL)
 	 * @see alarm.alarmPackage#getAction_Value()
-	 * @model default="LOW"
+	 * @model default="LOW" required="true"
 	 * @generated
 	 */
 	SIGNAL getValue();

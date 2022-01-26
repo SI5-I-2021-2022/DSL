@@ -26,7 +26,7 @@ public interface Brick extends NamedElement {
 	 * @return the value of the '<em>Pin</em>' attribute.
 	 * @see #setPin(int)
 	 * @see alarm.alarmPackage#getBrick_Pin()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getPin();

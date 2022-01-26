@@ -44,8 +44,15 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_Action(context, (alarm.Action) semanticObject); 
 				return; 
 			case alarmPackage.ACTUATOR:
-				sequence_Actuator(context, (Actuator) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getActuatorRule()) {
+					sequence_Actuator(context, (Actuator) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getBrickRule()) {
+					sequence_Actuator_Brick(context, (Actuator) semanticObject); 
+					return; 
+				}
+				else break;
 			case alarmPackage.APP:
 				sequence_App(context, (App) semanticObject); 
 				return; 
@@ -56,8 +63,15 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				sequence_MultiStateAlarm(context, (MultiStateAlarm) semanticObject); 
 				return; 
 			case alarmPackage.SENSOR:
-				sequence_Sensor(context, (Sensor) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getBrickRule()) {
+					sequence_Brick_Sensor(context, (Sensor) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getSensorRule()) {
+					sequence_Sensor(context, (Sensor) semanticObject); 
+					return; 
+				}
+				else break;
 			case alarmPackage.SIMPLE_ALARM:
 				sequence_SimpleAlarm(context, (SimpleAlarm) semanticObject); 
 				return; 
@@ -80,9 +94,30 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (value=SIGNAL? actuator=[Actuator|EString])
+	 *     (actuator=[Actuator|EString] value=SIGNAL)
 	 */
 	protected void sequence_Action(ISerializationContext context, alarm.Action semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.ACTION__ACTUATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.ACTION__ACTUATOR));
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.ACTION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.ACTION__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getActionAccess().getActuatorActuatorEStringParserRuleCall_1_0_1(), semanticObject.eGet(alarmPackage.Literals.ACTION__ACTUATOR, false));
+		feeder.accept(grammarAccess.getActionAccess().getValueSIGNALEnumRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Actuator returns Actuator
+	 *
+	 * Constraint:
+	 *     {Actuator}
+	 */
+	protected void sequence_Actuator(ISerializationContext context, Actuator semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -90,13 +125,21 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Contexts:
 	 *     Brick returns Actuator
-	 *     Actuator returns Actuator
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt?)
+	 *     (name=EString pin=EInt)
 	 */
-	protected void sequence_Actuator(ISerializationContext context, Actuator semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Actuator_Brick(ISerializationContext context, Actuator semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.BRICK__PIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.BRICK__PIN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_4_0(), semanticObject.getPin());
+		feeder.finish();
 	}
 	
 	
@@ -117,6 +160,27 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 */
 	protected void sequence_App(ISerializationContext context, App semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Brick returns Sensor
+	 *
+	 * Constraint:
+	 *     (name=EString pin=EInt)
+	 */
+	protected void sequence_Brick_Sensor(ISerializationContext context, Sensor semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.BRICK__PIN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.BRICK__PIN));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_4_0(), semanticObject.getPin());
+		feeder.finish();
 	}
 	
 	
@@ -178,11 +242,10 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Brick returns Sensor
 	 *     Sensor returns Sensor
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt?)
+	 *     {Sensor}
 	 */
 	protected void sequence_Sensor(ISerializationContext context, Sensor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -259,10 +322,22 @@ public class AlarmSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     (value=SIGNAL? sensor=[Sensor|EString] next=[State|EString])
+	 *     (next=[State|EString] sensor=[Sensor|EString] value=SIGNAL)
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.TRANSITION__NEXT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.TRANSITION__NEXT));
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.TRANSITION__SENSOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.TRANSITION__SENSOR));
+			if (transientValues.isValueTransient(semanticObject, alarmPackage.Literals.TRANSITION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, alarmPackage.Literals.TRANSITION__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTransitionAccess().getNextStateEStringParserRuleCall_3_0_1(), semanticObject.eGet(alarmPackage.Literals.TRANSITION__NEXT, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getSensorSensorEStringParserRuleCall_5_0_1(), semanticObject.eGet(alarmPackage.Literals.TRANSITION__SENSOR, false));
+		feeder.accept(grammarAccess.getTransitionAccess().getValueSIGNALEnumRuleCall_7_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

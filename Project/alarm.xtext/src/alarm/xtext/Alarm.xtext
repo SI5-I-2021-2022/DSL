@@ -5,70 +5,41 @@ import "http://www.example.org/alarm"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 App returns App:
-	'App'
-	name=EString
-	'{'
-		'initial' initial=[State|EString]
-		'bricks' '{' bricks+=Brick ( "," bricks+=Brick)* '}' 
-		'states' '{' states+=State ( "," states+=State)* '}' 
-		('alarm' '{' alarm+=Alarm ( "," alarm+=Alarm)* '}' )?
-	'}';
+	'create' 'App' name=EString 'which' 'start' 'with' initial=[State|EString] ':'
+	'with' 'bricks' ':' bricks+=Brick (',' bricks+=Brick)* ';'
+	'with' 'states' ':' states+=State ( "," states+=State)* ';' 
+	('alarm' '{' alarm+=Alarm ( "," alarm+=Alarm)* '}' )?;
 
 Brick returns Brick:
-	Sensor | Actuator;
+	(Sensor | Actuator) name=EString 'on' 'pin' pin=EInt;
 
+Sensor returns Sensor:
+	{Sensor} 'Sensor';
+
+Actuator returns Actuator:
+	{Actuator} 'Actuator';
 
 Alarm returns Alarm:
 	SimpleAlarm | DualCheckAlarm | StateBasedAlarm | MultiStateAlarm;
-
-
-
 
 
 EString returns ecore::EString:
 	STRING | ID;
 
 State returns State:
-	'State'
-	name=EString
-	'{'
-		'actions' '{' actions+=Action ( "," actions+=Action)* '}' 
-		'transition' transition=Transition
-	'}';
+	'State' name=EString
+		'with' 'actions' ':' actions+=Action ( "," actions+=Action)* ';'
+		transition=Transition;
 
 EInt returns ecore::EInt:
 	'-'? INT;
 
-Sensor returns Sensor:
-	{Sensor}
-	'Sensor'
-	name=EString
-	'{'
-		('pin' pin=EInt)?
-	'}';
-
-Actuator returns Actuator:
-	{Actuator}
-	'Actuator'
-	name=EString
-	'{'
-		('pin' pin=EInt)?
-	'}';
 
 Action returns Action:
-	'Action'
-	'{'
-		('value' value=SIGNAL)?
-		'actuator' actuator=[Actuator|EString]
-	'}';
+	'do' actuator=[Actuator|EString] '=' value=SIGNAL;
 
 Transition returns Transition:
-	'Transition'
-	'{'
-		('value' value=SIGNAL)?
-		'sensor' sensor=[Sensor|EString]
-		'next' next=[State|EString]
-	'}';
+	'with' 'Transition' 'to' next=[State|EString] 'when' sensor=[Sensor|EString] '=' value=SIGNAL;
 
 enum SIGNAL returns SIGNAL:
 				HIGH = 'HIGH' | LOW = 'LOW';
