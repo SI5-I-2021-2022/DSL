@@ -3,10 +3,11 @@ import State from "../model/State.js";
 import BrickBuilder from "./BrickBuilder.js";
 import StateBuilder from "./StateBuilder.js";
 import App from "../model/App.js"
+
 const ACTUATOR = 0
 const SENSOR = 1
 
-
+//TODOOOOOOO
 class AppBuilder {
     constructor(name) {
         this.name = name;
@@ -14,23 +15,23 @@ class AppBuilder {
         this.states = [];
     }
 
-    actuator(actuator) {
+    addActuator(actuator) {
         let builder = new BrickBuilder(this, actuator, ACTUATOR)
         this.bricks.push(builder)
         return builder
     }
-    sensor(sensor) {
+    addSensor(sensor) {
         let builder = new BrickBuilder(this, sensor, SENSOR)
         this.bricks.push(builder)
         return builder
     }
-    state(state) {
+    beginState(state) {
         let builder = new StateBuilder(this, state)
         this.states.push(builder)
         return builder
     }
 
-    get_content() {
+    createModel() {
         let bricks = {}
         console.log(this.bricks.length)
         for (let i; i < this.bricks.length; i++) {

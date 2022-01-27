@@ -17,7 +17,7 @@ function App(name, bricks, states, initial) {
 
         let stringRes = "";
         stringRes +=
-            `// Wiring code generated from an ArduinoML model
+`// Wiring code generated from an ArduinoML model
 // Application name: ${this.name}\n\n`
 
         if (haveTemporal) {
@@ -28,7 +28,7 @@ function App(name, bricks, states, initial) {
         stringRes += this.states.map((state) => { return state.name }).join(",");
         stringRes += "};\n\n";
 
-        stringRes += `State currentState = ${initial};\n\n`;
+        stringRes += `State currentState = ${initial.name};\n\n`;
 
         stringRes += this.bricks.map((brick) => { return brick.Declaration() }).join("");
 

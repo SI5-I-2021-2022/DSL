@@ -6,18 +6,19 @@ const SENSOR = 1
 
 
 class BrickBuilder {
-    constructor(root, name, kind) {
-        this.root = root;
+    constructor(rootBuilder, name, kind) {
+        this.rootBuilder = rootBuilder;
         this.name = name;
         this.kind = kind;
         this.pin = null;
     }
 
-    on_pin(pin) {
+    onPin(pin) {
         this.pin = pin;
         return this.root;
     }
-    get_content() {
+
+    createModel() {
         if (this.kind == ACTUATOR) {
             return new Actuator(this.name, this.pin);
         }

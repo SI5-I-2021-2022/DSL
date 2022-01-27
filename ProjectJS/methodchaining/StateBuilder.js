@@ -1,49 +1,59 @@
-import Transition from "../model/Transition.js";
 import State from "../model/State.js";
-import StateActionBuilder from "./StateActionBuilder.js";
-import TransitionBuilder from "./TransitionBuilder.js";
+import ActionBuilder from "./ActionBuilder.js";
+import SensorTransitionBuilder from "./SensorTransitionBuilder.js";
+import SensorConditionBuilder from "./SensorConditionBuilder.js";
+import TemporalTransitionBuilder from "./TemporalTransitionBuilder.js";
 
 
 
 class StateBuilder {
-    constructor(root, state) {
-        this.root = root;
+    constructor(rootBuilder, state) {
+        this.rootBuilder = rootBuilder;
         this.state = state;
         this.actions = [];
-        this.transition = null;
+        this.transitions = [];
+    }
+
+    endState(){
+        return this.rootBuilder;
     }
 
     set(actuator) {
-        let action = new StateActionBuilder(this, actuator)
-        this.actions = [action]
+        let action = new ActionBuilder(this, actuator)
+        this.actions.push(action)
         return action;
     }
+
     when(sensor) {
-        let transition = new TransitionBuilder(this, sensor)
-        this.transition = transition
-        return transition;
+        let sensorTransition = new SensorTransitionBuilder(this)
+        let sensorCond = new SensorConditionBuilder(sensorTransition,sensor)
+        sensorTransition.sensorCondition.push(sensorCond);
+
+        this.transitions.push(sensorTransition)
+        return sensorCond;
     }
 
-    get_content(bricks, states) {
-        if (this.transition.sensors in bricks) {
-            if (this.transition.state in states) {
-                let builder = []
-                for (let i = 0; i < length(this.actions); i = i + 1) {
-                    builder.push(this.actions[i].get_content(bricks))
-                }
-                return new State(this.state, null, builder)
-            } else { throw "UNDEFINED STATE" }
-        } else { throw "UNDEFINED BRICK" }
+    after(millisecond){
+        let temporalTransition = new TemporalTransitionBuilder(this,millisecond)
+        this.transitions.push(temporalTransition);
+        return temporalTransition;
     }
-    get_content2(bricks, states) {
-        if (this.transition.sensors in bricks) {
-            if (this.transition.state in states) {
-                if (this.transition.next_state in states) {
-                    let trans = new Transition(states[this.transition.next_state], this.transition.value, bricks[this.transition.sensor])
-                    states[this.state].transition = trans
-                } else { throw "UNDEFINED NEXT STATE" }
-            } else { throw "UNDEFINED STATE" }
-        } else { throw "UNDEFINED BRICK" }
+
+    createStateModel(bricks) {
+        let actionModels = []
+        for(let action of this.actions){
+            if(action.actuator in bricks){
+                actionModels.push(action.createModel(bricks));
+            } else { throw "UNDEFINED BRICK" }
+        }
+        return new State(this.state,null,actionModels);
+    }
+
+    createTransitionModel(bricks, states) {
+        let transitionModels = []
+        for(let transition of this.transitions){
+            transitionModels.push(transition.createModel(bricks,states))
+        }
     }
 }
 

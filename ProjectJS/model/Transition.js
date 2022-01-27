@@ -1,7 +1,6 @@
-function Transition(next, type, sensor) {
+function Transition(next, type) {
     this.next = next;
     this.type = type;
-    this.sensor = sensor
 }
 
 export default Transition;
