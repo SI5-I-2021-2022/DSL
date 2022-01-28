@@ -6,14 +6,20 @@ const SENSOR = 1
 
 
 class BrickBuilder {
-    constructor(rootBuilder, name, kind) {
+    
+    private rootBuilder:any;
+    private name:string;
+    private kind:number;
+    private pin?:number
+
+    constructor(rootBuilder:any, name:string, kind:number) {
         this.rootBuilder = rootBuilder;
         this.name = name;
         this.kind = kind;
-        this.pin = null;
+        this.pin = undefined;
     }
 
-    onPin(pin) {
+    onPin(pin:number) {
         this.pin = pin;
         return this.rootBuilder;
     }

@@ -5,7 +5,6 @@ import SensorConditionBuilder from "./SensorConditionBuilder.js";
 import TemporalTransitionBuilder from "./TemporalTransitionBuilder.js";
 
 
-
 class StateBuilder {
     constructor(rootBuilder, name) {
         this.rootBuilder = rootBuilder;

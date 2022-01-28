@@ -1,6 +1,11 @@
 import SensorCondition from "../model/SensorCondition.js";
 
 class SensorConditionBuilder {
+
+    private rootBuilder:any;
+    private sensor:string;
+    private value
+
     constructor(rootBuilder,sensor) {
         this.rootBuilder = rootBuilder;
         this.sensor = sensor;

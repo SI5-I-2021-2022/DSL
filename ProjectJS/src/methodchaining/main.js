@@ -14,6 +14,4 @@ let app = new AppBuilder("MAIN_APP").withInitialState("on")
         .after(500).goToState("off")
     .endState().createModel()
 
-console.log(app.states)
-
 console.log(app.Create())

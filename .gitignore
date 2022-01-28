@@ -4,3 +4,5 @@ Project/alarm.xtext/bin/alarm/xtext/formatting2/.AlarmFormatter.xtendbin
 Project/alarm.xtext/bin/alarm/xtext/generator/.AlarmGenerator.xtendbin
 Project/alarm.xtext/xtend-gen/alarm/xtext/formatting2/.AlarmFormatter.xtendbin
 Project/alarm.xtext/xtend-gen/alarm/xtext/generator/.AlarmGenerator.xtendbin
+
+ProjectJS/dist/
