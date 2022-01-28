@@ -1,73 +1,126 @@
+import Actuator from "../model/Actuator.js";
+import Sensor from "../model/Sensor.js";
+import State from "../model/State.js";
+import Action from "../model/Action.js";
+
 import alarmVisitor from "./gen/alarmVisitor.js";
+import SIGNAL from "../model/SIGNAL.js";
+import App from "../model/App.js";
+import SensorTransition from "../model/SensorTransition.js";
+import SensorCondition from "../model/SensorCondition.js";
 
 export default class TreeToKernelVisitor extends alarmVisitor{
 
-    visitAlarm(ctx){
-        //parse tree
+    statesNotCheck = new Map();
+
+    states = new Map();
+    actuators = new Map();
+    sensors = new Map();
+
+    visitAlarm(ctx){ 
+
+        this.visit(ctx.alarmBricks);
+        this.visit(ctx.alarmStates);
+    
+        this.parseTransitionState();
+
         const appName = ctx.name.text; 
-        const appInitial = ctx.initial.text;        
-
-        let bricks = this.visit(ctx.alarmBricks);
-        //force to array
-        if(!Array.isArray(bricks)){
-            bricks=[bricks]
-        }
-        let alarmStates = this.visit(ctx.alarmStates);
-
-
-        //construct model
-        this.app = {name:appName,initial:appInitial}
-        this.app.name = appName;
-        this.app.initial = appInitial;
-        this.states = alarmStates;
-        this.bricks=bricks;
-
-        console.log(this.app,this.states,this.bricks)
+        const appInitialState = this.states.get(ctx.initial.text);
+        if(!appInitialState){
+            throw "App require initial state";
+        } 
+        const bricks = Array.from(this.actuators.values())+Array.from(this.sensors.values());
+        const states = Array.from(this.states.values());
+        this.app = new App(appName,bricks,states,appInitialState);
 
         return this.app;
     }
 
     visitAction(ctx){
-        //parse tree
-        const actionActuator = ctx.actionActuator.text; 
-        const actionValue = ctx.actionSignal.text; 
+        //syntaxe force user to define actuators before action
+        const actuator = this.actuators.get(ctx.actionActuator.text);
+        if(!actuator){
+            throw "Action need actuator defined"
+        }
+        const signalString = ctx.actionSignal.text; 
+        const signal = signalString==="HIGH"?SIGNAL.HIGH:SIGNAL.LOW;
 
-        return {actuator:actionActuator,value:actionValue};
+        const action = new Action(actuator,signal);
+        
+
+        return action;
     }
 
     visitSensor_transition(ctx){
-        return {nextState:ctx.nextState.text,actionActivator:ctx.actionActivator.text}
+        console.log(ctx.sensorTransition.text)
+        //syntaxe force user to define actuators before action
+        const sensor = this.sensors.get(ctx.sensorTransition.text);
+        if(!sensor){
+            throw "Transition need actuator defined"
+        }
+        const sensorCondition = new SensorCondition(sensor,ctx.sensorSignal.text==="HIGH"?SIGNAL.HIGH:SIGNAL.LOW)
+        const transition = new SensorTransition(undefined,sensorCondition); //TODO integrate temporal transition
+        transition.nextStateNotParse = ctx.nextState.text; //we can't parse without all state
+        return transition;
     }
 
     visitSensor(ctx){
-        console.log( {name:ctx.name.text,pin:ctx.pin.text})
-        return {name:ctx.name.text,pin:ctx.pin.text}
+        const sensor = new Sensor(ctx.name.text,ctx.pin.text);
+        this.sensors.set(sensor.name,sensor);
+        return sensor;
     }
     visitActuator(ctx){
-        console.log( {name:ctx.name.text,pin:ctx.pin.text})
-        return {name:ctx.name.text,pin:ctx.pin.text}
+        const actuator = new Actuator(ctx.name.text,ctx.pin.text);
+        this.actuators.set(actuator.name,actuator);
+        return actuator;
     }
 
 
     visitAlarm_state(ctx){
-        return {name:ctx.name.text,actions:this.visit(ctx.actions),transitions:this.visit(ctx.transitions)}
+        if(this.states.get(ctx.name.text)){
+            throw "Multiple state definition not allowed"
+        }
+        const actions = this.visit(ctx.actions);
+        const transitions= this.visit(ctx.transitions);
+        const state = new State(ctx.name.text,transitions,actions)
+
+        this.states.set(state.name,state)
+        return state;
     }
 
     visitAlarm_state_actions(ctx){
-        return this.visitChildren(ctx).filter((elt)=>elt!==undefined)
+        return this.visit(ctx.elt)
     }
 
     visitBricks(ctx){
-        return this.visitChildren(ctx).filter((elt)=>elt!==undefined) 
+        return this.visit(ctx.elt)
     }
 
     visitAlarm_state_transitions(ctx){
-        return this.visitChildren(ctx).filter((elt)=>elt!==undefined) 
+        return this.visit(ctx.elt)
     }
 
     visitAlarm_states(ctx){
-        return this.visitChildren(ctx).filter((elt)=>elt!==undefined) ;
+        return this.visit(ctx.listStates)
     }
 
+    generateModel(){
+        const bricks = generateBricks(this.bricks);
+    }
+
+    parseTransitionState(){
+        this.states.forEach((state)=>{
+            state.transitions.forEach((transition)=>{
+                const nextState = this.states.get(transition.nextStateNotParse);
+                if(!nextState){
+                    throw "Transition can go to undefine state"
+                }
+                transition.nextState=nextState;
+            });
+            
+        })
+    }
+
+    
     
 }
