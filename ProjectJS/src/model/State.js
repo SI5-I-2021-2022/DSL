@@ -10,7 +10,7 @@ function State(name,transitions,actions){
         let stringRes = "";
 
         let sensorsInState = []
-        for(let transition of transitions){
+        for(let transition of this.transitions){
             for(let sensorCond of transition.sensorConditions||[]){
                 if(!sensorsInState.includes(sensorCond.sensor.name)){
                     sensorsInState.push(sensorCond.sensor.name);

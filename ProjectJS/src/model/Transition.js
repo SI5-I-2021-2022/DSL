@@ -1,5 +1,4 @@
-
-function Transition(next,type){
+function Transition(next, type) {
     this.next = next;
     this.type = type;
 }
