@@ -20,5 +20,6 @@ const tokens = new antlr4.CommonTokenStream(lexer);
 const parser = new alarmParser(tokens);
 parser.buildParseTrees = true;
 const tree = parser.alarm();
+console.log("hello")
 
 tree.accept(new TreeToKernelVisitor());
