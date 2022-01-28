@@ -73,7 +73,7 @@ class AppBuilder {
         }
 
         let initialState:(State|undefined) = undefined
-        if(this.initial && this.initial in statesNameToModel){
+        if(this.initial && statesNameToModel.has(this.initial)){
             initialState = statesNameToModel.get(this.initial);
         } else { throw "UNDEFINED INITIAL STATE" }
 

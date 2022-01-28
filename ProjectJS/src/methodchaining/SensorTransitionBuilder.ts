@@ -31,7 +31,7 @@ class SensorTransitionBuilder {
 
     createModel(bricks:Map<string,(Sensor|Actuator)>, states:Map<string,State>):SensorTransition {
 
-        if (this.nextState && this.nextState in states) {
+        if (this.nextState && states.has(this.nextState)) {
             let sensorCondModels:SensorCondition[] = []
             for(let sensorCondBuilder of this.sensorCondition){
                 sensorCondModels.push(sensorCondBuilder.createModel(bricks));

@@ -22,7 +22,7 @@ class SensorConditionBuilder {
     }
 
     createModel(bricks:Map<string,(Sensor|Actuator)>):SensorCondition {
-        if(this.sensor in bricks){
+        if(bricks.has(this.sensor)){
             return new SensorCondition(bricks.get(this.sensor),this.value);
         } else { throw "UNDEFINED SENSOR" }
     }

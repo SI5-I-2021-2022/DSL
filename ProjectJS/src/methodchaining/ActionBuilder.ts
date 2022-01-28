@@ -23,7 +23,7 @@ class StateActionBuilder {
         return this.rootBuilder;
     }
     createModel(bricks:Map<string,(Sensor|Actuator)>):Action {
-        if (this.actuator in bricks) {
+        if (bricks.has(this.actuator)) {
             return new Action(bricks.get(this.actuator),this.value)
         } else { throw "UNDEFINED ACTUATOR" }
     }

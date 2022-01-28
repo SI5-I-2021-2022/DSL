@@ -53,7 +53,7 @@ class StateBuilder {
     createStateModel(bricks:Map<string,(Sensor|Actuator)>):State {
         let actionModels:Action[] = []
         for(let action of this.actions){
-            if(action.actuator in bricks){
+            if(bricks.has(action.actuator)){
                 actionModels.push(action.createModel(bricks));
             } else { throw "UNDEFINED BRICK" }
         }
