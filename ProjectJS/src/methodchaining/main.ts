@@ -1,7 +1,7 @@
 import AppBuilder from "./AppBuilder.js";
 import Signal from "./Signal.enum.js";
 
-
+export function appBuilderTest(){
 let app = new AppBuilder("MAIN_APP").withInitialState("on")
     .addSensor("BUTTON").onPin(9)
     .addSensor("BUTTON2").onPin(8)
@@ -16,3 +16,4 @@ let app = new AppBuilder("MAIN_APP").withInitialState("on")
     .endState().createModel()
 
 console.log(app.Create())
+}

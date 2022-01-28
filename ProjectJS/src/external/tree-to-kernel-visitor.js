@@ -1,18 +1,19 @@
 import alarmVisitor from "./gen/alarmVisitor.js";
 
 export default class TreeToKernelVisitor extends alarmVisitor{
-    visit(ctx){
-        console.log("im call")
-        super.visit(ctx);
-    }
 
     visitAlarm(ctx){
         //parse tree
         const appName = ctx.name.text; 
         const appInitial = ctx.initial.text;        
 
-        const bricks = this.visit(ctx.alarmBricks);
-        const alarmStates = this.visit(ctx.alarmStates);
+        let bricks = this.visit(ctx.alarmBricks);
+        //force to array
+        if(!Array.isArray(bricks)){
+            bricks=[bricks]
+        }
+        let alarmStates = this.visit(ctx.alarmStates);
+
 
         //construct model
         this.app = {name:appName,initial:appInitial}
@@ -21,7 +22,6 @@ export default class TreeToKernelVisitor extends alarmVisitor{
         this.states = alarmStates;
         this.bricks=bricks;
 
-        console.log("im call")
         console.log(this.app,this.states,this.bricks)
 
         return this.app;
@@ -63,6 +63,10 @@ export default class TreeToKernelVisitor extends alarmVisitor{
 
     visitAlarm_state_transitions(ctx){
         return this.visitChildren(ctx).filter((elt)=>elt!==undefined) 
+    }
+
+    visitAlarm_states(ctx){
+        return this.visitChildren(ctx).filter((elt)=>elt!==undefined) ;
     }
 
     
