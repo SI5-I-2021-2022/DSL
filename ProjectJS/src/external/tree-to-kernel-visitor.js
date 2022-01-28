@@ -1,6 +1,10 @@
 import alarmVisitor from "./gen/alarmVisitor.js";
 
 export default class TreeToKernelVisitor extends alarmVisitor{
+    visit(ctx){
+        console.log("im call")
+        super.visit(ctx);
+    }
 
     visitAlarm(ctx){
         //parse tree
@@ -16,6 +20,9 @@ export default class TreeToKernelVisitor extends alarmVisitor{
         this.app.initial = appInitial;
         this.states = alarmStates;
         this.bricks=bricks;
+
+        console.log("im call")
+        console.log(this.app,this.states,this.bricks)
 
         return this.app;
     }
