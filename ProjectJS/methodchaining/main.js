@@ -1,13 +1,19 @@
 import AppBuilder from "./AppBuilder.js";
 let HIGH = "HIGH"
 let LOW = "LOW"
-let app = new AppBuilder("Switch!")
-    .sensor("BUTTON").on_pin(9)
-    .actuator("LED").on_pin(12)
-    .state("off")
-    .set("LED").to(LOW)
-    .when("BUTTON").has_value(HIGH).go_to_state("on")
-    .state("on")
-    .set("LED").to(HIGH)
-    .when("BUTTON").has_value(HIGH).go_to_state("off").get_content()
+let app = new AppBuilder("MAIN_APP").withInitialState("on")
+    .addSensor("BUTTON").onPin(9)
+    .addSensor("BUTTON2").onPin(8)
+    .addActuator("LED").onPin(12)
+    .beginState("off")
+        .set("LED").to(LOW)
+        .when("BUTTON").is(HIGH).andWhen("BUTTON2").is(LOW).goToState("on")
+    .endState()
+    .beginState("on")
+        .set("LED").to(HIGH)
+        .after(500).goToState("off")
+    .endState().createModel()
+
+console.log(app.states)
+
 console.log(app.Create())

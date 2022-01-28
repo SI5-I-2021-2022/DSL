@@ -1,5 +1,3 @@
-import Transition from "../model/Transition.js";
-import State from "../model/State.js";
 import BrickBuilder from "./BrickBuilder.js";
 import StateBuilder from "./StateBuilder.js";
 import App from "../model/App.js"
@@ -7,55 +5,66 @@ import App from "../model/App.js"
 const ACTUATOR = 0
 const SENSOR = 1
 
-//TODOOOOOOO
 class AppBuilder {
     constructor(name) {
         this.name = name;
-        this.bricks = [];
-        this.states = [];
+        this.brickBuilders = [];
+        this.stateBuilders = [];
+        this.initial = null;
     }
 
     addActuator(actuator) {
-        let builder = new BrickBuilder(this, actuator, ACTUATOR)
-        this.bricks.push(builder)
-        return builder
+        let brickBuilder = new BrickBuilder(this, actuator, ACTUATOR)
+        this.brickBuilders.push(brickBuilder)
+        return brickBuilder
     }
+    
     addSensor(sensor) {
-        let builder = new BrickBuilder(this, sensor, SENSOR)
-        this.bricks.push(builder)
-        return builder
+        let brickBuilder = new BrickBuilder(this, sensor, SENSOR)
+        this.brickBuilders.push(brickBuilder)
+        return brickBuilder
     }
+
     beginState(state) {
-        let builder = new StateBuilder(this, state)
-        this.states.push(builder)
-        return builder
+        let stateBuilder = new StateBuilder(this, state)
+        this.stateBuilders.push(stateBuilder)
+        return stateBuilder
+    }
+
+    withInitialState(state){
+        this.initial = state;
+        return this;
     }
 
     createModel() {
-        let bricks = {}
-        console.log(this.bricks.length)
-        for (let i; i < this.bricks.length; i++) {
-            let brick = this.bricks[i].get_content()
-            bricks[brick.name] = brick
-        }
-        let states = {}
-        let state_names = []
-        let state_values = []
-        for (let i; i < this.states.length; i++) {
-            state = this.states[i].get_contents(bricks)
-            states[state.name] = state
-            state_names.push(state.name)
-            state_values.push(state)
+        //Name dictionnary part
+        let bricksNameToModel = {}
+        let bricks = []
+        for(let brickBuilder of this.brickBuilders) {
+            let brick = brickBuilder.createModel();
+            bricksNameToModel[brickBuilder.name] = brick
+            bricks.push(brick)
         }
 
-        for (let i; i < this.states.length; i++) {
-            this.states[i].get_contents2(bricks, states)
+        let statesNameToModel = {}
+        let statesList = []
+        for (let stateBuilder of this.stateBuilders) {
+            let state = stateBuilder.createStateModel(bricksNameToModel);
+            statesNameToModel[stateBuilder.name] = state
+            statesList.push(state)
         }
-        let list = []
-        for (let e in bricks) {
-            list.push(bricks[e])
+
+        for (let stateBuilder of this.stateBuilders) {
+            let transitions = stateBuilder.createTransitionModel(bricksNameToModel, statesNameToModel)
+            statesNameToModel[stateBuilder.name].transitions = transitions;
         }
-        return new App(this.name, list, state_values)
+
+        let initialState = null
+        if(this.initial in statesNameToModel){
+            initialState = statesNameToModel[this.initial];
+        } else { throw "UNDEFINED INITIAL STATE" }
+
+        return new App(this.name, bricks, statesList, initialState);
     }
 }
 export default AppBuilder

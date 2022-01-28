@@ -1,4 +1,4 @@
-import TemporalTransition from "../model/TemporalTransition";
+import TemporalTransition from "../model/TemporalTransition.js";
 
 class TemporalTransitionBuilder {
     constructor(rootBuilder,time) {

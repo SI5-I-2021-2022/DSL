@@ -2,7 +2,7 @@ import SensorCondition from "../model/SensorCondition.js";
 
 class SensorConditionBuilder {
     constructor(rootBuilder,sensor) {
-        this.rootBuilder = root;
+        this.rootBuilder = rootBuilder;
         this.sensor = sensor;
         this.value = null;
     }

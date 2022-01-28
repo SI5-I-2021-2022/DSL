@@ -7,9 +7,9 @@ import TemporalTransitionBuilder from "./TemporalTransitionBuilder.js";
 
 
 class StateBuilder {
-    constructor(rootBuilder, state) {
+    constructor(rootBuilder, name) {
         this.rootBuilder = rootBuilder;
-        this.state = state;
+        this.name = name;
         this.actions = [];
         this.transitions = [];
     }
@@ -46,7 +46,7 @@ class StateBuilder {
                 actionModels.push(action.createModel(bricks));
             } else { throw "UNDEFINED BRICK" }
         }
-        return new State(this.state,null,actionModels);
+        return new State(this.name,null,actionModels);
     }
 
     createTransitionModel(bricks, states) {
@@ -54,6 +54,7 @@ class StateBuilder {
         for(let transition of this.transitions){
             transitionModels.push(transition.createModel(bricks,states))
         }
+        return transitionModels;
     }
 }
 

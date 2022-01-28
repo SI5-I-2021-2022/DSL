@@ -15,7 +15,7 @@ class BrickBuilder {
 
     onPin(pin) {
         this.pin = pin;
-        return this.root;
+        return this.rootBuilder;
     }
 
     createModel() {
