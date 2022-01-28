@@ -1,27 +1,31 @@
+import Actuator from "../model/Actuator.js";
+import Sensor from "../model/Sensor.js";
 import SensorCondition from "../model/SensorCondition.js";
+import SensorTransitionBuilder from "./SensorTransitionBuilder.js";
+import Signal from "./Signal.enum.js";
 
 class SensorConditionBuilder {
 
-    // private rootBuilder:any;
-    // private sensor:string;
-    // private value
+    private rootBuilder:SensorTransitionBuilder;
+    private sensor:string;
+    private value?:Signal;
 
-    // constructor(rootBuilder,sensor) {
-    //     this.rootBuilder = rootBuilder;
-    //     this.sensor = sensor;
-    //     this.value = null;
-    // }
+    constructor(rootBuilder:SensorTransitionBuilder,sensor:string) {
+        this.rootBuilder = rootBuilder;
+        this.sensor = sensor;
+        this.value = undefined;
+    }
 
-    // is(value){
-    //     this.value = value;
-    //     return this.rootBuilder;
-    // }
+    is(value:Signal):SensorTransitionBuilder{
+        this.value = value;
+        return this.rootBuilder;
+    }
 
-    // createModel(bricks) {
-    //     if(this.sensor in bricks){
-    //         return new SensorCondition(bricks[this.sensor],this.value);
-    //     } else { throw "UNDEFINED SENSOR" }
-    // }
+    createModel(bricks:Map<string,(Sensor|Actuator)>):SensorCondition {
+        if(this.sensor in bricks){
+            return new SensorCondition(bricks.get(this.sensor),this.value);
+        } else { throw "UNDEFINED SENSOR" }
+    }
 }
 
 export default SensorConditionBuilder
