@@ -1,4 +1,6 @@
 import Actuator from "../model/Actuator.js";
+import AnalogicalCondition from "../model/AnalogicalCondition.js";
+import DigitalCondition from "../model/DigitalCondition.js";
 import Sensor from "../model/Sensor.js";
 import SensorCondition from "../model/SensorCondition.js";
 import SensorTransition from "../model/SensorTransition.js"
@@ -32,7 +34,7 @@ class SensorTransitionBuilder {
     createModel(bricks:Map<string,(Sensor|Actuator)>, states:Map<string,State>):SensorTransition {
 
         if (this.nextState && states.has(this.nextState)) {
-            let sensorCondModels:SensorCondition[] = []
+            let sensorCondModels:(DigitalCondition|AnalogicalCondition)[] = []
             for(let sensorCondBuilder of this.sensorCondition){
                 sensorCondModels.push(sensorCondBuilder.createModel(bricks));
             }
