@@ -1,8 +1,8 @@
-import Actuator from "../model/Actuator.js";
-import Sensor from "../model/Sensor.js";
-import State from "../model/State.js";
-import TemporalTransition from "../model/TemporalTransition.js";
-import StateBuilder from "./StateBuilder.js";
+import Actuator from "../model/Actuator";
+import Sensor from "../model/Sensor";
+import State from "../model/State";
+import TemporalTransition from "../model/TemporalTransition";
+import StateBuilder from "./StateBuilder";
 
 class TemporalTransitionBuilder {
 
@@ -22,8 +22,9 @@ class TemporalTransitionBuilder {
     }
 
     createModel(bricks:Map<string,(Sensor|Actuator)>,states:Map<string,State>):TemporalTransition {
-        if (this.nextState && this.nextState in states) {
-            return new TemporalTransition(states.get(this.nextState), this.time);
+        const state = states.get(this.nextState||"");
+        if (this.nextState && state) {
+            return new TemporalTransition(state, this.time);
         } else { throw "UNDEFINED NEXT STATE" }
     }
 }

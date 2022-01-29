@@ -1,10 +1,12 @@
-import Actuator from "../model/Actuator.js";
-import Sensor from "../model/Sensor.js";
-import SensorCondition from "../model/SensorCondition.js";
-import SensorTransition from "../model/SensorTransition.js"
-import State from "../model/State.js";
-import SensorConditionBuilder from "./SensorConditionBuilder.js";
-import StateBuilder from "./StateBuilder.js";
+import Actuator from "../model/Actuator";
+import AnalogicalCondition from "../model/AnalogicalCondition";
+import DigitalCondition from "../model/DigitalCondition";
+import Sensor from "../model/Sensor";
+import SensorCondition from "../model/SensorCondition";
+import SensorTransition from "../model/SensorTransition"
+import State from "../model/State";
+import SensorConditionBuilder from "./SensorConditionBuilder";
+import StateBuilder from "./StateBuilder";
 
 class SensorTransitionBuilder {
 
@@ -30,13 +32,14 @@ class SensorTransitionBuilder {
     }
 
     createModel(bricks:Map<string,(Sensor|Actuator)>, states:Map<string,State>):SensorTransition {
-
-        if (this.nextState && this.nextState in states) {
-            let sensorCondModels:SensorCondition[] = []
+        const state = states.get(this.nextState||"");
+        if (this.nextState && state) {
+            let sensorCondModels:(DigitalCondition|AnalogicalCondition)[] = []
             for(let sensorCondBuilder of this.sensorCondition){
                 sensorCondModels.push(sensorCondBuilder.createModel(bricks));
             }
-            return new SensorTransition(states.get(this.nextState), sensorCondModels);
+            
+            return new SensorTransition(state, sensorCondModels);
         } else { throw "UNDEFINED NEXT STATE" }
     }
 }

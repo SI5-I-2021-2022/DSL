@@ -1,14 +1,14 @@
-import State from "../model/State.js";
-import ActionBuilder from "./ActionBuilder.js";
-import SensorTransitionBuilder from "./SensorTransitionBuilder.js";
-import SensorConditionBuilder from "./SensorConditionBuilder.js";
-import TemporalTransitionBuilder from "./TemporalTransitionBuilder.js";
-import AppBuilder from "./AppBuilder.js";
-import Actuator from "../model/Actuator.js";
-import Sensor from "../model/Sensor.js";
-import Action from "../model/Action.js";
-import SensorTransition from "../model/SensorTransition.js";
-import TemporalTransition from "../model/TemporalTransition.js";
+import State from "../model/State";
+import ActionBuilder from "./ActionBuilder";
+import SensorTransitionBuilder from "./SensorTransitionBuilder";
+import SensorConditionBuilder from "./SensorConditionBuilder";
+import TemporalTransitionBuilder from "./TemporalTransitionBuilder";
+import AppBuilder from "./AppBuilder";
+import Actuator from "../model/Actuator";
+import Sensor from "../model/Sensor";
+import Action from "../model/Action";
+import SensorTransition from "../model/SensorTransition";
+import TemporalTransition from "../model/TemporalTransition";
 
 
 class StateBuilder {
@@ -53,11 +53,11 @@ class StateBuilder {
     createStateModel(bricks:Map<string,(Sensor|Actuator)>):State {
         let actionModels:Action[] = []
         for(let action of this.actions){
-            if(action.actuator in bricks){
+            if(bricks.has(action.actuator)){
                 actionModels.push(action.createModel(bricks));
             } else { throw "UNDEFINED BRICK" }
         }
-        return new State(this.name,null,actionModels);
+        return new State(this.name,[],actionModels);
     }
 
     createTransitionModel(bricks:Map<string,(Sensor|Actuator)>, states:Map<string,State>):(SensorTransition|TemporalTransition)[] {

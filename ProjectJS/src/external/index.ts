@@ -3,7 +3,7 @@ import alarmLexer from './gen/alarmLexer.js';
 import alarmParser from './gen/alarmParser.js';
 import TreeToKernelVisitor from './tree-to-kernel-visitor.js';
 
-const convertToModel = function(input){
+const convertToModel = function(input:string){
 
     const chars = new antlr4.InputStream(input);
     const lexer = new alarmLexer(chars);
@@ -11,8 +11,9 @@ const convertToModel = function(input){
     const parser = new alarmParser(tokens);
     parser.buildParseTrees = true;
     const tree = parser.alarm();
-    
-    tree.accept(new TreeToKernelVisitor());
+    const visitor = new TreeToKernelVisitor()
+    tree.accept(visitor);
+    console.log(visitor.app.create());
 }
 
 

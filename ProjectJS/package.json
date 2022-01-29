@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "build:antlr": "java -jar ./libs/antlr-4.9.3-complete.jar -Dlanguage=JavaScript -Xexact-output-dir -o src/external/gen -visitor ./src/external/alarm.g4",

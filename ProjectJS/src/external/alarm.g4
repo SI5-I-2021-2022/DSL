@@ -2,7 +2,7 @@ grammar alarm;
 
 alarm           :    'create' 'App' name=IDENTIFIER 'which' 'start' 'with' initial=IDENTIFIER ':' alarmBricks=bricks alarmStates=alarm_states;
 
-bricks          : 'with' 'bricks' ':' brick (',' brick)* ';';
+bricks          : 'with' 'bricks' ':' elt+=brick (',' elt+=brick)* ';';
 
 /****** BRICK *******/
 brick           : (sensor | actuator); //possibilité de refactore (pas forcement utile)
@@ -10,19 +10,19 @@ sensor          : 'Sensor' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
 actuator        : 'Actuator' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
 
 /****** alarm_state *******/
-alarm_states          : 'with' 'states' ':' alarm_state+;
+alarm_states          : 'with' 'states' ':' (listStates+=alarm_state)+;
 
-alarm_state           : 'State' name=IDENTIFIER ':' actions=alarm_state_actions? transitions=alarm_state_transitions?;
+alarm_state           : 'State' name=IDENTIFIER ':' actions=alarm_state_actions? transitions+=alarm_state_transitions*;
 
 //Action
 alarm_state_actions   :
-	'with' 'actions' ':' action (',' action)* ';';
+	'with' 'actions' ':' elt+=action (',' elt+=action)* ';';
 action    : 'do' actionActuator=IDENTIFIER '=' actionSignal=SIGNAL;  
 
 //Transistion
-alarm_state_transitions: 'with' 'transitions' ':' sensor_transition (',' sensor_transition)*;
+alarm_state_transitions: 'with' 'transitions' 'to' nextState=IDENTIFIER 'when' ':' elt+=sensor_transition (',' elt+=sensor_transition)*';';
 
-sensor_transition:'to' nextState=IDENTIFIER 'when' actionActivator=IDENTIFIER;
+sensor_transition:sensorTransition=IDENTIFIER '=' sensorSignal=SIGNAL;
 
 /*****************
  * * Lexer rules **
