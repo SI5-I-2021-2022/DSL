@@ -2,7 +2,6 @@ import Actuator from "../model/Actuator";
 import Sensor from "../model/Sensor";
 import State from "../model/State";
 import Action from "../model/Action";
-
 import alarmVisitor from "./gen/alarmVisitor.js";
 import SIGNAL from "../model/SIGNAL.enum";
 import App from "../model/App";
@@ -55,7 +54,6 @@ export default class TreeToKernelVisitor extends alarmVisitor{
     }
 
     visitSensor_transition(ctx:any):SensorCondition{
-        console.log(ctx.sensorTransition.text)
         //syntaxe force user to define actuators before action
         const sensor = this.sensors.get(ctx.sensorTransition.text);
         if(!sensor){

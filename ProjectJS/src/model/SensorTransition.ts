@@ -8,7 +8,7 @@ export default class SensorTransition extends Transition implements Visitable{
     private _sensorConditions: SensorCondition[];
 
     constructor(nextState:State,sensorConditions:SensorCondition[]){
-        super(nextState,TransitionType.BASIC)
+        super(nextState,TransitionType.SENSOR)
         this._sensorConditions = sensorConditions;
 
     }

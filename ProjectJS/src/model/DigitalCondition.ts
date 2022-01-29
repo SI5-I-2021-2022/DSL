@@ -1,16 +1,23 @@
 import AppVisitor from "./utils/AppVisitor";
 import Sensor from "./Sensor";
-import SensorCondition from "./SensorCondition";
+import SensorCondition, { ConditionType } from "./SensorCondition";
 import SIGNAL from "./SIGNAL.enum";
 import Visitable from "./utils/Visitable";
 
 export default class DigitalCondition extends SensorCondition implements Visitable{
-    constructor(sensor:Sensor,signal:SIGNAL){
-        super(sensor,signal);
+    private _value:SIGNAL;
+
+    constructor(sensor:Sensor,value:SIGNAL){
+        super(sensor,ConditionType.DIGITAL);
+        this._value = value
+    }
+
+    get value(){
+        return this._value;
     }
 
     loop() {
-        return `analogRead(${this.sensor.pin}) == ${this.signal} && ${this.sensor.name}BounceGuard`;
+        return `analogRead(${this.sensor.pin}) == ${this.value} && ${this.sensor.name}BounceGuard`;
     }
 
     accept(visitor: AppVisitor) {
