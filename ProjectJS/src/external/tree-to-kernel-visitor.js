@@ -29,7 +29,8 @@ export default class TreeToKernelVisitor extends alarmVisitor{
         if(!appInitialState){
             throw "App require initial state";
         } 
-        const bricks = Array.from(this.actuators.values())+Array.from(this.sensors.values());
+        
+        const bricks = Array.from(this.actuators.values()).concat(Array.from(this.sensors.values()));
         const states = Array.from(this.states.values());
         this.app = new App(appName,bricks,states,appInitialState);
 

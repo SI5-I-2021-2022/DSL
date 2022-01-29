@@ -11,8 +11,9 @@ const convertToModel = function(input){
     const parser = new alarmParser(tokens);
     parser.buildParseTrees = true;
     const tree = parser.alarm();
-    
-    tree.accept(new TreeToKernelVisitor());
+    const visitor = new TreeToKernelVisitor()
+    tree.accept(visitor);
+    console.log(visitor.app.Create());
 }
 
 
