@@ -1,6 +1,6 @@
-import Actuator from "../model/Actuator.js";
-import Sensor from "../model/Sensor.js";
-import AppBuilder from "./AppBuilder.js";
+import Actuator from "../model/Actuator";
+import Sensor from "../model/Sensor";
+import AppBuilder from "./AppBuilder";
 
 const ACTUATOR = 0
 const SENSOR = 1
@@ -25,6 +25,9 @@ class BrickBuilder {
     }
 
     createModel():(Actuator|Sensor) {
+        if(!this.pin){
+            throw "PIN NOT DEFINE"
+        }
         if (this.kind == ACTUATOR) {
             return new Actuator(this.name, this.pin);
         }

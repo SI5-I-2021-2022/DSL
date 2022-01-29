@@ -8,11 +8,11 @@ export default class Actuator extends Brick implements Visitable{
         super(name,pin);
     }
 
-    private declaration(){
+    declaration(){
         return "";
     }
 
-    private setup(){
+    setup(){
         return `pinMode(${this.pin}, OUTPUT);  // ${this.name} [Actuator]`
     }
 

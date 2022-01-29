@@ -10,6 +10,8 @@ export default abstract class Transition implements Visitable{
         this._type = type
     }
 
+    abstract loop(haveTemporal:boolean):any;
+
     get nextState(){
         return this._nextState
     }

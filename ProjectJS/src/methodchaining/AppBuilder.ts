@@ -1,11 +1,11 @@
-import BrickBuilder from "./BrickBuilder.js";
-import StateBuilder from "./StateBuilder.js";
-import App from "../model/App.js"
-import Sensor from "../model/Sensor.js";
-import Actuator from "../model/Actuator.js";
-import State from "../model/State.js";
-import SensorTransition from "../model/SensorTransition.js";
-import TemporalTransition from "../model/TemporalTransition.js";
+import BrickBuilder from "./BrickBuilder";
+import StateBuilder from "./StateBuilder";
+import App from "../model/App"
+import Sensor from "../model/Sensor";
+import Actuator from "../model/Actuator";
+import State from "../model/State";
+import SensorTransition from "../model/SensorTransition";
+import TemporalTransition from "../model/TemporalTransition";
 
 const ACTUATOR = 0
 const SENSOR = 1
@@ -72,12 +72,16 @@ class AppBuilder {
             if(state) state.transitions = transitions;
         }
 
-        let initialState:(State|undefined) = undefined
-        if(this.initial && statesNameToModel.has(this.initial)){
+        let initialState:State|undefined = undefined
+        if(this.initial){
             initialState = statesNameToModel.get(this.initial);
-        } else { throw "UNDEFINED INITIAL STATE" }
+            if(initialState){
+                return new App(this.name, bricks, statesList, initialState);
+            }
+        } 
+        throw "UNDEFINED INITIAL STATE" 
 
-        return new App(this.name, bricks, statesList, initialState);
+        
     }
 }
 export default AppBuilder

@@ -1,5 +1,5 @@
-import AppBuilder from "./AppBuilder.js";
-import Signal from "./Signal.enum.js";
+import SIGNAL from "../model/SIGNAL.enum";
+import AppBuilder from "./AppBuilder";
 
 export function appBuilderTest(){
 let app = new AppBuilder("MAIN_APP").withInitialState("on")
@@ -8,14 +8,14 @@ let app = new AppBuilder("MAIN_APP").withInitialState("on")
     .addSensor("BUTTON2").onPin(8)
     .addActuator("LED").onPin(12)
     .beginState("off")
-        .set("LED").to(Signal.LOW)
-        .when("BUTTON").is(Signal.HIGH).andWhen("BUTTON2").is(Signal.LOW).goToState("on")
+        .set("LED").to(SIGNAL.LOW)
+        .when("BUTTON").is(SIGNAL.HIGH).andWhen("BUTTON2").is(SIGNAL.LOW).goToState("on")
         .when("CAPTOR").isGreaterThan(40).goToState("off")
     .endState()
     .beginState("on")
-        .set("LED").to(Signal.HIGH)
+        .set("LED").to(SIGNAL.HIGH)
         .after(500).goToState("off")
     .endState().createModel()
 
-console.log(app.Create())
+console.log(app.create())
 }

@@ -1,8 +1,8 @@
-import Action from "../model/Action.js";
-import Actuator from "../model/Actuator.js";
-import Sensor from "../model/Sensor.js";
-import Signal from "./Signal.enum.js";
-import StateBuilder from "./StateBuilder.js";
+import Action from "../model/Action";
+import Actuator from "../model/Actuator";
+import Sensor from "../model/Sensor";
+import SIGNAL from "../model/SIGNAL.enum";
+import StateBuilder from "./StateBuilder";
 
 
 
@@ -10,7 +10,7 @@ class StateActionBuilder {
 
     private rootBuilder:StateBuilder;
     public actuator:string;
-    private value?:Signal;
+    private value?:SIGNAL;
 
     constructor(rootBuilder:StateBuilder, actuator:string) {
         this.rootBuilder = rootBuilder;
@@ -18,13 +18,14 @@ class StateActionBuilder {
         this.value = undefined;
     }
 
-    to(value:Signal):StateBuilder {
+    to(value:SIGNAL):StateBuilder {
         this.value = value;
         return this.rootBuilder;
     }
     createModel(bricks:Map<string,(Sensor|Actuator)>):Action {
-        if (bricks.has(this.actuator)) {
-            return new Action(bricks.get(this.actuator),this.value)
+        const brick = bricks.get(this.actuator);
+        if (brick&&this.value) {
+            return new Action(brick,this.value)
         } else { throw "UNDEFINED ACTUATOR" }
     }
 

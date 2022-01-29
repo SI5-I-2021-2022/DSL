@@ -17,4 +17,8 @@ export default abstract class Brick extends NamedElement implements Visitable{
     accept(visitor: AppVisitor) {
         visitor.visitBrick(this);
     }
+
+    abstract declaration():any;
+    abstract setup():any;
+
 }

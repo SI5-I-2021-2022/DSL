@@ -4,6 +4,7 @@ import NamedElement from "./NamedElement";
 import Sensor from "./Sensor";
 import Transition from "./Transition";
 import Visitable from "./utils/Visitable";
+import SensorTransition from "./SensorTransition";
 
 export default class State extends NamedElement implements Visitable{
     private _actions: Action[];
@@ -20,11 +21,14 @@ export default class State extends NamedElement implements Visitable{
     loop(haveTemporal:boolean){
         let stringRes = "";
 
-        let sensorsInState:State[] = [];
+        let sensorsInState:string[] = [];
         for(let transition of this.transitions){
-            for(let sensorCond of transition.sensorConditions){
-                if(!sensorsInState.includes(sensorCond.sensor.name)){
-                    sensorsInState.push(sensorCond.sensor.name);
+            if(transition instanceof SensorTransition){
+                const sensorTransition:SensorTransition = transition
+                for(let sensorCond of sensorTransition.sensorConditions){
+                    if(!sensorsInState.includes(sensorCond.sensor.name)){
+                        sensorsInState.push(sensorCond.sensor.name);
+                    }
                 }
             }
         }

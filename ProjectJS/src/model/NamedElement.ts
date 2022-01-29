@@ -1,5 +1,3 @@
-import AppVisitor from "./utils/AppVisitor";
-import Visitable from "./utils/Visitable";
 
 export default class NamedElement{
     protected _name:string;

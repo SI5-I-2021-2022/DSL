@@ -8,7 +8,7 @@ export default class Sensor extends Brick implements Visitable{
         super(name,pin);
     }
 
-    private declaration(){
+    declaration(){
         let stringRes = "";
         stringRes += 
             `boolean ${this.name}BounceGuard = false;\n`+
@@ -16,7 +16,7 @@ export default class Sensor extends Brick implements Visitable{
         return stringRes;
     }
 
-    private setup(){
+    setup(){
         return `pinMode(${this.pin}, INPUT);  // ${this.name} [Sensor]`
     }
 

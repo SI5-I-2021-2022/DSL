@@ -5,12 +5,22 @@ import Transition, { TransitionType } from "./Transition";
 import Visitable from "./utils/Visitable";
 
 export default class SensorTransition extends Transition implements Visitable{
-    private _sensorConditions:SensorCondition[]
+    private _sensorConditions: SensorCondition[];
+
     constructor(nextState:State,sensorConditions:SensorCondition[]){
         super(nextState,TransitionType.BASIC)
         this._sensorConditions = sensorConditions;
 
     }
+
+    public get sensorConditions(): SensorCondition[] {
+        return this._sensorConditions;
+    }
+    public set sensorConditions(value: SensorCondition[]) {
+        this._sensorConditions = value;
+    }
+
+    
 
 
     loop(haveTemporal:boolean){

@@ -1,26 +1,27 @@
-import Action from "../model-ts/Action";
-import Actuator from "../model-ts/Actuator";
-import AnalogicalCondition from "../model-ts/AnalogicalCondition";
-import App from "../model-ts/App";
-import AppVisitor from "../model-ts/utils/AppVisitor";
-import Brick from "../model-ts/Brick";
-import DigitalCondition from "../model-ts/DigitalCondition";
-import NamedElement from "../model-ts/NamedElement";
-import Sensor from "../model-ts/Sensor";
-import SensorCondition from "../model-ts/SensorCondition";
-import SensorTransition from "../model-ts/SensorTransition";
-import State from "../model-ts/State";
-import TemporalTransition from "../model-ts/TemporalTransition";
-import Transition, { TransitionType } from "../model-ts/Transition";
+import Action from "../model/Action";
+import Actuator from "../model/Actuator";
+import AnalogicalCondition from "../model/AnalogicalCondition";
+import App from "../model/App";
+import AppVisitor from "../model/utils/AppVisitor";
+import Brick from "../model/Brick";
+import DigitalCondition from "../model/DigitalCondition";
+import NamedElement from "../model/NamedElement";
+import Sensor from "../model/Sensor";
+import SensorCondition from "../model/SensorCondition";
+import SensorTransition from "../model/SensorTransition";
+import State from "../model/State";
+import TemporalTransition from "../model/TemporalTransition";
+import Transition, { TransitionType } from "../model/Transition";
 
 export default class GenerateArduinoVisitor implements AppVisitor{
+    private pass: Pass = Pass.FIRST;
+
     visitTransition(elt: Transition) {
         throw new Error("Method not implemented.");
     }
     visitBrick(elt: Brick) {
         throw new Error("Method not implemented.");
     }
-    private pass: Pass = Pass.FIRST;
 
     visitAction(elt: Action) {
         throw new Error("Method not implemented.");
@@ -49,7 +50,7 @@ export default class GenerateArduinoVisitor implements AppVisitor{
         }
         stringRes += "long debounce = 200;\n\n";
         stringRes += "enum STATE {";
-        stringRes += elt.states.map((state) => { return state.name }).join(",");
+        stringRes += elt.states.map(this.visitState).join(",");
         stringRes += "};\n\n";
 
         stringRes += `State currentState = ${elt.initial?.name};\n\n`;
@@ -82,7 +83,9 @@ export default class GenerateArduinoVisitor implements AppVisitor{
         throw new Error("Method not implemented.");
     }
     visitState(elt: State) {
-        throw new Error("Method not implemented.");
+        if(this.pass==Pass.FIRST){
+            return elt.name;
+        }
     }
     visitTemporalTransition(elt: TemporalTransition) {
         throw new Error("Method not implemented.");

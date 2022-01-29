@@ -1,10 +1,10 @@
-import Actuator from "../model/Actuator.js";
-import AnalogicalCondition from "../model/AnalogicalCondition.js";
-import DigitalCondition from "../model/DigitalCondition.js";
-import Sensor from "../model/Sensor.js";
-import SensorCondition from "../model/SensorCondition.js";
-import SensorTransitionBuilder from "./SensorTransitionBuilder.js";
-import Signal from "./Signal.enum.js";
+import Actuator from "../model/Actuator";
+import AnalogicalCondition from "../model/AnalogicalCondition";
+import DigitalCondition from "../model/DigitalCondition";
+import Sensor from "../model/Sensor";
+import SensorCondition from "../model/SensorCondition";
+import SIGNAL from "../model/SIGNAL.enum";
+import SensorTransitionBuilder from "./SensorTransitionBuilder";
 
 const DIGITAL = 0;
 const ANALOGICAL = 1;
@@ -13,7 +13,7 @@ class SensorConditionBuilder {
 
     private rootBuilder:SensorTransitionBuilder;
     private sensor:string;
-    private value?:Signal|number;
+    private value?:SIGNAL|number;
     private kind:number;
     private greater:boolean;
 
@@ -25,7 +25,7 @@ class SensorConditionBuilder {
         this.greater = false;
     }
 
-    is(value:Signal):SensorTransitionBuilder{
+    is(value:SIGNAL):SensorTransitionBuilder{
         this.value = value;
         return this.rootBuilder;
     }
@@ -45,12 +45,14 @@ class SensorConditionBuilder {
     }
 
     createModel(bricks:Map<string,(Sensor|Actuator)>):AnalogicalCondition|DigitalCondition {
-        if(bricks.has(this.sensor)){
+        const brick = bricks.get(this.sensor);
+        if(brick){
+            const value :any = this.value;
             if(this.kind == ANALOGICAL){
-                return new AnalogicalCondition(bricks.get(this.sensor),this.value,this.greater);
+                return new AnalogicalCondition(brick,value,this.greater);
             }
             else{
-                return new DigitalCondition(bricks.get(this.sensor),this.value);
+                return new DigitalCondition(brick,value);
             }
         } else { throw "UNDEFINED SENSOR" }
     }

@@ -8,10 +8,13 @@ import Visitable from "./utils/Visitable";
 export default class App extends NamedElement implements Visitable{
     private _bricks: Brick[] = [];
     private _states: State[] = [];
-    private _initial?: State | undefined;
+    private _initial: State;
 
-    constructor(name:string){
+    constructor(name:string,bricks:Brick[],states:State[],initialState:State){
         super(name);
+        this._bricks=bricks;
+        this._states=states;
+        this._initial=initialState;
     }
 
     create() {
@@ -86,10 +89,10 @@ export default class App extends NamedElement implements Visitable{
 		this._states = value;
 	}
 
-    public get initial(): State | undefined {
+    public get initial(): State  {
         return this._initial;
     }
-    public set initial(value: State | undefined) {
+    public set initial(value: State ) {
         this._initial = value;
     }
 
