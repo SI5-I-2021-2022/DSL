@@ -33,7 +33,7 @@ export default class State extends NamedElement implements Visitable{
             }
         }
 
-        stringRes += `\t\tCase ${this.name} :\n`;
+        stringRes += `\t\tcase ${this.name} :\n`;
         stringRes += this.actions.map((action) => {return "\t\t\t"+action.loop()}).join("");
 
         for(let sensorName of sensorsInState){

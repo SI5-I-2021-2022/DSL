@@ -12,7 +12,7 @@ actuator        : 'Actuator' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
 /****** alarm_state *******/
 alarm_states          : 'with' 'states' ':' (listStates+=alarm_state)+;
 
-alarm_state           : 'State' name=IDENTIFIER ':' actions=alarm_state_actions? transitions=alarm_state_transitions?;
+alarm_state           : 'State' name=IDENTIFIER ':' actions=alarm_state_actions? transitions+=alarm_state_transitions*;
 
 //Action
 alarm_state_actions   :
@@ -20,9 +20,9 @@ alarm_state_actions   :
 action    : 'do' actionActuator=IDENTIFIER '=' actionSignal=SIGNAL;  
 
 //Transistion
-alarm_state_transitions: 'with' 'transitions' ':' elt+=sensor_transition (',' elt+=sensor_transition)*';';
+alarm_state_transitions: 'with' 'transitions' 'to' nextState=IDENTIFIER 'when' ':' elt+=sensor_transition (',' elt+=sensor_transition)*';';
 
-sensor_transition:'to' nextState=IDENTIFIER 'when' sensorTransition=IDENTIFIER '=' sensorSignal=SIGNAL;
+sensor_transition:sensorTransition=IDENTIFIER '=' sensorSignal=SIGNAL;
 
 /*****************
  * * Lexer rules **
