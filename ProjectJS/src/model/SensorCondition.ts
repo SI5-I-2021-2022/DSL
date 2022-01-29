@@ -5,19 +5,19 @@ import Visitable from "./utils/Visitable";
 
 export default abstract class SensorCondition implements Visitable{
     private _sensor: Sensor;
-    private _signal: SIGNAL
+    private _type:ConditionType;
 
-    constructor(sensor:Sensor,signal:SIGNAL){
+    constructor(sensor:Sensor, type:ConditionType){
         this._sensor = sensor;
-        this._signal = signal;
+        this._type = type;
     }
 
     get sensor(){
         return this._sensor;
     }
 
-    get signal(){
-        return this._signal;
+    get type(){
+        return this._type;
     }
 
     abstract loop():any;
@@ -25,4 +25,9 @@ export default abstract class SensorCondition implements Visitable{
     accept(visitor: AppVisitor) {
         return visitor.visitSensorCondition(this)    
     }
+}
+
+export enum ConditionType{
+    DIGITAL,
+    ANALOGICAL
 }

@@ -5,6 +5,7 @@ import Visitable from "./utils/Visitable";
 export default abstract class Transition implements Visitable{
     protected _nextState:State;
     private _type:TransitionType;
+    
     constructor(next:State, type:TransitionType){
         this._nextState = next;
         this._type = type
@@ -45,5 +46,5 @@ export default abstract class Transition implements Visitable{
 
 export enum TransitionType{
     TEMPORAL,
-    BASIC
+    SENSOR
 }
