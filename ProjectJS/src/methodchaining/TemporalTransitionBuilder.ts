@@ -22,7 +22,7 @@ class TemporalTransitionBuilder {
     }
 
     createModel(bricks:Map<string,(Sensor|Actuator)>,states:Map<string,State>):TemporalTransition {
-        if (this.nextState && this.nextState in states) {
+        if (this.nextState && states.has(this.nextState)) {
             return new TemporalTransition(states.get(this.nextState), this.time);
         } else { throw "UNDEFINED NEXT STATE" }
     }
