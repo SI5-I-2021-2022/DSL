@@ -1,3 +1,4 @@
+import Verifier from "../kernel/Verifier";
 import SIGNAL from "../model/SIGNAL.enum";
 import AppBuilder from "./AppBuilder";
 
@@ -17,5 +18,9 @@ export function appBuilderTest(){
             .after(500).goToState("off")
         .endState().createModel()
 
+    
     console.log(app.create())
+
+    let verifier = new Verifier();
+    verifier.verify(app);
 }

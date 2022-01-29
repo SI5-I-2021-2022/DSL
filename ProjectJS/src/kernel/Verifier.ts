@@ -14,22 +14,30 @@ export default class Verifier{
         const errors:string[] = [];
         const warning:string[] = [];
 
-        if(!app.initial){
+        if(!app.states.includes(app.initial)){//UNREACHABLE BY INTERNAL GENERATION
             warning.push("Warning : undefined initial state");
         }
 
-        errors.concat(this.checkDuplicateState(app.states));
-        errors.concat(this.alreadyAllocatedPin(app.bricks));
-        warning.concat(this.checkDuplicateBrick(app.bricks));
-        warning.concat(this.checkTransitions(app.states));
+        errors.push.apply(errors,this.checkDuplicateState(app.states));
+        errors.push.apply(errors,this.alreadyAllocatedPin(app.bricks));
+        warning.push.apply(warning,this.checkDuplicateBrick(app.bricks));
+        warning.push.apply(warning,this.checkTransitions(app.states));
+
+        for(let warn of warning){
+            console.log(warn);
+        }
+
+        for(let err of errors){
+            console.log(err);
+        }
     }
 
-    public alreadyAllocatedPin(bricks:Brick[]){
+    private alreadyAllocatedPin(bricks:Brick[]){
         const errors:string[] = []
         const pinList:number[] = []
 
         for(let brick of bricks){
-            if(brick.pin in pinList){
+            if(pinList.includes(brick.pin)){
                 errors.push("Error : Already allocated pin for brick "+brick.name)
             }
             else{
@@ -39,27 +47,27 @@ export default class Verifier{
         return errors;
     }
 
-    public checkDuplicateBrick(bricks:Brick[]){
-        const errors:string[] = []
+    private checkDuplicateBrick(bricks:Brick[]){
+        const warnings:string[] = []
         const bricksNamesList:string[] = []
 
         for(let brick of bricks){
-            if(brick.name in bricksNamesList){
-                errors.push("Warning : duplicate bricks in model "+brick.name)
+            if(bricksNamesList.includes(brick.name)){
+                warnings.push("Warning : duplicate bricks "+brick.name+" in model ")
             }
             else{
                 bricksNamesList.push(brick.name);
             }
         }
-        return errors;
+        return warnings;
     }
 
-    public checkDuplicateState(states:State[]){
+    private checkDuplicateState(states:State[]){
         const errors:string[] = []
         const statesNamesList:string[] = []
 
         for(let state of states){
-            if(state.name in statesNamesList){
+            if(statesNamesList.includes(state.name)){
                 errors.push("Error : duplicate state in model "+state.name)
             }
             else{
@@ -69,7 +77,7 @@ export default class Verifier{
         return errors;
     }
 
-    public checkTransitions(states:State[]){
+    private checkTransitions(states:State[]){
         const warnings:string[] = []
 
         for(let state of states){
@@ -83,7 +91,7 @@ export default class Verifier{
 
             for(let transition of state.transitions){
                 if(transition.type == TransitionType.SENSOR){
-                    warnings.concat(this.checkSensorTransition(state,transition as SensorTransition));
+                    warnings.push.apply(warnings,this.checkSensorTransition(state,transition as SensorTransition));
                 }
                 else{
                     if(findOtherTemporalState && !raiseTemporalStateError){//Already Temporal State
@@ -98,7 +106,7 @@ export default class Verifier{
         return warnings;
     }
 
-    public checkSensorTransition(state:State,transition:SensorTransition){
+    private checkSensorTransition(state:State,transition:SensorTransition){
         const warnings:string[] = [];
         const digitalConditions:DigitalCondition[] = [];
         const analogicalConditions:AnalogicalCondition[] = [];
@@ -112,13 +120,13 @@ export default class Verifier{
             }
         }
 
-        warnings.concat(this.incoherentDigitalConditon(state,digitalConditions));
-        warnings.concat(this.incoherentAnalogicalCondition(state,analogicalConditions));//TODO
+        warnings.push.apply(warnings,this.incoherentDigitalConditon(state,digitalConditions));
+        warnings.push.apply(warnings,this.incoherentAnalogicalCondition(state,analogicalConditions));//TODO
 
         return warnings;
     }
 
-    public incoherentDigitalConditon(state:State,digitalConditions:DigitalCondition[]){
+    private incoherentDigitalConditon(state:State,digitalConditions:DigitalCondition[]){
         const warnings:string[] = []
         const map = new Map<string,SIGNAL[]>();
 
@@ -128,7 +136,9 @@ export default class Verifier{
             if(map.get(sensorName)){
                 map.get(sensorName)?.push(digitalCond.value);
             }
-            map.set(sensorName, [digitalCond.value]);
+            else{
+                map.set(sensorName, [digitalCond.value]);
+            }
         }
 
         for (let [key, value] of map) {
@@ -139,7 +149,7 @@ export default class Verifier{
         return warnings;
     }
 
-    public incoherentAnalogicalCondition(state:State, analogicalConditions:AnalogicalCondition[]){
+    private incoherentAnalogicalCondition(state:State, analogicalConditions:AnalogicalCondition[]){
         //TODO
         return [];
     }

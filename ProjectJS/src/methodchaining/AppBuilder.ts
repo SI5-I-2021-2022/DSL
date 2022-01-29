@@ -79,6 +79,9 @@ class AppBuilder {
                 return new App(this.name, bricks, statesList, initialState);
             }
         } 
+        else{
+            return new App(this.name, bricks, statesList, statesList[0]);
+        }
         throw "UNDEFINED INITIAL STATE" 
 
         
