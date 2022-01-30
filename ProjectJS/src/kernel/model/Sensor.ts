@@ -8,17 +8,6 @@ export default class Sensor extends Brick implements Visitable{
         super(name,pin);
     }
 
-    declaration(){
-        let stringRes = "";
-        stringRes += 
-            `boolean ${this.name}BounceGuard = false;\n`+
-            `long ${this.name}LastDebounceTime = 0;\n`;
-        return stringRes;
-    }
-
-    setup(){
-        return `pinMode(${this.pin}, INPUT);  // ${this.name} [Sensor]`
-    }
 
     accept(visitor: AppVisitor) {
         return visitor.visitSensor(this)    

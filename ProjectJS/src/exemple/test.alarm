@@ -1,6 +1,4 @@
-import {appBuilderTest} from './embedded/main'
-import convertToModel from "./external/index"
-const input = `create App app1 which start with s1 :
+create App app1 which start with s1 :
 with bricks : 
     Sensor button1 on pin 1, 
     Sensor button1 on pin 8,
@@ -38,7 +36,3 @@ with states :
                 button2 = HIGH;
             to s1 when : 
                 button1 = HIGH;
-`
-convertToModel(input)
-
-appBuilderTest()

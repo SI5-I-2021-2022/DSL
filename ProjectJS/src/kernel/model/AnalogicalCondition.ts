@@ -21,9 +21,6 @@ export default class AnalogicalCondition extends SensorCondition implements Visi
         return this._value;
     }
 
-    loop() {
-        return `analogRead(${this.sensor.pin}) ${this.greater? ">" : "<"} ${this.value} && ${this.sensor.name}BounceGuard`;
-    }
 
     accept(visitor: AppVisitor) {
         return visitor.visitAnalogicalCondition(this)    

@@ -1,6 +1,7 @@
 import Verifier from "../kernel/Verifier";
 import SIGNAL from "../kernel/model/SIGNAL.enum";
 import AppBuilder from "./AppBuilder";
+import GenerateArduinoVisitor from "../kernel/GenerateArduinoVisitor";
 
 export function appBuilderTest(){
     let app = new AppBuilder("MAIN_APP").withInitialState("on")
@@ -18,6 +19,7 @@ export function appBuilderTest(){
             .after(500).goToState("off")
         .endState().createModel()
 
-    
-    app.create("./")
+    const generator = new GenerateArduinoVisitor();
+    const inoString = app.accept(generator)
+    console.log(inoString);
 }

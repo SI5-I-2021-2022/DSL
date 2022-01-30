@@ -1,4 +1,5 @@
 import antlr4 from 'antlr4';
+import GenerateArduinoVisitor from '../kernel/GenerateArduinoVisitor.js';
 import Verifier from '../kernel/Verifier.js';
 import alarmLexer from './gen/alarmLexer.js';
 import alarmParser from './gen/alarmParser.js';
@@ -14,9 +15,9 @@ const convertToModel = function(input:string){
     const tree = parser.alarm();
     const visitor = new TreeToKernelVisitor()
     tree.accept(visitor);
-    console.log(visitor.app.create());
-    let verifier = new Verifier();
-    verifier.verify(visitor.app);
+    const generator = new GenerateArduinoVisitor();
+    return visitor.app.accept(generator);
+
 }
 
 

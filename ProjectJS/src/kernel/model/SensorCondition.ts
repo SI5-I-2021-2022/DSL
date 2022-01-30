@@ -20,8 +20,6 @@ export default abstract class SensorCondition implements Visitable{
         return this._type;
     }
 
-    abstract loop():any;
-
     accept(visitor: AppVisitor) {
         return visitor.visitSensorCondition(this)    
     }

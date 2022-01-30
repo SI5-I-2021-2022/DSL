@@ -16,9 +16,6 @@ export default class DigitalCondition extends SensorCondition implements Visitab
         return this._value;
     }
 
-    loop() {
-        return `digitalRead(${this.sensor.pin}) == ${this.value} && ${this.sensor.name}BounceGuard`;
-    }
 
     accept(visitor: AppVisitor) {
         return visitor.visitDigitalCondition(this)    

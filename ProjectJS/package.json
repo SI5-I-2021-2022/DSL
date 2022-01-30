@@ -6,8 +6,9 @@
   "scripts": {
     "build": "tsc",
     "build:antlr": "java -jar ./libs/antlr-4.9.3-complete.jar -Dlanguage=JavaScript -Xexact-output-dir -o src/external/gen -visitor ./src/external/alarm.g4",
-    "run": "tsc && node dist/index.js",
-    "run:watch": "tsc -w && node dist/index.ts",
+    "exec": "tsc && node dist/index.js",
+    "gen:ino": "tsc && node dist/generate-arduino.js",
+    "watch": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.13",
-    "tslint": "^6.1.3"
+    "tslint": "^6.1.3",
+    "yarn-or-npm": "^3.0.1"
   }
 }

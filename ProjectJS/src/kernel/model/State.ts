@@ -17,35 +17,6 @@ export default class State extends NamedElement implements Visitable{
     }
 
 
-
-    loop(haveTemporal:boolean){
-        let stringRes = "";
-
-        let sensorsInState:string[] = [];
-        for(let transition of this.transitions){
-            if(transition instanceof SensorTransition){
-                const sensorTransition:SensorTransition = transition
-                for(let sensorCond of sensorTransition.sensorConditions){
-                    if(!sensorsInState.includes(sensorCond.sensor.name)){
-                        sensorsInState.push(sensorCond.sensor.name);
-                    }
-                }
-            }
-        }
-
-        stringRes += `\t\tcase ${this.name} :\n`;
-        stringRes += this.actions.map((action) => {return "\t\t\t"+action.loop()}).join("");
-
-        for(let sensorName of sensorsInState){
-            stringRes += `\t\t\t${sensorName}BounceGuard = millis() - ${sensorName}LastDebounceTime > debounce;\n`;
-        }
-
-        stringRes += this.transitions.map((transition) => {return transition.loop(haveTemporal)}).join("");
-        stringRes += "\t\tbreak;"
-        return stringRes;
-    }
-
-
     /**
      * Getter actions
      * @return {Action[]}

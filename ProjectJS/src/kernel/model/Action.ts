@@ -13,10 +13,6 @@ export default class Action implements Visitable{
     }
 
 
-    loop(){
-        return `digitalWrite(${this.actuator.pin},${this.signal});\n`
-    }
-
     get actuator(){
         return this._actuator;
     }

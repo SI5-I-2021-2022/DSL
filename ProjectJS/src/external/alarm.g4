@@ -50,7 +50,7 @@ SIGNAL						: 'HIGH' | 'LOW';
 fragment DIGIT				: '0'..'9';
 fragment LOWERCASE			: [a-z]; // abstract rule, does not really exists
 fragment UPPERCASE			: [A-Z];
-POS_INTEGER				: (('1'..'9') DIGIT+) | '0';
+POS_INTEGER				    : (('1'..'9') DIGIT+) | '0';
 NEWLINE						: ('\r'? '\n' | '\r')+ -> skip;
 WS							: ((' ' | '\t')+) -> skip; // who cares about whitespaces?
 COMMENT						: '#' ~('\r' | '\n')* -> skip; // Single line comments, starting with a #
