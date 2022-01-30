@@ -30,6 +30,9 @@ export default class Verifier{
         for(let err of errors){
             console.log(err);
         }
+
+        if(errors.length != 0) return false;
+        return true;
     }
 
     private alreadyAllocatedPin(bricks:Brick[]){
