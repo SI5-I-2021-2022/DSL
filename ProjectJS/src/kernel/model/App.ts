@@ -4,6 +4,8 @@ import NamedElement from "./NamedElement";
 import State from "./State";
 import { TransitionType } from "./Transition";
 import Visitable from "./utils/Visitable";
+import * as fs from 'fs';
+import Verifier from "../Verifier";
 
 export default class App extends NamedElement implements Visitable{
     private _bricks: Brick[] = [];
@@ -17,8 +19,13 @@ export default class App extends NamedElement implements Visitable{
         this._initial=initialState;
     }
 
-    create() {
+    create(path:string) {
 
+        //VERIFY PART
+        let verifier = new Verifier();
+        if(!verifier.verify(this)) return;
+
+        //GENERATION PART
         let haveTemporal = false;
         for (let state of this.states) {
             for (let transition of state.transitions) {
@@ -53,8 +60,18 @@ export default class App extends NamedElement implements Visitable{
         stringRes += this.states.map((state) => { return state.loop(haveTemporal) }).join("\n\n");
         stringRes += "\n\t}\n}\n"
 
-        return stringRes;
+        //INO PART
+        this.createFile(path,stringRes);
     };
+
+    public createFile(path:string, data:string) {
+        fs.writeFile(path+'generated.ino', data,  function(err) {
+            if (err) {
+                return console.error(err);
+            }
+            console.log("Arduino file generated!");
+        });
+    }
 
 
     /**

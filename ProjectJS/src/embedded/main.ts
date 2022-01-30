@@ -19,8 +19,5 @@ export function appBuilderTest(){
         .endState().createModel()
 
     
-    console.log(app.create())
-
-    let verifier = new Verifier();
-    verifier.verify(app);
+    app.create("./")
 }
