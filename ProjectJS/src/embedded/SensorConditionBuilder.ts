@@ -1,9 +1,9 @@
-import Actuator from "../model/Actuator";
-import AnalogicalCondition from "../model/AnalogicalCondition";
-import DigitalCondition from "../model/DigitalCondition";
-import Sensor from "../model/Sensor";
-import SensorCondition from "../model/SensorCondition";
-import SIGNAL from "../model/SIGNAL.enum";
+import Actuator from "../kernel/model/Actuator";
+import AnalogicalCondition from "../kernel/model/AnalogicalCondition";
+import DigitalCondition from "../kernel/model/DigitalCondition";
+import Sensor from "../kernel/model/Sensor";
+import SensorCondition from "../kernel/model/SensorCondition";
+import SIGNAL from "../kernel/model/SIGNAL.enum";
 import SensorTransitionBuilder from "./SensorTransitionBuilder";
 
 const DIGITAL = 0;

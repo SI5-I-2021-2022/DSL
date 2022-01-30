@@ -1,10 +1,10 @@
-import Actuator from "../model/Actuator";
-import AnalogicalCondition from "../model/AnalogicalCondition";
-import DigitalCondition from "../model/DigitalCondition";
-import Sensor from "../model/Sensor";
-import SensorCondition from "../model/SensorCondition";
-import SensorTransition from "../model/SensorTransition"
-import State from "../model/State";
+import Actuator from "../kernel/model/Actuator";
+import AnalogicalCondition from "../kernel/model/AnalogicalCondition";
+import DigitalCondition from "../kernel/model/DigitalCondition";
+import Sensor from "../kernel/model/Sensor";
+import SensorCondition from "../kernel/model/SensorCondition";
+import SensorTransition from "../kernel/model/SensorTransition"
+import State from "../kernel/model/State";
 import SensorConditionBuilder from "./SensorConditionBuilder";
 import StateBuilder from "./StateBuilder";
 

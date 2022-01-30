@@ -1,11 +1,11 @@
 import BrickBuilder from "./BrickBuilder";
 import StateBuilder from "./StateBuilder";
-import App from "../model/App"
-import Sensor from "../model/Sensor";
-import Actuator from "../model/Actuator";
-import State from "../model/State";
-import SensorTransition from "../model/SensorTransition";
-import TemporalTransition from "../model/TemporalTransition";
+import App from "../kernel/model/App"
+import Sensor from "../kernel/model/Sensor";
+import Actuator from "../kernel/model/Actuator";
+import State from "../kernel/model/State";
+import SensorTransition from "../kernel/model/SensorTransition";
+import TemporalTransition from "../kernel/model/TemporalTransition";
 
 const ACTUATOR = 0
 const SENSOR = 1

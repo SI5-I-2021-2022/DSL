@@ -1,14 +1,14 @@
-import Actuator from "../model/Actuator";
-import Sensor from "../model/Sensor";
-import State from "../model/State";
-import Action from "../model/Action";
+import Actuator from "../kernel/model/Actuator";
+import Sensor from "../kernel/model/Sensor";
+import State from "../kernel/model/State";
+import Action from "../kernel/model/Action";
 import alarmVisitor from "./gen/alarmVisitor.js";
-import SIGNAL from "../model/SIGNAL.enum";
-import App from "../model/App";
-import SensorTransition from "../model/SensorTransition";
-import SensorCondition from "../model/SensorCondition";
-import Transition from "../model/Transition";
-import DigitalCondition from "../model/DigitalCondition";
+import SIGNAL from "../kernel/model/SIGNAL.enum";
+import App from "../kernel/model/App";
+import SensorTransition from "../kernel/model/SensorTransition";
+import SensorCondition from "../kernel/model/SensorCondition";
+import Transition from "../kernel/model/Transition";
+import DigitalCondition from "../kernel/model/DigitalCondition";
 
 export default class TreeToKernelVisitor extends alarmVisitor{
 

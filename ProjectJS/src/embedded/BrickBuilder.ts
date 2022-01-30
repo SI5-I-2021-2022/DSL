@@ -1,5 +1,5 @@
-import Actuator from "../model/Actuator";
-import Sensor from "../model/Sensor";
+import Actuator from "../kernel/model/Actuator";
+import Sensor from "../kernel/model/Sensor";
 import AppBuilder from "./AppBuilder";
 
 const ACTUATOR = 0

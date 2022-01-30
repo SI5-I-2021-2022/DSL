@@ -1,7 +1,7 @@
-import Action from "../model/Action";
-import Actuator from "../model/Actuator";
-import Sensor from "../model/Sensor";
-import SIGNAL from "../model/SIGNAL.enum";
+import Action from "../kernel/model/Action";
+import Actuator from "../kernel/model/Actuator";
+import Sensor from "../kernel/model/Sensor";
+import SIGNAL from "../kernel/model/SIGNAL.enum";
 import StateBuilder from "./StateBuilder";
 
 

@@ -1,12 +1,12 @@
-import AnalogicalCondition from "../model/AnalogicalCondition";
-import App from "../model/App";
-import Brick from "../model/Brick";
-import DigitalCondition from "../model/DigitalCondition";
-import { ConditionType } from "../model/SensorCondition";
-import SensorTransition from "../model/SensorTransition";
-import SIGNAL from "../model/SIGNAL.enum";
-import State from "../model/State";
-import { TransitionType } from "../model/Transition";
+import AnalogicalCondition from "./model/AnalogicalCondition";
+import App from "./model/App";
+import Brick from "./model/Brick";
+import DigitalCondition from "./model/DigitalCondition";
+import { ConditionType } from "./model/SensorCondition";
+import SensorTransition from "./model/SensorTransition";
+import SIGNAL from "./model/SIGNAL.enum";
+import State from "./model/State";
+import { TransitionType } from "./model/Transition";
 
 export default class Verifier{
 

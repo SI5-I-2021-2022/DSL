@@ -1,14 +1,14 @@
-import State from "../model/State";
+import State from "../kernel/model/State";
 import ActionBuilder from "./ActionBuilder";
 import SensorTransitionBuilder from "./SensorTransitionBuilder";
 import SensorConditionBuilder from "./SensorConditionBuilder";
 import TemporalTransitionBuilder from "./TemporalTransitionBuilder";
 import AppBuilder from "./AppBuilder";
-import Actuator from "../model/Actuator";
-import Sensor from "../model/Sensor";
-import Action from "../model/Action";
-import SensorTransition from "../model/SensorTransition";
-import TemporalTransition from "../model/TemporalTransition";
+import Actuator from "../kernel/model/Actuator";
+import Sensor from "../kernel/model/Sensor";
+import Action from "../kernel/model/Action";
+import SensorTransition from "../kernel/model/SensorTransition";
+import TemporalTransition from "../kernel/model/TemporalTransition";
 
 
 class StateBuilder {

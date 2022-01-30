@@ -1,5 +1,5 @@
 import Verifier from "../kernel/Verifier";
-import SIGNAL from "../model/SIGNAL.enum";
+import SIGNAL from "../kernel/model/SIGNAL.enum";
 import AppBuilder from "./AppBuilder";
 
 export function appBuilderTest(){

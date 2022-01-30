@@ -1,4 +1,4 @@
-import {appBuilderTest} from './methodchaining/main'
+import {appBuilderTest} from './embedded/main'
 import convertToModel from "./external/index"
 const input = `create App app1 which start with s1 :
 with bricks : 

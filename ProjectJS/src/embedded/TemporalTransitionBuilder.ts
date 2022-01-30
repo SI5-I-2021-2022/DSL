@@ -1,7 +1,7 @@
-import Actuator from "../model/Actuator";
-import Sensor from "../model/Sensor";
-import State from "../model/State";
-import TemporalTransition from "../model/TemporalTransition";
+import Actuator from "../kernel/model/Actuator";
+import Sensor from "../kernel/model/Sensor";
+import State from "../kernel/model/State";
+import TemporalTransition from "../kernel/model/TemporalTransition";
 import StateBuilder from "./StateBuilder";
 
 class TemporalTransitionBuilder {
