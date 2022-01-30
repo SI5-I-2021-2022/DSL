@@ -3,7 +3,7 @@ grammar alarm;
 alarm           			:    'create' 'App' name=IDENTIFIER 'which' 'start' 'with' initial=IDENTIFIER ':' alarmBricks=bricks alarmStates=alarm_states;
 
 /***************************** BRICK *****************************/
-bricks          			: 'with' 'bricks' ':' elt+=brick (',' elt+=brick)* ';';
+bricks          			: 'with' 'bricks' ':' elt+=brick (',' elt+=brick)* ;
 brick           			: (sensor | actuator); //possibilité de refactore (pas forcement utile)
 sensor          			: 'Sensor' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
 actuator        			: 'Actuator' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
@@ -16,12 +16,12 @@ alarm_states          		: 'with' 'states' ':' (listStates+=alarm_state)+;
 alarm_state           		: 'State' name=IDENTIFIER (':' actions=alarm_state_actions? transitions=alarm_state_transitions?)|';';
 
 //Action ------------------------------------
-alarm_state_actions   		: 'with' 'actions' ':' elt+=action (',' elt+=action)* ';';
+alarm_state_actions   		: 'with' 'actions' ':' elt+=action (',' elt+=action)* ;
 action    					: 'do' actionActuator=IDENTIFIER '=' actionSignal=SIGNAL;  
 
 //========================== TRANSITION ==========================
 alarm_state_transitions		: 'with' 'sensor' 'transitions' ':' transitions+=alarm_state_transition*;
-alarm_state_transition		: 'to' nextState=IDENTIFIER transition=states_transition ';';
+alarm_state_transition		: 'to' nextState=IDENTIFIER transition=states_transition ;
 
 //--------------- SENSOR CONDITIONS ------------------
 states_transition			: (sensor_conditions | temporal_transition);
