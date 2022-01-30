@@ -12,11 +12,11 @@ import DigitalCondition from "../kernel/model/DigitalCondition";
 
 export default class TreeToKernelVisitor extends alarmVisitor{
 
-    statesNotCheck = new Map();
+    statesNotCheck = new Map<string,StateTransitionNotVerify>();
 
     states = new Map<string,StateTransitionNotVerify>();
-    actuators = new Map();
-    sensors = new Map();
+    actuators = new Map<string,Actuator>();
+    sensors = new Map<String,Sensor>();
 
     visitAlarm(ctx:any){ 
 
@@ -53,7 +53,7 @@ export default class TreeToKernelVisitor extends alarmVisitor{
         return action;
     }
 
-    visitSensor_transition(ctx:any):SensorCondition{
+    visitTransition_condition(ctx:any):SensorCondition{
         //syntaxe force user to define actuators before action
         const sensor = this.sensors.get(ctx.sensorTransition.text);
         if(!sensor){
@@ -79,10 +79,9 @@ export default class TreeToKernelVisitor extends alarmVisitor{
         if(this.states.get(ctx.name.text)){
             throw "Multiple state definition not allowed"
         }
-        const actions = this.visit(ctx.actions);
-        const transitions= this.visit(ctx.transitions);//not transition object
-        const state = new StateTransitionNotVerify(ctx.name.text,[],actions)
-        state.transitionsNotVerify=transitions;
+        const actions:Action[] = this.visit(ctx.actions);
+        const transitions:TransitionNotVerify[] = this.visit(ctx.transitions);//list of transition
+        const state = new StateTransitionNotVerify(ctx.name.text,transitions,actions)
         this.states.set(state.name,state)
         return state;
     }
@@ -95,7 +94,11 @@ export default class TreeToKernelVisitor extends alarmVisitor{
         return this.visit(ctx.elt)
     }
 
-    visitAlarm_state_transitions(ctx:any):TransitionNotVerify{
+    visitAlarm_state_transitions(ctx:any):TransitionNotVerify[]{
+        return this.visit(ctx.transitions);
+
+    }
+    visitAlarm_state_transition(ctx: any):TransitionNotVerify {
         const sensorConditions:SensorCondition[]=this.visit(ctx.elt)
         const nextState:string = ctx.nextState.text;
         return {nextStateNotParse:nextState,sensorConditions:sensorConditions}
@@ -123,9 +126,9 @@ export default class TreeToKernelVisitor extends alarmVisitor{
 
 class StateTransitionNotVerify extends State{
     public transitionsNotVerify:TransitionNotVerify[]
-    constructor(name:string,transitions:Transition[],actions:Action[]){
-        super(name,transitions,actions)
-        this.transitionsNotVerify=[];
+    constructor(name:string,transitions:TransitionNotVerify[],actions:Action[]){
+        super(name,[],actions)
+        this.transitionsNotVerify=transitions;
     }
 }
 type TransitionNotVerify = { nextStateNotParse: string, sensorConditions: SensorCondition[]};

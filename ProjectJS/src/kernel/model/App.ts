@@ -39,7 +39,7 @@ export default class App extends NamedElement implements Visitable{
         stringRes += this.states.map((state) => { return state.name }).join(",");
         stringRes += "};\n\n";
 
-        stringRes += `State currentState = ${this.initial?.name};\n\n`;
+        stringRes += `STATE currentState = ${this.initial?.name};\n\n`;
 
         stringRes += this.bricks.map((brick) => { return brick.declaration() }).join("");
 
