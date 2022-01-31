@@ -1,0 +1,14 @@
+create App app1 which start with off :
+   with bricks :
+Sensor button at pin 1, Actuator led at pin 2
+   with states :
+    State off :
+        with actions : do led = LOW
+        with sensor transitions :
+        to on when :
+          button = HIGH
+    State on :
+        with actions : do led = HIGH
+        with sensor transitions :
+        to off after 800ms
+
