@@ -1,14 +1,14 @@
-create App app1 which start with alarmOff :
+create App app1 which start with off :
     with bricks :
-        Sensor button on pin 1, Actuator led on pin 2, Actuator buzzer on pin 3
+        Sensor button at pin 1, Actuator led at pin 2, Actuator buzzer at pin 3
     with states :
-        State alarmOff :
+        State off :
             with actions : do led = LOW, do buzzer = LOW
             with sensor transitions :
-            to alarmOn when :
+            to on when :
                 button = HIGH
-        State alarmOn :
+        State on :
             with actions : do led = HIGH, do buzzer = HIGH
             with sensor transitions :
-            to alarmOff when :
+            to off when :
                 button = LOW

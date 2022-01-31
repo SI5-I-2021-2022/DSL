@@ -1,0 +1,17 @@
+create App app1 which start with off :
+   with bricks :
+Sensor button at pin 1, Sensor button2 at pin 2, Actuator buzzer at pin 3
+   with states :
+    State off :
+        with actions : do buzzer = LOW
+        with sensor transitions :
+        to on when :
+          button = HIGH,
+    button2 = HIGH
+    State on :
+        with actions : do buzzer = HIGH
+        with sensor transitions :
+        to off when :
+          button = LOW
+        to off when :
+          button2 = LOW
