@@ -5,8 +5,8 @@ alarm           			:    'create' 'App' name=IDENTIFIER 'which' 'start' 'with' in
 /***************************** BRICK *****************************/
 bricks          			: 'with' 'bricks' ':' elt+=brick (',' elt+=brick)* ;
 brick           			: (sensor | actuator); //possibilité de refactore (pas forcement utile)
-sensor          			: 'Sensor' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
-actuator        			: 'Actuator' name=IDENTIFIER 'on' 'pin' pin=PORT_NUMBER;
+sensor          			: 'Sensor' name=IDENTIFIER 'at' 'pin' pin=PORT_NUMBER;
+actuator        			: 'Actuator' name=IDENTIFIER 'at' 'pin' pin=PORT_NUMBER;
 
 
 /***************************** STATE DEFINITION *****************************/
