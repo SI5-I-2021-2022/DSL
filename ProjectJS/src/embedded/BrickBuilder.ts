@@ -10,7 +10,7 @@ class BrickBuilder {
     private rootBuilder:AppBuilder;
     public name:string;
     private kind:number;
-    private pin?:number
+    private pin?:string
 
     constructor(rootBuilder:AppBuilder, name:string, kind:number) {
         this.rootBuilder = rootBuilder;
@@ -19,7 +19,7 @@ class BrickBuilder {
         this.pin = undefined;
     }
 
-    onPin(pin:number):AppBuilder {
+    onPin(pin:string):AppBuilder {
         this.pin = pin;
         return this.rootBuilder;
     }

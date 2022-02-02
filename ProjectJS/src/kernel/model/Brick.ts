@@ -3,9 +3,9 @@ import NamedElement from "./NamedElement";
 import Visitable from "./utils/Visitable";
 
 export default abstract class Brick extends NamedElement implements Visitable{
-    protected _pin:number;
+    protected _pin:string;
     
-    constructor(name:string,pin:number){
+    constructor(name:string,pin:string){
         super(name);
         this._pin=pin;
     }

@@ -37,7 +37,7 @@ export default class Verifier{
 
     private alreadyAllocatedPin(bricks:Brick[]){
         const errors:string[] = []
-        const pinList:number[] = []
+        const pinList:string[] = []
 
         for(let brick of bricks){
             if(pinList.includes(brick.pin)){
