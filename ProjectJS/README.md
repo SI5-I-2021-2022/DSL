@@ -8,4 +8,4 @@ require JAVA for build antlr4 grammar
 ## HOW TO RUN
 *Before run this command, you need tu build antlr.*
 - use `npm run exec` for run index.js file, this command run all exemple prepare
-- use `npm run gen:ino "input DSL external path" "output.ino"` to generate ino of the input give (ex : `npm run gen:ino ./src/exemple/test.alarm ./output.ino`)
+- use `npm run gen:ino "external DSL path input" "output.ino"` to generate ino of the input give (ex : `npm run gen:ino ./src/exemple/test.alarm ./output.ino`)
