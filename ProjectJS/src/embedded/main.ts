@@ -6,10 +6,10 @@ import createFile from "../utils";
 
 export function appBuilderTest(){
     let app = new AppBuilder("MAIN_APP").withInitialState("on")
-        .addSensor("BUTTON").onPin("A9")
-        .addSensor("CAPTOR").onPin("A7")
-        .addSensor("BUTTON2").onPin("A8")
-        .addActuator("LED").onPin("A12")
+        .addSensor("BUTTON").onPin(9)
+        .addSensor("CAPTOR").onPin(7)
+        .addSensor("BUTTON2").onPin(8)
+        .addActuator("LED").onPin(12)
         .beginState("off")
             .set("LED").to(SIGNAL.LOW)
             .when("BUTTON").is(SIGNAL.HIGH).andWhen("BUTTON2").is(SIGNAL.LOW).goToState("on")

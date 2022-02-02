@@ -4,7 +4,7 @@ import Visitable from "./utils/Visitable";
 
 export default class Sensor extends Brick implements Visitable{
 
-    constructor(name:string,pin:string){
+    constructor(name:string,pin:number){
         super(name,pin);
     }
 
