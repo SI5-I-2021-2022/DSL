@@ -19,7 +19,5 @@ export function analogicalBricks(){
 
 
 
-    const generator = new GenerateArduinoVisitor();
-    const inoString = app.accept(generator)
-    console.log(inoString);
+    app.create('./src/exemple/AnalogicalBricks/AnalogicalBricksEmbedded.ino');
 }

@@ -2,13 +2,12 @@ import {appBuilderTest} from './embedded/main'
 import convertToModel from "./external/index"
 const input = `create App app1 which start with s1 :
 with bricks : 
-    Sensor button1 on pin 1, 
-    Sensor button1 on pin 8,
-    Sensor button2 on pin 2,
-    Actuator led1 on pin 3,
-    Actuator led2 on pin 4,
-    Actuator led3 on pin 5,
-    Actuator led4 on pin 6;
+    Sensor button1 at pin 1, 
+    Sensor button2 at pin 2,
+    Actuator led1 at pin 3,
+    Actuator led2 at pin 4,
+    Actuator led3 at pin 5,
+    Actuator led4 at pin 6;
 with states :
     State s1 :
         with actions : do led1 = HIGH,do led2 = LOW,do led3 = LOW,do led4 = LOW;

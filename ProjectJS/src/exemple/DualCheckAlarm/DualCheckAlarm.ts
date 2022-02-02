@@ -19,7 +19,5 @@ export function dualCheckAlarm(){
         .createModel()
 
 
-    const generator = new GenerateArduinoVisitor();
-    const inoString = app.accept(generator)
-    console.log(inoString);
+        app.create('./src/exemple/DualCheckAlarm/DualCheckAlarmEmbedded.ino');
 }

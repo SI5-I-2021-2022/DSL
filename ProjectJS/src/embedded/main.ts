@@ -19,7 +19,6 @@ export function appBuilderTest(){
             .after(500).goToState("off")
         .endState().createModel()
 
-    const generator = new GenerateArduinoVisitor();
-    const inoString = app.accept(generator)
-    console.log(inoString);
+    app.create('./src/embedded/main.ino');
+
 }

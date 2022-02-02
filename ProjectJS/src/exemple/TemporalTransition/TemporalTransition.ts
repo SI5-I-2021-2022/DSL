@@ -18,7 +18,6 @@ export function temporalTransition(){
 
 
 
-    const generator = new GenerateArduinoVisitor();
-    const inoString = app.accept(generator)
-    console.log(inoString);
+    app.create('./src/exemple/TemporalTransition/TemporalTransitionEmbedded.ino');
+
 }
