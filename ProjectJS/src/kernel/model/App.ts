@@ -3,6 +3,8 @@ import Brick from "./Brick";
 import NamedElement from "./NamedElement";
 import State from "./State";
 import Visitable from "./utils/Visitable";
+import GenerateArduinoVisitor from "../GenerateArduinoVisitor";
+import createFile from "../../utils";
 
 
 export default class App extends NamedElement implements Visitable{
@@ -60,7 +62,13 @@ export default class App extends NamedElement implements Visitable{
     }
 
     accept(visitor: AppVisitor) {
-        return visitor.visitApp(this)    
+        return visitor.visitApp(this)
+    }
+
+    create(path:string){
+        const generator = new GenerateArduinoVisitor();
+        const inoString = this.accept(generator);
+        createFile(path,inoString);
     }
 
 
