@@ -7,7 +7,7 @@ with bricks :
     Actuator led1 at pin 3,
     Actuator led2 at pin 4,
     Actuator led3 at pin 5,
-    Actuator led4 at pin 6;
+    Actuator led4 at pin 6
 with states :
     State s1 :
         with actions : do led1 = HIGH,do led2 = LOW,do led3 = LOW,do led4 = LOW
